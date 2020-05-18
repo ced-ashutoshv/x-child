@@ -1,0 +1,66 @@
+div.woocommerce-message,
+.woocommerce-error {
+	a.button {
+		text-align: right !important;
+	}
+
+	.button {
+		margin: 0;
+		padding-left: 40px;
+	}
+
+	padding: 0.61em 1.61em;
+	border-radius: 0;
+	border: 0;
+	box-shadow: none;
+	font-size: 16px;
+	margin-bottom: 0;
+
+	&.x-alert-danger {
+		background-color: $redSubtle;
+		color: $redIntense;
+	}
+}
+.woocommerce-checkout {
+	div.woocommerce-message.x-alert-danger,
+	.woocommerce-error.x-alert-danger {
+		position: fixed;
+		z-index: 999999;
+		top: 10vw;
+		right: 0;
+		margin: 0;
+		min-width: 320px;
+		border: 2px solid red;
+		padding: 10px 15px;
+		max-width: fit-content;
+		box-sizing: border-box;
+		color: #23282d;
+		-webkit-animation-name: bounce;
+		-moz-animation-name: bounce;
+		-o-animation-name: bounce;
+		animation-name: bounce;
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+		backface-visibility: hidden;
+		-o-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		animation-fill-mode: both;
+		transform: translate3d(0, 0, 0);
+		-o-animation-fill-mode: both;
+		-o-transform: translate3d(0, 0, 0);
+		-moz-animation-fill-mode: both;
+		-moz-transform: translate3d(0, 0, 0);
+		-webkit-animation-fill-mode: both;
+		-webkit-transform: translate3d(0, 0, 0);
+		li{
+		    list-style: square;
+			list-style-position: inside;
+			strong{
+				font-style: italic;
+			}
+		}
+	}
+}

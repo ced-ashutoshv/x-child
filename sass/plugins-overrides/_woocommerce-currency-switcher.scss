@@ -1,0 +1,5 @@
+.woocs_price_info,
+.woocs_price_info + .subscription-details,
+.archive .woocommerce-Price-amount.amount + .subscription-details {
+	display: none !important;
+}

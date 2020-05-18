@@ -1,0 +1,371 @@
+
+
+.woocommerce-MyAccount-content {
+	max-width: $maxWidth;
+	&.my-subscriptions{
+		max-width: 100%;  
+	}
+}
+
+/*NAVIGATION*/
+.woocommerce-MyAccount-navigation {
+	.woocommerce-MyAccount-navigation-link {
+		a {
+			font-size: $categoryFontSize;
+			padding: 0.563em 1.125em 0.813em;
+			line-height: 1.3;
+			border: 1px solid #B0B0B0;
+			color: #868585;
+			padding: 7px 13px;
+			margin-right: 10px;
+			margin-top: 15px;
+			transition: color 0s;
+			&:before {
+				border-radius:0;
+				border:none;
+			}
+		}
+
+		&.is-active {
+			a {
+				border: 1px solid $colorYouveda;
+				color: $colorYouveda;
+				background-color: rgba(0, 128, 128, 0.1);
+			}
+		}
+
+		&:hover, &:active {
+			a {
+				border: 1px solid $colorYouveda;
+				color: $colorYouveda;
+			}
+		}
+	}
+}
+
+
+/*HIDE THE TITLE BEFORE NAVIGATION (We are showing it after the navigation. Title is being appended with jquery)*/
+.woocommerce-account {
+	header.entry-header {
+		display: none;
+	}
+}
+.woocommerce-MyAccount-navigation {
+	.entry-title {
+		margin-top: 60px;
+		margin-bottom: 20px;
+	}
+}
+
+
+/*PROGRAM AND ACTIVATION CODE GRAVITY FORM INPUT FIXES*/
+body .gform_wrapper .gform_body ul.gform_fields li.gfield {
+	margin-top: 1.313em;
+}
+
+
+/***************************************
+
+	ACCOUNT DETAILS
+
+***************************************/
+.woocommerce-EditAccountForm.edit-account {
+	fieldset {
+		margin-top: 40px;
+		legend {
+			font-weight: $FontWeightBold;
+			font-size: $slightlyBiggerFontSize;
+			font-family: $fontFamilySecondary;
+			color: black;
+			border-bottom: 0;
+			margin-bottom: 10px;
+		} 
+	}
+}
+
+
+/***************************************
+
+	KIT ACTIVATION
+
+***************************************/
+.activate-kit-container {
+	max-width: $maxWidth;
+
+	.gform_wrapper {
+
+		.gform_body {
+			width: 70%;
+			float: left;
+
+			.gform_fields {
+				.gfield {
+					&:first-child {
+						padding-right: 10px;
+					}
+					&:last-child {
+						padding-left: 10px;
+					}
+
+					@media screen and (max-width: 640px) {
+						&:first-child {
+							padding-right: 0;
+						}
+						&:last-child {
+							padding-left: 0;
+						}
+					}
+				}
+
+			}
+			@media screen and (max-width: 768px) {
+				width: 100%;
+				float: none;
+
+
+			}
+		}
+		.gform_footer {
+			float: left; 
+			width: 100px;
+			clear: none;
+			margin-left: 20px;
+			margin-top: 53px;
+
+			@media screen and (max-width: 768px) {
+
+				width: 100%;
+				margin-left: 0;
+				margin-top: 0;
+
+				.gform_button {
+				    width: 48%;
+				    float: right;
+				    margin-right: 0;
+				    margin-top: 21px;
+				}
+
+			}
+			@media screen and (max-width: 640px) {
+				.gform_button {
+				    width: 100%;
+				    line-height: 1 !important;
+				    margin-top: 30px;
+				}
+			}
+		}
+	}
+}
+
+
+/***************************************
+
+	YOUVEDA MOBILE APP BANNER
+
+***************************************/
+.youvedas-mobile-app {
+	padding:40px;
+	background-color: rgb(253,241,240);
+	position: relative;
+	overflow: hidden;
+	
+	.copy {
+		max-width: 430px;
+	}
+
+	.cellphone {
+		width: 450px;
+		position: absolute;
+		right: -140px;
+		bottom: -80px;
+	}
+
+	@media screen and (max-width: 979px) {
+		.cellphone {
+	        width: 400px;
+	        bottom: -20px;
+	    }
+	    .copy {
+	    	max-width: 43vw;
+	    	br {
+	    		display: none;
+	    	}
+	    }
+	}
+	@media screen and (max-width: 768px) {
+		padding-bottom: 210px;
+
+		.cellphone {
+		    bottom: -80px;
+		    left: 20%;
+	    }
+	    .copy {
+	    	max-width: 100%;
+	    	br {
+	    		display: block;
+	    	}
+	    }
+	}
+
+}
+
+
+
+/***************************************
+
+	ADDRESS BOOK
+
+***************************************/
+body.woocommerce-edit-address {
+	.entry-title {
+		display: none;
+
+		&.custom {
+			display: block;
+			margin-top: 60px;
+			margin-bottom: 20px;
+		}
+	}
+	.woocommerce-Addresses {
+		display: -webkit-box; 
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex; 
+		display: flex;
+
+		.woocommerce-Address {
+			border: 1px solid #B0B0B0;
+			padding: 30px;
+
+			.title h3 {
+				font-weight: $FontWeightBold;
+				font-size: $slightlyBiggerFontSize;
+				font-family: $fontFamilySecondary;
+				color: black;
+			}
+		}
+
+		@media screen and (max-width: 640px) {
+		    display: block;
+			.woocommerce-Address {
+				width: 100%;
+				float: none;
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
+
+
+
+/***************************************
+
+	PAYMENT METHODS
+
+***************************************/
+
+.sv-wc-payment-gateway-payment-method-actions {
+	.button {
+		background-color: transparent;
+		color: $colorYouveda;
+		&:hover {
+			background-color: transparent;
+			color: $colorYouvedaHover;
+		}
+	}
+}
+.sv-wc-payment-gateway-my-payment-methods-table {
+	tr {
+		td {
+			padding-right: 0;
+		}
+	}
+}
+
+
+
+
+/***************************************
+
+	SUBSCRIPTIONS
+
+***************************************/
+
+.woocommerce_account_subscriptions {
+	margin-bottom: 30px;
+}
+
+/*OTHER SUBSCRIPTIONS --> This is the message that appears to the customers
+that have bought products on the old system and have active subscriptions*/
+
+.woocommerce-page {
+	.other-subscriptions {
+		max-width: $maxWidth;
+
+		.orders-container {
+			.order-container {
+				-webkit-transition: background-color 1s; /* Safari */
+				transition: background-color width 1s;
+				border-bottom: 1px solid #ccc;
+				padding: 5px 30px 30px 0px;
+				overflow: hidden;
+
+				/*ribbon for new orders*/
+				.corner-ribbon {
+					-webkit-transition: opacity 1s; /* Safari */
+					transition: opacity 1s;
+					opacity: 0;
+					width: 200px;
+					background: $colorYouveda;
+					position: absolute;
+					text-align: center;
+					line-height: 30px;
+					letter-spacing: 0px;
+					color: #f0f0f0;
+					transform: rotate(-45deg);
+					-webkit-transform: rotate(-45deg);
+					top: 25px;
+					right: -61px;
+					left: auto;
+					transform: rotate(45deg);
+					-webkit-transform: rotate(45deg);
+					font-size: 14px;
+				}
+
+				&.new-order {
+					animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+					transform: translate3d(0, 0, 0);
+					backface-visibility: hidden;
+					perspective: 1000px;
+					background-color: #cccccc4f;
+					border-bottom:0;
+
+					.corner-ribbon {
+						opacity: 1;
+					}
+				}
+
+			}
+		}
+	}
+}
+
+
+
+
+
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}

@@ -1,0 +1,178 @@
+/*
+  this css works with :
+  - "SHORTCODE FOR BLOG POSTS" shortcode on x-child/functions.php
+  - template-part on 'x-child/template-parts/content-posts.php'
+*/
+
+/*YOU MAY ALSO LIKE*/
+.youveda-posts {
+	padding: 30px 0;
+	font-size: $h2fontSize;
+	background-color: #b0b0b052;
+	> .title {
+		margin-bottom: 40px;
+		margin-top: 0;
+	}
+	> .x-container {
+		margin-top: 0;
+		margin-bottom: 0;
+		display: flex;
+		flex-wrap: wrap;
+
+		> .title {
+			margin-left: 0;
+			margin-bottom: 50px;
+			font-weight: 700;
+			flex: 1 0 100%;
+
+			@media (max-width: 979px) {
+				text-align: center;
+				margin-top: 0;
+				margin-bottom: 30px;
+			}
+		}
+	}
+	.youveda-post {
+		$youveda-post-font-size: 17px;
+		$youveda-post-line-height: 1.4;
+		$youveda-post-lines-to-show: 3;
+
+		position: relative;
+		display: flex;
+		flex-direction: column;
+
+		.link-layer {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			z-index: 2;
+		}
+		.title,
+		.view-more {
+			font-size: 17px;
+			line-height: 1.4em;
+			transition: color 0.5s;
+			margin-bottom: 0;
+		}
+		.title {
+			display: -webkit-box;
+			font-size: 22px;
+			line-height: 1.4;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			font-weight: 600;
+			margin-top: 0;
+		}
+		.post-thumb {
+			overflow: hidden;
+			img {
+				width: 100%;
+				/*this transition atributes should be the same as the "cards" in the home (my heatlhy immunity, my healthy digestion, etc...)*/
+				-webkit-transition: transform 0.8s;
+				transition: transform 0.8s;
+			}
+		}
+		.post-content {
+			padding: 20px 25px;
+			padding-bottom: 0;
+			position: relative;
+			min-height: 80px;
+			flex: auto;
+			.p-meta {
+				transform: translateY(-100%);
+				text-transform: capitalize;
+				font-size: 16px;
+				position: absolute;
+				left: 0;
+				background: #fff;
+				padding: 15px 25px;
+				width: 75%;
+				top: 0;
+				margin-top: 0;
+
+				.category {
+					display: inline-block;
+					margin-right: 0.3em;
+					margin-bottom: 0;
+				}
+			}
+		}
+		.post-footer {
+			padding: 20px 25px;
+			font-size: 1em;
+			line-height: 1em;
+			padding-top: 10px;
+			padding-bottom: 30px;
+		}
+		.view-more {
+			font-size: 18px;
+			font-weight: bold;
+			&:before {
+				content: '>';
+				margin-right: 5px;
+			}
+		}
+		&:hover {
+			.title {
+				color: $colorYouveda;
+			}
+			.post-thumb {
+				img {
+					/*this transform atributes should be the same as the "cards" in the home (my heatlhy immunity, my healthy digestion, etc...)*/
+					-ms-transform: scale(1.1, 1.1);
+					-webkit-transform: scale(1.1, 1.1);
+					transform: scale(1.1, 1.1);
+				}
+			}
+		}
+		@media screen and (max-width: 1199px) {
+			.post-content {
+				padding: 20px 30px;
+				padding-bottom: 0;
+				min-height: 110px;
+			}
+			.post-footer {
+				padding: 20px 30px;
+				padding-bottom: 25px;
+			}
+		}
+
+		@media screen and (max-width: 979px) {
+			max-width: 400px;
+			margin: 0 auto;
+			margin-bottom: 30px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+			.post-content {
+				min-height: auto;
+			}
+		}
+		@media screen and (max-width: 768px) {
+		}
+		@media screen and (max-width: 480px) {
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.title {
+			text-align: center;
+			font-size: 2.4rem;
+		}
+		.post-content {
+			.title {
+				text-align: left;
+			}
+		}
+	}
+
+	@media screen and (max-width: 640px) {
+		padding-top: 45px;
+		padding-bottom: 30px;
+	}
+}

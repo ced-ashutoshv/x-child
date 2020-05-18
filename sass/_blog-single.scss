@@ -1,0 +1,246 @@
+body.single-post {
+	.main-header {
+		background-image: url(/wp-content/themes/x-child/images/youveda-bg_flowers-left.png),
+			url(/wp-content/themes/x-child/images/youveda-bg_flowers-right.png);
+		background-repeat: no-repeat, no-repeat;
+		background-color: #0080800f;
+		background-attachment: fixed;
+		background-position: 10% 130px, 95% 130px;
+	}
+
+	#top.site {
+		background: #fafafa;
+	}
+
+	.entry-header,
+	.entry-content {
+		font-size: 2em;
+	}
+	.entry-content.content div:last-of-type img {
+		height: 100px;
+		width: auto;
+		margin-top: -20px;
+		border: 2px solid #43afaf;
+	}
+	.entry-content.content div:last-of-type + h4 {
+		font-size: 1.2em;
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+
+	.post-meta {
+		color: $Grey50;
+
+		.share-whatsapp {
+			display: none;
+		}
+	}
+	#top > .x-container {
+		max-width: 900px;
+		margin-top: 20px;
+		margin-bottom: 0;
+	}
+	header.post-meta {
+		font-size: $regularFontSize;
+		padding-bottom: 12px;
+		margin-bottom: 20px;
+
+		&:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+	}
+
+	.main-header {
+		min-height: 280px;
+		border-top: 1px solid transparent;
+
+		.category {
+			text-transform: capitalize;
+			font-size: 1.4rem;
+			display: inline-block;
+			border: 1px solid $colorYouvedaAqua;
+			color: $colorYouvedaAqua;
+			border-radius: 100px;
+			padding: 0 0.5em 0.1em;
+			transition: all 0.15s;
+			margin-right: 10px;
+			margin-bottom: 0;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			&:hover {
+				background-color: $colorYouvedaAqua;
+				color: $white;
+			}
+		}
+		@media screen and (max-width: 640px) {
+			min-height: 200px;
+		}
+	}
+	.main-title {
+		max-width: 850px;
+		margin: 0 auto 20px;
+	}
+	.entry-wrap {
+		box-shadow: none;
+		padding: 0;
+		background-color: transparent;
+	}
+	.entry-featured {
+		border-bottom: 0;
+	}
+
+	&.mobile-device {
+		.post-meta {
+			.share-whatsapp {
+				display: inline;
+			}
+		}
+	}
+
+	blockquote {
+		width: 100vw;
+		position: relative;
+		left: calc(((100vw - 920px) / 2) * -1);
+		background-color: $GreySuperLight;
+		padding: 50px 0;
+		margin: 30px 0;
+
+		&:before {
+			content: '';
+			background-image: url(/wp-content/themes/x-child/assets/branding/quote.svg);
+			position: absolute;
+			left: 0;
+			width: calc((100vw - 920px) / 2);
+			height: 62px;
+			display: block;
+			background-repeat: no-repeat;
+			background-position: right 30px top 10px;
+			background-size: 55px;
+		}
+		&:after {
+			display: none;
+		}
+
+		p {
+			max-width: 920px;
+			margin: 0 auto;
+			font-size: 22px;
+			font-style: initial;
+			color: $Grey50;
+			font-weight: 500;
+		}
+		.author {
+			position: relative;
+			font-size: 18px;
+			color: black;
+			text-transform: capitalize;
+			display: block;
+			margin-top: 20px;
+
+			&:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				width: 55px;
+				height: 5px;
+				display: block;
+				background: $colorYouvedaAqua;
+				left: -86px;
+				top: 13px;
+			}
+		}
+	}
+
+	.related-article-container {
+		background-color: #f5f5f5;
+		padding: 10px 15px;
+		margin-bottom: 3px;
+	}
+	.related-article {
+		&:before {
+			content: 'Related: ';
+			font-family: Montserrat, arial, sans-serif;
+		}
+		font-weight: bold;
+	}
+
+	@media screen and (max-width: 1199px) {
+		blockquote {
+			&:before {
+				width: calc((100vw - 745px) / 2);
+			}
+			p {
+				max-width: 740px;
+			}
+		}
+	}
+
+	@media screen and (max-width: 1040px) {
+		blockquote {
+			left: -6vw;
+			padding: 30px 0;
+			margin-bottom: 30px;
+
+			&:before {
+				width: 88%;
+				position: relative;
+				left: 0;
+				margin: 0 auto;
+				background-position: left;
+				margin-bottom: 10px;
+			}
+			p {
+				max-width: 88%;
+			}
+			.author {
+				padding-right: 15px;
+				padding-left: 45px;
+
+				&:before {
+					width: 30px;
+					top: 17px;
+					position: relative;
+					left: -40px;
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.main-header {
+			> .x-container {
+				margin: 80px 0;
+			}
+		}
+		.main-title {
+			font-size: 28px;
+			font-weight: 500;
+		}
+		.post-meta ul.social {
+			float: left;
+			width: 100%;
+			margin-bottom: 5px;
+		}
+		.metadata {
+			time {
+				display: block;
+				margin-bottom: 20px;
+			}
+			.pipe {
+				display: none;
+			}
+			font-size: 18px;
+		}
+	}
+}
+@media screen and (max-width: 460px) {
+	.post-meta ul.social {
+		margin-top: 20px !important;
+		float: none !important;
+	}
+}

@@ -1,0 +1,10 @@
+[data-reactroot].online-view.messages:not(.open) .header .message-wrapper {
+	margin-right: 0;
+	padding-right: 0;
+}
+
+
+.x-scroll-top.right {
+	top: 50%;
+	margin-top: -17.5px;
+}

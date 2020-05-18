@@ -1,0 +1,30 @@
+.product-card .x-feature-box-graphic-inner img {
+	-webkit-transition: transform 1s; /* Safari */
+	transition: transform 1s;
+	transform: scale(1); /* Igual que: scaleX(0.7) scaleY(0.7) */
+}
+
+.product-card:hover .x-feature-box-graphic-inner img {
+	transform: scale(0.95); /* Igual que: scaleX(0.7) scaleY(0.7) */
+}
+
+
+
+
+.home .products .youveda-icon-list {
+	padding-bottom: 35px;
+	margin-bottom: 0;
+	border-bottom: 1px solid #ccc;
+}
+@media screen and (max-width: 768px) {
+ 	.home .products .youveda-icon-list {
+ 		border-bottom: 0;
+ 	}   
+}
+
+
+
+
+.wellness-experiences .below-headline p {
+	
+}

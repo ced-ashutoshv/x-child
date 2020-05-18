@@ -1,0 +1,332 @@
+body.woocommerce-checkout {
+
+	/*BILLING DETAILS*/
+	.woocommerce-billing-fields {
+		
+	}
+	.entry-content.content {
+		margin-top: 0;
+	}
+	#top {
+		.x-container {
+			margin-bottom: 0;
+		}
+	}
+
+	
+	/*CREDIT CARD*/
+	.woocommerce-checkout-payment {
+
+		.wc_payment_method {
+			> label {
+				display: none;
+			}
+		}
+		button[type=submit] {
+			float: right;
+		}
+		.woocommerce-form__label {
+			
+		}
+		.place-order {
+			font-size: 16px;
+		}		
+
+		.radio input[type="radio"], .checkbox input[type="checkbox"] {
+			margin-left: 0;
+			margin-right: 5px;
+		}
+		.button {
+			margin-top: 20px;
+		}
+	}
+	@media screen and (max-width: 768px) {
+	    .credit-card-title {
+	    	margin-top: 40px;
+	    }
+	}
+
+	.woocommerce-info {
+		background-color: transparent;
+		border: 0;
+		padding: 0;
+	}
+	
+	#order_review {
+		.radio input[type="radio"],
+		.checkbox input[type="checkbox"] {
+			margin-left: 0;
+			margin-right: 7px;
+		}
+	}
+	#ship-to-different-address-checkbox {
+		margin-top: 5px;
+	}
+
+	/*YOUR ORDER*/
+	.your-order {
+
+		.button {
+			min-width: 0;
+			width: 100%;
+		}
+		-webkit-transition: top 1s;
+		-o-transition: top 1s;
+		transition: top 1s;
+		background-color: #fafafa;
+		padding: 40px;
+		border: 1px solid $GreyLight;
+		border-radius: 5px;
+		float: right;
+		margin-right: 0;
+
+		.shop_table {
+			font-size: 16px;
+		}
+	
+		.woocommerce-info {
+			background-color: transparent;
+			border: 0;
+			padding: 0;
+			box-shadow: none;
+			font-weight: bold;
+			text-decoration: none;
+			padding: 10px 0;
+
+			a {
+				text-decoration: none;
+			}
+		}
+
+		.name-image-container {
+			display:flex;
+			flex-wrap: nowrap;
+			align-items: center;
+
+			.image {
+				img {
+					width: 90px;
+				}
+			}
+			.name {
+				padding-left: 40px;
+			}
+		}
+
+		.order-total {
+			font-size: 1.4em;
+
+			td,th {
+				padding-top: 20px;
+			}
+		}
+
+		/*we don't want to show anymore the "Your Next Recurring Order Details" */
+		.recurring-totals, 
+		.cart-subtotal.recurring-total, 
+		.order-total.recurring-total,
+		.shipping.recurring-total {
+			
+			display: none;
+		}
+
+		@media screen and (max-width: 979px) {
+		    padding:20px;
+		}
+
+		@media screen and (max-width: 768px) {
+			float: none;
+			top:0 !important;
+		}
+	}
+
+
+	/* SPINNER WHEN PROCESSING */
+	form.checkout.woocommerce-checkout.processing {
+		.youveda-ajax-loader {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+		.youveda-ajax-loader {
+			position: fixed;
+			left: 50%;
+			top: 50%;		
+			@media screen and (max-width: 768px) {
+				position: relative;
+				left: 0;
+				top: 0;
+				margin-bottom: 40px;
+			}	
+		}
+		.youveda-ajax-loader img {
+			opacity: 1;
+		}
+	}
+}
+
+.woocommerce-account form ul.payment_methods label,
+.woocommerce-checkout form ul.payment_methods label {
+	padding-left: 0;
+}
+
+
+
+/*
+id tarea paymo: 14442555
+Hide default buttons for : Amazon, and Paypal payment options.
+plugins for this buttons are :
+- Amazon Pay & Login with Amazon
+- ?
+
+1. We add custom buttons via action hook on functions.php (add_custom_payment_buttons_AMazon_Paypal)
+2. We add a script in scripts.js in order to simulate a click on for each of those buttons.
+3. We style those buttons here.
+*/
+.woocommerce-checkout {
+
+	/*hide amazon checkout message and button*/ 
+	.wc-amazon-checkout-message.wc-amazon-payments-advanced-populated {
+		display: none;
+	}
+	/*hide paypal payment button*/
+	.wc_payment_method.payment_method_paypal {
+		display: none;
+	}
+
+	/*estilos botones*/
+	.custom-payment-button {
+	    padding-top: 10px;
+	    padding-bottom: 10px;
+	    svg {
+	    	height: 21px;
+	    	width: auto;
+	    }
+	    margin-right: 10px;	
+	    margin-bottom: 10px;
+	}
+
+
+	#custom-paypal-payment-button {
+		background-color: #ffc439;
+		&:hover {
+			background-color: #f2ba36;
+		}
+	}
+
+	#custom-amazon-payment-button {
+		background-color: #fad676;
+		&:hover {
+			background-color: #f9ca4f;
+		}
+		svg {
+			position: relative;
+			top: 5px;
+		}
+	}
+
+	.payment_box.payment_method_authorize_net_cim_credit_card {
+		/* Removed for 2019 checkout layout */
+		/*display: block !important;
+		overflow: visible !important;
+		height: auto !important;*/
+	}
+
+}
+
+/* /end of Hide default buttons for : Amazon, and Paypal payment options.*/
+
+
+/********************************************
+
+
+	THANK YOU PAGE
+
+
+********************************************/
+
+body.woocommerce-order-received {
+	.box-left {
+		float: left;
+	}
+	.woocommerce-columns--addresses:after {
+		background-color: red !important;
+		content:"";
+		display: block;
+		clear: both;
+	}
+	.your-order {
+		width: 100%;
+		max-width: 570px;
+		position: relative;
+		margin-top: -40px;
+	}
+	.woocommerce-columns--addresses {
+		.woocommerce-column__title {
+			font-size: 16px;
+		}
+		.woocommerce-customer-details--phone {
+			margin-bottom: 0;
+		}
+	}
+
+	.woocommerce-order-overview__total,
+	.woocommerce-order-overview__payment-method {
+		display: none;
+	}
+
+	@media screen and (max-width: 1199px) {
+		.your-order {
+			max-width: 390px;
+		}
+	}
+
+	@media screen and (max-width: 979px) {
+	    .your-order {
+	    	max-width: 60%;
+	    }
+	    .box-left {
+	    	width: 40%;
+	    	padding-right: 20px;
+	    }
+	}
+
+	@media screen and (max-width: 768px) {
+	    .box-left, .your-order {
+	    	float: none;
+	    	width: 100%;
+	    	max-width: 100%;
+	    }
+	    .your-order {
+	    	margin-top: 40px;
+	    }
+	}
+}
+
+
+
+
+/********************************************
+
+
+	AUTHORIZE BADGE
+
+
+********************************************/
+
+body.woocommerce-checkout {
+	.billing-details-credit-card {
+		.AuthorizeNetSeal {
+			float: right;
+			top: -50px;
+			position: relative;
+		}
+	}
+}
+
+footer {
+	.AuthorizeNetSeal {
+		@media screen and (max-width: 768px) {
+		    width: auto !important;
+		}
+	}
+}

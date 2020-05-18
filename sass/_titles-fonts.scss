@@ -1,0 +1,155 @@
+$FontWeightLight : 300 !important; /*Light*/
+$FontWeightRegular : 400 !important; /*Regular*/ /*default font weight for headings and content*/
+$FontWeightMedium : 500 !important; /*Medium*/
+$FontWeightSemiBold : 600 !important; /*Medium*/
+$FontWeightBold : 700 !important;  /*Bold*/
+
+.FontWeightLight { font-weight: $FontWeightLight; } 
+.FontWeightRegular  { font-weight: $FontWeightRegular; } 
+.FontWeightMedium  { font-weight: $FontWeightMedium; } 
+.FontWeightSemiBold  { font-weight: $FontWeightSemiBold; } 
+.FontWeightBold  { font-weight: $FontWeightBold; } 
+
+/**** TITLES ***/
+
+/*Headings font settings are set on cornerstone customizer under Typography - For headings we chose "Montserrat Google (500 - Medium)". 
+
+1 - Because the branding guide also uses Light (300) and Regular (400) weights for Montserrat, but we are loading Medium (500) from the customizer
+we added those two on x-child/header.php 
+2 - Branding guide also uses "Lato (Regular 400 and Bold 700) only for h3 and h4 heading types. Lato is already included as the body font on cornerstone customizer under
+Typography (only as regular 400) but we also need bold (700) so we are including Lato bold on on x-child/header.php as well.
+3 - We need to override font-family for h3 and h4 to be Lato, as Montserrat is defined as font-family for all headings. */
+
+
+/*We are using the classic heading element*/
+	$headerFontSize: 5.5rem;
+	$h1fontSize : 3.6rem;
+	$h2fontSize : 2.4rem;
+	$h3fontSize : 2.1rem;
+	$h4fontSize : 1.6rem;
+	$categoryFontSize : 1.4rem;
+	$regularFontSize : 1.6rem;
+	$slightlyBiggerFontSize : 1.8rem;
+
+
+.headerFontSize {
+	font-size: $headerFontSize;
+	font-weight: $FontWeightBold;
+}
+.h1fontSize {font-size: $h1fontSize;}
+.h2fontSize {font-size: $h2fontSize;}
+.h3fontSize {font-size: $h3fontSize;}
+.h4fontSize {font-size: $h4fontSize;}
+.categoryFontSize { font-size: $categoryFontSize; }
+.regularFontSize { font-size: $regularFontSize;}
+.slightlyBiggerFontSize { font-size: $slightlyBiggerFontSize;}
+
+q, blockquote {
+	font-size: $h3fontSize;
+	font-style: italic;
+	font-weight: $FontWeightLight;
+	color: $white;
+	line-height: 1.5;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	&:before {
+		content: '"';
+	}
+	&:after {
+		content: '"';
+	}
+}
+
+$fontFamilyPrimary : Lato, arial, sans-serif !important;
+$fontFamilySecondary : Montserrat, arial, sans-serif !important;
+.fontFamilyPrimary { font-family:$fontFamilyPrimary; }
+.fontFamilySecondary { font-family:$fontFamilySecondary; }
+
+.headerTitle {
+	font-size: $headerFontSize;
+	font-weight: $FontWeightLight;
+
+	&.fontWeightMedium {
+		font-weight: $FontWeightMedium;
+	}
+}
+.categoryFontSize {
+	font-size: $categoryFontSize;
+	display: inline-block;
+}
+
+/*headings sizes are configured on x-theme customizer individually - setting heading sizes here anyway, just in case*/
+h1,.h1,h2,.h2,h3,.h3,h4,.h4 {
+	margin-bottom: 1em;
+	line-height: 1.3em;
+}
+h1, .h1 {
+	font-size: $h1fontSize;
+	font-weight: $FontWeightSemiBold;
+}
+h2, .h2 {
+	font-size: $h2fontSize;
+	margin-bottom: 0.6em;
+}
+h3, .h3 {
+	font-size: $h3fontSize;
+	font-family: $fontFamilyPrimary;
+}
+h4, .h4 {
+	font-size: $h4fontSize;
+	font-family: $fontFamilyPrimary;
+	font-weight: $FontWeightBold;
+}
+
+h1,.h1,h2,.h2,h3,.h3,h4,.h4 {
+	&.highlighted {
+		border-left: 4px solid $colorYouveda;
+		padding-left: 0.8em;
+		padding-top: 0.2em;
+		padding-bottom: 0.2em;
+	}
+
+	&.headerFontSize {
+		font-size: $headerFontSize;
+	}
+}
+
+.bigger {
+	font-size: 1.3em;
+}
+
+
+
+@media screen and (max-width: 767px) {
+	q {
+		font-size: calc( #{$h3fontSize} * 0.8);
+	}
+	h1, .h1 {
+		font-size: calc( #{$h1fontSize} * 0.8);
+	}
+	/*
+	h2, .h2 {
+		font-size: calc( #{$h2fontSize} * 0.9);
+	}
+	h3, .h3 {
+		font-size: calc( #{$h3fontSize} * 0.9);
+	}
+	h4, .h4 {
+		font-size: calc( #{$h4fontSize} * 0.9);
+	}*/
+}
+
+@media screen and (max-width: 640px) {
+    h1, .h1 {
+		font-size: calc( #{$h1fontSize} * 0.6);
+	}
+}
+
+@media screen and (max-width: 480px) {
+    
+}
+
+
+/*** FONTS ***/
+

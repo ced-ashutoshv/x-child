@@ -1,0 +1,67 @@
+/*Button colors, size, style and shape are configured via x-theme customizer > Buttons*/
+
+.x-btn, .button, [type="submit"] {
+	text-shadow: none !important;
+	border-radius: 2px;
+	font-size: 1.7rem;
+	font-family: $fontFamilySecondary;
+	letter-spacing: 0.03em;
+	
+	&.secondary {
+		background-color: transparent;
+		border: 1px solid $white;
+
+		&.green {
+			border-color: $colorYouveda;
+			color:$colorYouveda;
+
+			&:hover, &:active {
+				background-color: rgba(0, 128, 128, 0.1);
+			}
+		}
+	}
+	
+	&.small {
+		font-size: $categoryFontSize;
+		min-width: 0;
+		padding: 0.5em 0.9em;
+	}
+	
+
+
+	&.text {
+		background-color: transparent;
+		padding: 0;
+		text-align: left;
+		color: $colorYouveda;
+
+		&:hover {
+			background-color: transparent;
+			color: $colorYouvedaHover;
+		}
+	}
+
+	.x-icon {
+		margin-right: 0.3em;
+	}
+
+
+	/*fix vertical align*/
+	padding: 0.663em 2em 0.613em;
+}
+
+
+.woocommerce-account .button, .woocommerce-checkout .button {
+	&.small {
+		font-size: $categoryFontSize;
+		min-width: 0;
+		padding: 0.5em 0.9em;
+	}
+}
+.woocommerce-account a.x-btn {
+	color:#fff;
+	text-decoration: none;
+	&:hover {
+		color: #fff;
+	}
+}

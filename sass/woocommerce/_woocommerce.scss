@@ -1,0 +1,191 @@
+.woocommerce {
+
+	h4, .h4 {
+		font-size: 18px;
+		letter-spacing: -0.03em;
+		font-family: Montserrat, arial, sans-serif !important;
+		font-weight: 600 !important;
+	}
+
+	.products {
+		.product {
+			border-radius: 0;
+			box-shadow: none;
+			text-align: center;
+
+			.entry-wrap {
+				padding-top: 30px;
+				padding-left: 0;
+				padding-right: 0;
+
+				.entry-header {
+
+					h3 {
+						font-family: $fontFamilySecondary;
+						font-size: $slightlyBiggerFontSize;	
+						padding-bottom: 3px;
+						font-weight: $FontWeightBold;
+						letter-spacing: 0.01em;
+					}
+					p {
+						margin-bottom: 17px;
+					}
+					.price {
+						margin-top: 15px;
+					}
+					.button {
+						top: -65px;
+						border-radius: 0;
+					}
+				}
+			}
+			.entry-wrap {
+				.price {
+					del .amount {
+						font-size: $slightlyBiggerFontSize;	
+					}
+					ins .amount {
+						font-size: $h2fontSize;
+						font-weight: $FontWeightBold;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+body.mobile-device {
+	.woocommerce {
+		.products {
+			.product {
+				.entry-header {
+					.button {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+/*CART, CHECKOUT*/
+
+
+/*TOOLTIP*/
+.your-order {
+    z-index: 2 !important;
+}
+.ic_tooltip.right{
+	float: right;
+    position: relative;
+    min-width: 50%;
+}
+.ic_tooltip.right .ic_tooltip_txt{
+	margin: 6px 0px;
+}
+
+.ic_warning_icon{
+	font-size: 16px;
+	padding: 0 8px 0 0;
+	font-family: "FontAwesome";
+	font-style: normal;
+}
+.ic_tooltip_btn{
+	cursor: pointer;
+	text-decoration: underline;
+    	margin: 0;
+    	display: inline-block;
+}
+.ic_tooltip_txt{
+	color: white;
+	background: black;
+	font-size: 13px;
+	margin-top: 6px;
+	padding: 14px 20px;
+	border-radius: 4px;
+	transition: .5s all ease-out;
+	-mz-transition: .5s all ease-out;
+	-moz-transition: .5s all ease-out;
+	-webkit-transition: .5s all ease-out;
+	max-height: 0;
+	overflow: hidden;
+	padding: 0 10px;
+}
+.ic_tooltip_txt.visible{
+	padding: 6px 10px;
+	max-height: 500px;
+}
+@media screen and (max-width: 940px) {
+	.ic_tooltip.right{
+		float: none;
+	    position: relative;
+	    min-width: 50%;
+	}
+	.ic_tooltip{
+	    margin: 10px 0px 2px 0px;
+	}
+
+}
+
+.woocommerce-page {
+
+	.woocommerce {
+		.greeting {
+			margin-top: 60px;
+			margin-bottom: 30px;
+			.title {
+				font-size: 3.6rem;
+			}
+			max-width: $maxWidth;
+		}
+	}
+	
+	.entry-wrap {
+
+		h1,h2,  {
+			font-size: $h2fontSize;
+			font-weight: bold;
+		}
+
+		padding: 0;
+		box-shadow: none;
+
+		.wc_payment_methods {
+			> .wc_payment_method {
+				> label {
+					font-size: $h3fontSize;
+					padding-left: 0;
+				}
+			}
+		}
+		#ship-to-different-address {
+			margin-top: 0;
+			font-size: 16px;
+			font-weight: bold;
+			margin-bottom: 15px;
+		}
+	}
+}
+
+
+
+p.woocommerce-validated input {
+	color: $colorYouveda;
+	border-color : $colorYouveda;
+}
+
+
+
+/*HIDE "PRE FOOTER" (Tap into our conciousness, Speak your mind, Open your eyes, etc..) */
+.woocommerce-cart, .woocommerce-checkout, .woocommerce-account  {
+	#icon-boxes {
+		display: none;
+	}
+	.the-balance-bulletin {
+		display: none;
+	}
+}

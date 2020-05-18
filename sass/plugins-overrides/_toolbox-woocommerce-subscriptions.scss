@@ -1,0 +1,81 @@
+body .entry-content .woocommerce-MyAccount-content td .button {
+  margin: 10px 10px 10px 0;
+}
+
+.woocommerce-order-pay #payment div.payment_box .sv-wc-payment-gateway-payment-form-manage-payment-methods {
+  display: none;
+}
+
+.woocommerce-MyAccount-content #pickadate {
+  width: auto;
+  margin-bottom: 0;
+  margin-right: 20px;
+}
+
+.woocommerce-order-pay #place_order {
+    margin: 20px 0;
+}
+
+.woocommerce-MyAccount-content #new_interval {
+  margin-bottom: 0;
+}
+
+#yv-show-existing-subscriptions {
+  color: #008080;
+  cursor: pointer;
+}
+
+#yv-show-existing-subscriptions p {
+  margin: 0 0 5px;
+}
+
+#yv-show-existing-subscriptions p span {
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.yv-add-to-subscription {
+  display: none;
+}
+
+.yv-add-to-subscription-separator {
+  border-bottom: 1px solid #bababa;
+  padding-bottom: 20px;
+}
+
+.jgtb-add-to-subscription {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.jgtb-add-to-subscription label {
+  margin: 15px 0 20px;
+  width: 100%;
+}
+
+@media screen and (max-width: 1014px) {
+  .jgtb-add-to-subscription select {
+    width: 100%;
+    margin-bottom: 9px;
+  }
+}
+
+@media screen and (min-width: 1015px) {
+  .jgtb-add-to-subscription select {
+    width: 55%;
+    margin-bottom: 0;
+  }
+
+  .jgtb-add-to-subscription button {
+    min-width: 40%;
+  }
+  
+}

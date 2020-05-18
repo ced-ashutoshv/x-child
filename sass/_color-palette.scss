@@ -1,0 +1,118 @@
+$colorYouvedaAqua: #43afaf;
+.colorYouvedaAqua { color: $colorYouvedaAqua !important; }
+.bgColorYouvedaAqua { background-color: $colorYouvedaAqua; }
+
+$colorYouvedaAquaHover: #48b7ad;
+
+$colorYouvedaGold: #D0BD60;
+
+$colorYouveda: #008080;
+.colorYouveda { color: $colorYouveda !important; }
+.bgColorYouveda { background-color: $colorYouveda; }
+
+$colorYouvedaHover: #339999;
+.colorYouvedaHover { color: $colorYouvedaHover; }
+.bgColorYouvedaHover { background-color: $colorYouvedaHover; }
+
+$colorYouvedaSubtle: rgba(0,128,128,0.1); /*for current category list item for example*/
+
+$GreyBlack: #222222;
+.colorGreyBlack { color: $GreyBlack; }
+.bgColorGreyBlack { background-color: $GreyBlack !important; }
+
+$GreyFooterTop: #333333;
+.colorGreyBlack { color: $GreyFooterTop; }
+.bgColorGreyBlack { background-color: $GreyFooterTop !important; }
+
+$GreyHeaders: #eeeeee;
+.colorGreyHeaders { color: $GreyHeaders; }
+.bgColorGreyHeaders { background-color: $GreyHeaders !important; }
+
+$GreyGraphite : #4D4D4D;
+.colorGreyGraphite { color: $GreyGraphite; }
+.bgColorGreyGraphite { background-color: $GreyGraphite !important; }
+
+$GreyLight : #B0B0B0;
+.colorGreyLight { color: $GreyLight; }
+.bgColorGreyLight { background-color: $GreyLight !important; }
+
+$redIntense: #ed1c24;
+$redSubtle: #fee9ea;
+
+$GreySuperLight : #fafafa;
+$Grey20: #333333;
+$Grey50: #7F7F7F;
+$Grey80: #ccc;
+$Grey96: #F4F4F4;
+.color-grey-50 { color: $Grey50; }
+
+$white : #fff;
+.colorWhite { color: $white; }
+.bgColorWhite { background-color: $white !important; }
+
+a.colorWhite:hover {
+	opacity: 0.75;
+	color:$white;
+}
+
+$colorImmunity: #4E6882;
+.colorImmunity { color: $colorImmunity; }
+.bgColorImmunity { background-color: #4E6882 !important; }
+
+$colorMood: #D27250;
+.colorMood { color: $colorMood; }
+.bgColorMood { background-color: $colorMood !important; }
+
+$colorJoints: #76B7B0;
+.colorJoints { color: $colorJoints; }
+.bgColorJoints { background-color: $colorJoints !important; }
+
+$colorDigestion: #46A182;
+.colorDigestion { color: $colorDigestion; }
+.bgColorDigestion { background-color: $colorDigestion !important; }
+
+$colorBody: #D1BE61;
+.colorBody { color: $colorBody; }
+.bgColorBody { background-color: $colorBody !important; }
+
+$colorHeart: #CB514D;
+.colorHeart { color: $colorHeart; }
+.bgColorHeart { background-color: $colorHeart !important; }
+
+$colorMetabolism: #7F5E9F;
+.colorMetabolism { color: $colorMetabolism; }
+.bgColorMetabolism { background-color: $colorMetabolism !important; }
+
+$colorSexdriveF: #B53776;
+.colorSexdriveF { color: $colorSexdriveF; }
+.bgColorSexdriveF { background-color: $colorSexdriveF !important; }
+
+$colorSexdriveM: #22689B;
+.colorSexdriveM { color: $colorSexdriveM; }
+.bgColorSexdriveM { background-color: $colorSexdriveM !important; }
+
+$border-color: $GreyLight;
+
+.bgColorImmunity,
+.bgColorYouveda,
+.bgColorMood,
+.bgColorJoints,
+.bgColorDigestion,
+.bgColorBody,
+.bgColorHeart,
+.bgColorMetabolism,
+.bgColorSexdriveF,
+.bgColorSexdriveM {
+	color: #fff;
+	ul.dotted li:before {
+		background-color: #fff;
+	}
+}
+
+/* Shop buttons */
+$shop_button_bg_color : $Grey96;
+$shop_button_bg_color_hover : $colorYouveda;
+
+$radioColor1: $white;
+$radioColor2: $colorYouveda;
+$radioColorDisabled: #e5e5e5;

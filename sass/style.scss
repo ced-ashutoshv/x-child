@@ -1,0 +1,69 @@
+/*
+Theme Name: Youveda-2018
+Theme URI: https://www.ameba.com.uy
+Author: Ameba Creative Studio
+Author URI: https://www.ameba.com.uy
+Description: A child theme of X theme
+Version: 1.0.0
+Template: x
+*/
+
+@import "google-fonts";
+@import "x-child";
+@import "color-palette";
+@import "variables";
+@import "titles-fonts";
+@import "buttons";
+@import "modules";
+@import "helper-clases";
+@import "cornerstone-overrides";
+@import "youveda-iconmoon";
+@import "navigation";
+@import "footer";
+@import "blog-archive";
+@import "blog-single";
+@import "forms";
+@import "youveda-tooltip";
+
+/*WOOCOMMERCE*/
+@import "woocommerce/cart-checkout-2019-common-rules";
+@import "woocommerce/content-single-product";
+@import "woocommerce/woocommerce";
+@import "woocommerce/shop";
+@import "woocommerce/shop-2019";
+@import "woocommerce/messages";
+@import "woocommerce/cart";
+@import "woocommerce/cart-2019";
+@import "woocommerce/cart-icon";
+@import "woocommerce/my-account";
+@import "woocommerce/checkout";
+@import "woocommerce/checkout-2019";
+@import "woocommerce/thank-you-page";
+@import "woocommerce/international-flags";
+
+
+/*PAGES*/
+@import "pages/home";
+@import "pages/home-2019";
+@import "pages/faq";
+@import "pages/single-product-template";
+@import "pages/product-2019";
+
+
+/*PLUGINS*/
+@import "plugins-overrides/advanced-nocaptcha.scss";
+@import "plugins-overrides/gravity-forms";
+@import "plugins-overrides/wp-front";
+@import "plugins-overrides/tidio-chat";
+@import "plugins-overrides/trustspot";
+@import "plugins-overrides/authorize";
+@import "plugins-overrides/woocommerce-currency-switcher";
+@import "plugins-overrides/toolbox-woocommerce-subscriptions";
+
+
+/*TEMPLATE PARTS*/
+@import "template-parts/youveda-posts";
+
+
+/*GLOBAL BLOCKS*/
+@import "the-balance-bulletin";

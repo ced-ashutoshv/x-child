@@ -1,0 +1,815 @@
+
+
+
+/********************************************
+
+CLASSIC SLIDER
+
+********************************************/
+
+.x-flexslider-shortcode-container {
+	border:0;
+}
+
+/*** OCULTAR BOTN + DE LA ESQUINA SUPERIOR DERECHA ***/
+a.x-btn-widgetbar {
+	display: none;
+}
+
+/*OCULTAR SEARCH ICON DEL MENU*/
+.x-nav {
+	.x-menu-item-search {
+		display: none;
+	}
+}
+
+/*BURGUER MENU BUTTON*/
+.x-btn-navbar, .x-btn-navbar.collapsed {
+
+	background-color: transparent ;
+	border: 0;
+	box-shadow: none;
+	color: black;
+
+	&:hover {
+		background-color: transparent ;
+		border: 0;
+		box-shadow: none;
+		color: $colorYouvedaHover;
+	}
+
+}
+.x-btn-navbar {
+	padding: 0.58em 0.625em;
+}
+.woocommerce-account .button, .woocommerce-checkout .button {
+	font-size: 1.7rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+/********************************************
+
+CLASSIC ACCORDION
+
+********************************************/
+
+
+.x-accordion {
+	margin-bottom: 70px;
+	.x-accordion-group {
+		box-shadow: none;
+		border:none;
+		border-bottom: 1px solid #bcbcbc;
+		margin-bottom: 0;
+
+		.x-accordion-heading {
+
+			position: relative;
+
+			.x-accordion-toggle {
+				font-weight: $FontWeightBold;
+				font-size: $h4fontSize;
+				padding: 20px 0px;
+				padding-right: 25px;
+
+				&:before {
+					color: $colorYouveda;
+					font-weight: $FontWeightLight;
+					right: -10px;
+				    position: absolute;
+				    top: 50%;
+				    margin-top: -10px;
+				    height: 20px;
+
+					&:hover {
+						color: $colorYouvedaHover;
+					}
+				}
+			}
+		} 
+		.x-accordion-inner {
+			border: none;
+			padding-left: 0;
+			padding-top: 0;
+			padding-bottom: 25px;
+			font-weight: $FontWeightLight;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+/********************************************
+
+WIDGETS
+
+********************************************/
+
+.widget_nav_menu .current-menu-item>a {
+	background-color: transparent;
+}
+
+
+
+
+
+
+
+
+
+
+
+/********************************************
+
+PAGINATION
+
+********************************************/
+
+.x-pagination {
+	li {
+		span.current, a.single_page, a.prev-next, a.last {
+	    		background-color: transparent;
+    			box-shadow: none;
+    			border-radius: 50%;
+    			text-shadow: none;
+    			color: #69cabb;
+    			line-height: 31px;
+ 			width: 35px;
+    			height: 35px;
+    			font-size: 	20px;
+		}
+		span.current {
+			background-color: #69cabb;
+			color: #fff;
+		}
+		a.single_page, a.prev-next {
+			opacity: .5;
+
+			&:hover {
+				opacity:1;
+			}
+		}
+		a.prev-next {
+			border:none;
+		}
+		.expand {
+			color: #69cabb;
+			font-size: 18px;
+		}
+	} 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********************************************
+
+COMMENTS
+
+********************************************/
+
+.x-comments-area {
+
+	margin-top: 0;
+	
+	.h-comments-title {
+
+		small {
+			text-shadow: none;
+			background: none;
+			box-shadow: none;
+			color: black;
+			width: auto;
+			position: relative;
+			left: 0;
+			top: -1px;
+
+			&:before {
+				content: "(";
+			}
+			&:after {
+				content: ")";
+			}
+		}
+	}
+
+	.h-comments-title, 
+	#reply-title.comment-reply-title {
+		font-size: $h2fontSize;
+		font-family: Montserrat, arial, sans-serif;
+		color: $colorYouveda;
+		margin-top: 0;
+	}
+	#comment {
+		margin-bottom: 10px;
+		min-height: 135px;
+	}	
+	#respond {
+		.comment-notes {
+			font-size: 1.8rem;
+			color: $Grey50;
+			margin-bottom: 30px;
+
+			.required {
+				color: $Grey50;
+			}
+		}
+	}
+	.comment-form-comment textarea {
+		font-size: $h4fontSize;
+	}
+	.comment-form-comment label,
+	.comment-form-author label,
+	.comment-form-email label,
+	.comment-form-url label {
+		font-size: $h4fontSize;
+		display: none;
+	}
+	.comment-form-author, 
+	.comment-form-email {
+    		width: 48.5%;
+		float: left;
+		margin-bottom: 15px;
+
+		@media screen and (max-width: 768px) {
+		    width: 100%;
+		}
+	}
+	.comment-form-author {
+		margin-right: 3%;
+	}
+
+	.x-comment-content {
+		*:last-child {
+			margin-bottom: 10px;
+		}
+	}
+
+	.form-submit {
+		text-align: center;
+		margin-top: 20px;
+
+		#entry-comment-submit {
+			min-width: 200px;
+			border: none;
+		}
+	}
+
+	/*avatar image*/
+	.x-comment-img {
+		display: none;
+	}
+	.x-comment-header {
+		margin-bottom: 5px;
+	}
+	.comment {
+		margin-left: 0;
+		font-size: $regularFontSize;
+		font-size: 16px;
+		padding: 0;
+		box-shadow: none;
+
+		.x-comment-author {
+		    font-size: 100%;
+		    font-weight: 500 !important;
+		}
+		.x-comment-time, .x-reply, .comment-edit-link {
+			font-size: 12px;
+		}
+	}
+	.x-reply {
+		.comment-reply-link {
+			font-weight: normal;
+			font-size: 14px;
+			.comment-reply-link-after {
+				right: -2px;
+				bottom: -1px;
+			}
+		}
+	}
+
+	.x-comments-list {
+		> .comment {
+			border-bottom: 1px solid #b0b0b047;
+			padding-top: 40px;
+
+			&:last-child {
+				border-bottom: 0;
+			}
+			&:first-child {
+				padding-top: 0;
+			}
+		}
+		border-bottom: 1px solid $GreyLight;
+		margin-bottom: 40px;
+		padding-bottom: 10px;
+	}
+	.children {
+		margin-left: 30px;
+	}
+	input, textarea {
+		font-size: 1.8rem !important;
+		box-shadow: none;
+		border-color: $GreyLight;
+	}
+	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+		color: $GreyLight;
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		color: $GreyLight;
+	}
+	::-ms-input-placeholder { /* Microsoft Edge */
+		color: $GreyLight;
+	}
+}
+
+
+/*** COMMENTS ***/
+.entry-footer.cf {
+	a {
+		border-radius: 0;
+		color: #868585;
+		border-color: $GreyLight;
+		padding: 7px 13px;
+		transition: none;
+
+		&:active {
+			background-color: rgba(0, 128, 128, 0.1);
+		}
+	}
+	a:hover {
+		color: $colorYouveda;
+		border-color: $colorYouveda;
+	}
+}
+
+
+@media (max-width: 979px) {
+	.x-navbar-fixed-top, .x-navbar-fixed-left, .x-navbar-fixed-right {
+		position: fixed;
+	}	
+	body.page {
+		.x-navbar-fixed-top-active .x-navbar-wrap {
+			/*height: 90px !important;*/
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+/********************************************
+
+CLASSIC RECENT POSTS
+
+********************************************/
+
+.youveda-posts-grid {
+
+	.x-recent-posts {
+
+		float: left;
+		width: 50%;
+		margin:0;
+
+		a {
+			border: none;
+			box-shadow: none;
+			padding: 0;
+			border-radius: 0;
+
+			&:hover{
+				.has-post-thumbnail .x-recent-posts-img:before { /* hide icon */
+					display: none;
+				}
+				.has-post-thumbnail .x-recent-posts-img:after {
+					display: none;
+				}
+			} 
+		}
+
+		article.hentry {
+			.entry-wrap {
+
+				&:before {
+					content: "";
+				    display: block;
+				    width: 22px;
+				    height: 22px;
+				    background-color: #fff;
+				    transform: rotate(45deg) translateX(-50%) translateY(-50%);
+				    position: absolute;
+				    z-index: 1;
+				    left: 50%;
+				    top: 50%;
+				    -webkit-transform-origin: top left;
+				    -moz-transform-origin: top left;
+				    -o-transform-origin: top left;
+				    transform-origin: top left;
+				}
+				background-color:#fff;
+
+				.x-recent-posts-img {
+
+					border-radius: 0;
+					padding-bottom: 50%;
+					width: 50%;
+					float: left;	
+					background-size: 101%;
+					transition: background-size 0.4s;
+					-moz-transition: background-size 0.4s;
+					-ms-transition: background-size 0.4s;
+					-o-transition: background-size 0.4s;
+					-webkit-transition: background-size 0.4s;
+					background-position: center center;
+					backface-visibility:hidden;
+				}
+				.x-recent-posts-content {
+
+					&:before {
+						padding-bottom: 10px;
+						font-size: 0.9em;
+						display: block;
+					}
+
+					position: absolute;
+					right: 0;
+					top: 50%;
+					width: 50%;
+					transform: translateY(-50%);
+					text-align: center;
+
+					.h-recent-posts {
+						width: 60%;
+						margin: 0 auto;
+						white-space: normal;
+						font-size: 17px;
+						font-weight: bold;
+						line-height: 1.4em;
+					}
+
+					&:after {
+						padding-top: 10px;
+						font-size: 1em;
+						display: block;
+						content: "> View More";
+					}
+				}
+				&:after {
+					content: "";
+					clear:both;
+					display: block;
+				}
+			}
+
+			&.category-meals {
+				.x-recent-posts-content {
+					&:before {
+						content: "HEALTHY MEALS";
+					}
+				}
+			}
+			&.category-meditation {
+				.x-recent-posts-content {
+					&:before {
+						content: "MEDITATION";
+					}
+				}
+			}
+			&.category-guided-yoga {
+				.x-recent-posts-content {
+					&:before {
+						content: "GUIDED YOGA";
+					}
+				}
+			}
+			&.category-podcasts {
+				.x-recent-posts-content {
+					&:before {
+						content: "PODCASTS";
+					}
+				}
+			}
+			&.category-article {
+				.x-recent-posts-content {
+					&:before {
+						content: "ARTICLE";
+					}
+				}
+			}
+		}
+
+		&:hover {
+			article.hentry {
+				.entry-wrap {
+					.x-recent-posts-img {
+						background-size: 110%;
+					}
+				}
+			}
+		}
+
+		@media screen and (min-width: 480px) {
+			&:first-child {
+
+				a {
+					background-color: #1d1050;
+				}
+				article.hentry {
+
+					.entry-wrap {
+
+						&:before {
+							display:none;
+						}
+
+						background-color: transparent;
+						.x-recent-posts-img {
+							opacity: 0.7;
+							padding-bottom: 100%;
+							width: 100%;
+						}
+
+						.x-recent-posts-content {
+							position: absolute;
+						    position: absolute;
+						    width: 100%;
+						    text-align: center;
+						    top: 50%;
+						    padding: 0;
+						    transform: translateY(-50%);
+
+						    .h-recent-posts {
+								color: #fff;
+								font-size: $h2fontSize;
+								width: 50%;
+								margin: 0 auto;
+								text-overflow: initial;
+								white-space: pre-wrap;
+								font-weight: normal;
+						    }
+
+						    &:before {
+						    	color: #fff;
+						    }
+						    &:after {
+						    	color: #fff;
+						    }
+						}
+					}
+				}
+			}
+			
+
+			&:nth-child(3) {
+				article.hentry {
+					.entry-wrap {
+						.x-recent-posts-img {
+							float: right;
+						}
+						.x-recent-posts-content {
+							right: auto;
+							left: 0;
+						}
+					} 
+				} 
+			}
+		}
+
+		
+	} /* .x-recent-posts */
+
+
+	/*category names*/
+	&.meals {
+		.x-recent-posts-content:before {
+			content: "healthy meals";
+			text-transform: uppercase;
+		}
+	}
+
+	.x-recent-posts-date {
+		display: none;
+	}
+
+	&.inverted {
+		.x-recent-posts {
+			float: right;
+		}
+	}
+
+	@media screen and (max-width: 1199px) {
+	    .x-recent-posts {
+	    	article.hentry {
+	    		.entry-wrap {
+	    			.x-recent-posts-content {
+	    				.h-recent-posts {
+	    					width: 80%;
+	    				}
+	    			} 
+	    		}
+	    	}
+	    } 
+	}
+
+	@media screen and (max-width: 979px) and (min-width:768px) {
+		.x-recent-posts {
+			article.hentry {
+				.entry-wrap {
+					.x-recent-posts-content {
+						.h-recent-posts {
+							font-size: 13px;
+						}
+					} 
+				}
+			}
+		} 
+	}
+
+	@media screen and (max-width: 768px) {
+	    .x-recent-posts {
+	    	width:100%;
+	    }
+	}
+
+	@media screen and (max-width: 480px) {
+	    .x-recent-posts, .x-recent-posts:nth-child(3) {
+	    	article.hentry {
+	    		.entry-wrap {
+
+	    			&:before {
+						display: none;
+	    			}
+
+	    			.x-recent-posts-img {
+						padding-bottom: 100%;
+						width: 100%;
+						float: none;
+	    			}
+
+	    			.x-recent-posts-content {
+
+	    				&:before {
+							
+	    				}
+
+	    				position: relative;
+	    				right: auto;
+	    				left: 0;
+	    				top: 0;
+	    				width:100%;
+	    				transform: none;
+						padding: 30px 20px;
+	    			}
+	    		}
+	    	}
+	    } 
+		.x-recent-posts {
+			margin-bottom: 7vw;
+		}
+	}
+
+
+} /* .youveda-posts-grid */
+
+
+
+.entry-thumb {
+	background-color: transparent;	
+}
+
+
+
+
+
+/********************************************
+
+LIGHTBOX SHORTCODE
+
+********************************************/
+
+.ilightbox-toolbar.light {
+	background-color: transparent;
+
+	a {
+		color:#B0B0B0;
+
+		&:hover {
+			color:#fff;
+
+		}
+	}
+}
+
+.ilightbox-overlay.light {
+
+	background: #171717;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********************************************
+
+X-COMMENTS-AREA
+
+********************************************/
+
+.x-comments-area {
+	border-top: 1px solid #ccc;
+	padding: 50px 0;
+}
+
+
+
+
+
+
+
+
+
+/********************************************
+
+ALERT
+
+********************************************/
+
+
+.x-alert-info, .buddypress #message.info, .bbp-template-notice.info {
+	background-color: #0080801a;
+	border-color: $colorYouveda;
+	color: $colorYouveda;
+}
+
+
+.x-alert-block {
+	display: inline-block;
+	padding: 0.5em;
+}
+
+/*Danger*/
+.x-alert-danger {
+	padding: 0.5em;
+	background-color: #f2dede47;
+}
+
+
+
+
+
+
+
+
+
+/********************************************
+
+X CART NOTIFICATION
+
+********************************************/
+
+
+.x-cart-notification {
+    transition: opacity 0.05s cubic-bezier(0.23, 1, 0.32, 1),transform 0.65s cubic-bezier(0.23, 1, 0.32, 1);
+}

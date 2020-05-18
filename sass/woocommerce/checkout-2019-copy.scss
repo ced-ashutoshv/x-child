@@ -1,0 +1,670 @@
+/* Rules to remove from main checkout scss file*/
+.woocommerce-checkout .wc_payment_method.payment_method_paypal{
+	display: block;
+}
+body.woocommerce-checkout .woocommerce-checkout-payment .wc_payment_method > label{
+	display: block;
+}
+.woocommerce-checkout .wc-amazon-checkout-message.wc-amazon-payments-advanced-populated{
+	display: block;
+}
+.woocommerce-account form .payment_methods label img, .woocommerce-checkout form .payment_methods label img{
+	display: block;
+}
+body.woocommerce-checkout {
+
+	.woocommerce-form-login-toggle {
+		max-height: 0;
+		overflow: hidden;
+		-webkit-transition: height 0.5s ease-in-out; /* Safari prior 6.1 */
+		transition: max-height 0.5s ease-in-out;
+
+		&.uncollapsed {
+			max-height: 600px;
+		}
+	}
+	.click-here-login {
+		text-align: center;
+		color: $colorYouveda;
+		font-size: 16px;
+		text-decoration: underline;
+		cursor: pointer;
+
+		&:hover {
+			color: $colorYouvedaHover;
+		}
+	}
+
+	.followup-checkout input[type="checkbox"] {
+		margin-right: 7px !important;
+		margin-right: 3px;
+	}
+
+	#top .x-container {
+		margin-top: 0;
+	}
+	.card {
+		.checkout_valid_step {
+			font-size: 14px;
+		}
+	}
+	.card-body {
+		.woocommerce-checkout-review-order-table {
+			> .row:first-child {
+				border-bottom: 1px solid #f5f5f5 !important;
+				margin-bottom: 15px;
+				padding-bottom: 10px;
+			}
+		}
+		.row.cart-subtotal {
+			div {
+				font-weight: bold;
+			}
+			div:nth-child(2) {
+				text-align: right;
+			}
+		}
+		.row.cart-discount,
+		.row.shipping_fee {
+			color: #808080; 
+			div:first-child {
+				font-weight: bold;
+			}
+			div:nth-child(2) {
+				text-align: right;
+			}
+		}
+		.row.order-total {
+			border-top: 1px solid #f5f5f5 !important;
+			padding-top: 15px;
+			margin-top: 20px;
+			margin-left: 0px;
+			margin-right: 0px;
+			font-size: 1.8rem;
+			font-family: Montserrat, arial, sans-serif !important;
+			
+			div {
+				font-weight: bold;
+			}
+			div:first-child {
+				padding-left: 0;
+				text-transform: uppercase;
+
+				&:after {
+					content: "to pay";
+				}
+			}
+			div:nth-child(2) {
+				text-align: right;
+				padding-right: 0;
+			}
+		}
+		.row:first-child {
+			border-bottom: 2px solid #f5f5f5;
+			div:not(.checkout-section-title-collapsable) {
+				color: #808080;
+			}
+		}
+		.cart_item {
+			padding: 10px 0;
+			.row {
+				border-bottom: 0;
+			}
+			.product-name {
+				color: black !important;
+				font-weight: bold;
+			}
+			.woocommerce-Price-amount {
+				color: black;
+				font-weight: bold;
+
+				&:first-child {
+					font-weight: normal;
+				}
+			}
+			display: -webkit-box!important;
+			display: -ms-flexbox!important;
+			display: flex!important;
+			-webkit-box-align: center!important;
+			-ms-flex-align: center!important;
+			align-items: center!important;
+
+			/*give size to svg*/
+			img[src$=".svg"]{
+				width: 300px;
+				padding: 50px;
+			} 
+
+			/*override default woocommerce font sizes*/
+			&.bundled_table_item .product-name,
+			&.bundled_table_item .product-price,
+			&.bundled_table_item:not(.order_item)
+			&.product-quantity,
+			&.bundled_table_item .product-subtotal,
+			&.bundled_table_item .product-total {
+			    font-size: 1em;
+			}
+		}
+
+	}
+	
+	.left-container {
+		.card-body {
+			.row:first-child {
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+	}
+	.checkout-section-title-collapsable {
+		padding-left: 0;
+		padding: 23px 0;
+
+		+ * {
+			padding-top: 18px;
+		}
+	}
+	.checkout-section-title-collapsable h4.checkout_valid_step {
+		text-transform: uppercase;
+	}
+	.checkout-section-title-collapsable h4.checkout_valid_step::before {
+		margin-right: 0.75em;
+	}
+	/*
+	.cloned-payment-details .payment_box.payment_method_authorize_net_cim_credit_card,
+	.cloned-payment-details .place-order {
+		
+		display: none;
+	}
+	*/
+	.cloned-payment-details .place-order {
+		display: none;
+	}
+	#payment_details {
+
+		.row {
+			border-bottom: 0;
+		}
+		.checkout-section-title-collapsable {
+			padding-bottom: 0;
+		}
+		/*
+		.copia {
+			.payment_box,
+			.place-order {
+				display: none !important;
+			}
+		}
+		*/
+		&:not(.cloned-payment-details) {
+			display: none;
+			.checkout-section-title-collapsable {
+				padding-top: 0;
+			}
+			.checkout-section-title-collapsable + div {
+				padding-top: 0;
+			}
+			.wc_payment_methods,
+			.payment_box {
+				display: none;
+			}
+		}
+		.wc_payment_methods {
+			margin-bottom: 0;
+		}
+
+	}
+	&:before {
+		content: "";
+		display: block;
+		width: 180px;
+		height: 80px;
+		background-image: url('/wp-content/themes/x-child/images/youveda-logo.svg');
+		background-size: contain;
+		background-repeat: no-repeat;
+		margin: 0 auto;
+		margin-top: 40px;	
+	}
+	
+	.woocommerce-shipping-fields span {
+		font-size: 16px;
+		font-weight: 400;
+	}
+	#ship-to-different-address-checkbox {
+		margin-top: 7px !important;
+		margin-right: 3px !important;
+		margin-bottom: 25px;
+	}
+	#ship-to-different-address {
+		margin-bottom: 25px;
+	}
+	.woocommerce-additional-fields {
+	margin-top: 20px;
+	}
+
+	form label {
+	
+	}
+	form.checkout.woocommerce-checkout > .row {
+		margin-top: 10px;
+
+		> div:nth-child(2){
+			.card-header {
+				padding-top: 10px;
+			}
+		}
+	}
+
+	/*TBR*/
+	.wc-amazon-payments-advanced-info,
+	.woocommerce-form-coupon-toggle {
+		display: none;
+	}	
+
+	background-color: #e7edf2;
+	.entry-content > .woocommerce {
+		background-color: #e7edf2;
+	}
+
+	#wpfront-notification-bar-spacer, 
+	.masthead.masthead-inline {
+		display: none !important;
+	}
+	
+	.card-header, #order_review_heading {
+		font-size: 20px;
+		font-weight: 500;
+		font-family: Montserrat, arial, sans-serif !important;
+		letter-spacing: -0.05em;
+		margin-bottom: 0;
+
+		.count {
+			font-family: "Lato",sans-serif;
+			font-size: 1.4rem;
+			color: #808080;
+			letter-spacing: initial;
+			float: left;	
+			&:after {
+				content: "in Cart";
+			}
+		}
+		.cart-contents {
+			float: right;
+			font-size: 1.4rem;
+		}
+		.count, .cart-contents {
+			padding-top: 10px;
+		}
+
+		&:after {
+			background-color: #f5f5f5;
+			margin-top: 10px;
+		}
+	}
+
+	#order_review {
+
+		padding-top: 10px;
+
+		.row {
+			border-bottom: 0;
+		}
+	}
+
+	.checkout-section-title-collapsable {
+
+
+	}
+
+		.site > .x-container h4 {
+
+			margin: 0;
+			text-transform: capitalize;
+			font-family: Montserrat, arial, sans-serif !important;
+			font-size: 18px;
+			font-weight: 500 !important;
+
+			/* Lo dejamos comentado, porque woocommerce no nos permite saber si la seccion fue completada exitosamente, solo si esta
+			&::before {
+				content: "\f00c";
+
+				font-family: FontAwesome;
+				margin-right: 0.75em;
+			}
+			*/
+
+			&.checkout_valid_step {
+
+				/** TODO: user variable for colors **/
+				color: $colorYouvedaHover;
+				font-weight: 600 !important;
+				text-transform: uppercase;
+				font-size: 14px;
+
+				&::before {
+					content: "\f00c";
+
+					font-family: FontAwesome;
+					margin-right: 0.75em;
+				}
+			}
+		}
+	
+
+	.select2 {
+		width: 100% !important;
+	}
+
+	.collapsable {
+		transition: all 1.5s $standard_easing;
+		-webkit-transition: all 1.5s $standard_easing;
+
+		&.collapsed {
+			animation: show-hide-checkout-section 0.5s $standard_easing forwards;
+			overflow: hidden;
+		}
+	}
+	.woocommerce-checkout-payment {
+		.place-order .button {
+			margin-top: 0;
+		}
+	}
+	#amazon_consent_widget + .woocommerce-checkout-payment {
+		display: none;
+	}
+	#amazon_addressbook_widget {
+		margin-bottom: 20px;
+	}
+	.wc_payment_methods {
+		display: flex;
+		margin-top: 20px;
+		
+		.wc_payment_method {
+			margin-right: 10px;
+			margin-bottom: 0;
+
+			&.checked {
+				label {
+
+					img {
+						border: 1px solid $colorYouveda;
+					}
+				}
+			}
+		}
+		.place-order {
+			.button {
+				margin-top: 0;
+			}
+		}
+	}
+
+	#delivery_details {
+		.save-checkout-section {
+			margin-top: 10px;
+		}
+		.row {
+			border-bottom: 0;
+		}
+		.country {
+
+			.flag {
+				display: inline-block;
+				padding-left: 38px;
+				height: 21px;
+
+				&.us {
+					background: transparent url(/wp-content/themes/x-child/images/countries/us.png) no-repeat top left;
+				}
+			}
+		}
+		.save-checkout-section {
+			margin-bottom: 30px;
+		}
+	}
+
+
+	/*CUSTOMER DETAILS*/
+	#customer_details {
+
+		/*display: none; */ /*Only show if Credit Card is selected as payment method*/
+		.row {
+			border-bottom: 0;
+		}
+
+		h3 {
+			font-size: 16px;
+			margin-bottom: 5px;
+			margin-left: 10px;
+		}
+	}
+
+	footer.x-colophon {
+		display: none;
+	}
+
+
+	/*Order Sumnary*/
+	.woocommerce-checkout-review-order #coupon_code {
+		margin: 15px 0 10px;
+	}
+
+	.edit-checkout-section {
+		float: right;
+	}
+
+
+	/*AMAZON*/
+	#amazon_wallet_widget {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	
+	.button.sv-wc-payment-gateway-payment-form-manage-payment-methods {
+		max-width: 320px;
+	}
+
+	.right-container {
+		.button {
+			background: #aaa;
+			width: auto;
+			float: right;
+		}
+		button[type="submit"] {
+			margin-bottom: 0 !important;
+		}
+	}
+
+	.right-container .button {/*width: 100%;*/   background: #aaa;    width: auto;    float: right;}
+}
+
+@keyframes show-hide-checkout-section {
+	0% {
+		transform: translate3d(0, 0, 0);
+		-webkit-transform: translate3d(0, 0, 0);
+		opacity: 1;
+		height: 100%;
+	}
+
+	100% {
+		transform: translate3d(0, -40px, 0);
+		-webkit-transform: translate3d(0, -40px, 0);
+		opacity: 0;
+		height: 0;
+  	}
+}
+
+
+.youveda-loader {
+	display: none;
+}
+
+.wc-checkout-footer {
+
+	padding: 25px 0;
+	display: none; /*Display only if user is logged in*/
+
+	.left, .right {
+		-ms-flex-align: center;
+		align-items: center;
+		display: -ms-flexbox;
+		display: flex;
+	}
+	h4 {
+		margin-top: 0;
+		text-transform: uppercase;
+		color: $colorYouvedaHover;
+		font-size: 1.6rem;
+		font-family: Montserrat, arial, sans-serif !important;
+	}
+	.image-container {
+		padding-right: 40px;
+	}
+	.cards-container {
+		img {
+			margin-right: 5px;
+		}
+	}
+	.copy {
+		margin-bottom: 0;
+		color: #808080;
+		font-size: 1.6rem;
+	}
+	a {
+		text-decoration: underline;
+	}
+	@media screen and ( max-width: 1280px ) {
+		.cards {
+			display: block;
+		}
+		.first-cards {
+			margin-bottom: 10px;
+		}
+	}
+	@media screen and (max-width: 767px) {
+		.left {
+			margin-bottom: 20px;
+		}
+	}
+	@media screen and (max-width: 640px) {
+		.left, .right {
+			display: block;
+			text-align: center;
+		}
+		.image-container {
+			margin-bottom: 15px;
+			padding-right: 0;
+		}
+		.cards {
+			display: inline-block;
+		}
+		h4 {
+			max-width: 300px;
+			margin: 0 auto;
+			margin-bottom: 15px;
+		}
+	}
+}
+
+body.woocommerce-checkout.logged-in .wc-checkout-footer {
+	display: block;
+}
+
+body.amazon-user-logged-in {
+	#payment_details:not(.cloned-payment-details) {
+		.wc_payment_methods.payment_methods.methods {
+			display: none;
+		}
+		.checkout-section-title-collapsable {
+			display: none;
+		}
+		.woocommerce-checkout-payment {
+			display: block;
+		}
+		#amazon_wallet_widget, #amazon_consent_widget {
+			display: none;
+		}
+		.edit-checkout-section {
+			display: none;
+		}
+	}
+	#delivery_details {
+		display: none;
+	}
+}
+
+
+body.woocommerce-checkout {
+
+	/* Mimic bootstrap LG*/
+	@media screen and ( max-width: 1199px ) {
+	}
+
+	/** Theme X breakpoint  */
+	@media screen and (max-width: 979px) {
+
+	}
+
+	/* Target bootstrap MD*/
+	@media screen and (max-width: 991px) {
+		body.woocommerce-checkout {
+			.card {
+				max-width: 600px;
+				margin: 0 auto;
+				margin-bottom: 15px;
+			}
+		}
+		.left-container {
+
+		}
+		.x-main {
+			max-width: 600px;
+			margin: 0 auto;
+		}
+		.right-container .button {
+		    width: auto;
+		}
+	}
+
+	/* Target bootstrap SM*/
+	@media screen and (max-width: 767px) {
+		.general-wrapper {
+
+		}
+		.x-main {
+			max-width: 100%;
+		}
+		#top > .x-container.max.width {
+		    width: 100%;
+		}
+		.card {
+			border: none;
+		}
+		background-color: #fff;
+		.entry-content > .woocommerce {
+			background-color: #fff;
+		}
+	}
+
+	@media screen and (max-width: 640px) {
+		.button {
+			width: 100% !important;
+		}
+		.button.sv-wc-payment-gateway-payment-form-manage-payment-methods {
+			width: 100%;
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+
+	}
+
+	@media screen and (max-width: 360px) {
+
+	}
+}
+
+
+
+
+

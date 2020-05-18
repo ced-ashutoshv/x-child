@@ -1,0 +1,157 @@
+/*BY AMEBA*/
+footer .x-colophon-content{
+	margin: 4px !important;
+	text-align: left !important;
+}
+#ameba{
+	color: white;
+    transition: .5s opacity ease-out;
+    opacity: .6;
+    padding-top: 11px;
+    display: block;
+    width: 248px;
+    height: 40px;
+    overflow: hidden;
+}
+#ameba:hover{
+	opacity: 1;
+}
+#ameba img{
+	width: 16px;
+    float: left;
+    margin-right: 14px;
+}
+#ameba p{
+	padding-top: 5px;
+    font-weight: 300;
+    font-size: 9px;
+    text-rendering: optimizelegibility;
+    font-family: "Montserrat",sans-serif;
+}
+
+
+
+
+
+
+#icon-boxes {
+	@media screen and (max-width: 979px) {
+	    margin-top: 50px;
+	    margin-bottom: 50px;
+	}
+	@media screen and (max-width: 767px) {
+	    margin-top: 10px;
+	    margin-bottom: 10px;
+	}
+}
+
+footer.x-colophon {
+
+	z-index: 5;
+
+	.widget {
+
+		color: $GreyLight;
+		&:first-child {
+			margin-top: 0;
+		}
+
+		a, ul li a, {
+			border-bottom: none;
+			box-shadow: none;
+			color: $GreyLight;
+			
+			&:hover {
+				color: $white;
+			}
+		}
+
+
+		text-shadow: none;
+		margin-top: 20px;
+
+		ul, ol {
+
+			border: none;
+			box-shadow: none;
+
+			li {
+				border: none;
+			}
+		}
+
+		&.widget_nav_menu ul li a,
+		&.widget_meta ul li a,
+		&.widget_pages ul li a {
+			padding: 0.8em 0.85em;
+			&:hover {
+				background-color: transparent;
+			}
+			&:before {
+				display: none;
+			}
+		}
+		&.widget_nav_menu {
+			font-size: 1.4rem;
+
+			ul li a:first-child {
+				padding-top: 0;
+			}
+
+
+		}
+	}
+
+	&.top {
+		background-color: $GreyFooterTop;
+		padding: 50px 0;
+		font-size: 1.6rem;
+
+	}
+	&.bottom {
+		background-color: $GreyBlack;
+		box-shadow: none;
+		padding: 4px 0;
+	}
+	.social-icons {
+		font-size: 3.5rem;
+		line-height: 0;
+		li {
+			line-height: 0;
+		}
+	}
+
+
+
+	/**** RESPONSIVE ****/
+
+	@media screen and (max-width: 1024px) {
+		
+	}
+
+
+	@media screen and (max-width: 979px) {
+	    &.top .x-column .widget:first-child  {
+	    	margin-top: 0;
+	    }
+	    .iframe-trustspot {
+	    	height: 110px !important;
+	    	float: none !important;
+	    	margin-right: 0 !important;
+	    }
+	    .AuthorizeNetSeal {
+	    	float: none !important;
+	    	margin-top: 10px;
+	    }
+
+	}
+
+	@media screen and (max-width: 767px) {
+		padding: 6% 0 6%;
+	    text-align: center;
+	    &.top .x-column .widget:first-child {
+	    	margin-top: 20px;
+	    }
+	}
+
+}

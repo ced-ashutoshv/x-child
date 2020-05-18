@@ -1,0 +1,16 @@
+div.auth0-lock.auth0-lock .auth0-lock-submit {
+	padding: 0.663em 2em 0.613em;
+	height: auto;
+}
+div.auth0-lock.auth0-lock .auth0-lock-submit:hover:not([disabled]) span {
+	-webkit-transform: none;
+	transform: none;
+}
+div.auth0-lock.auth0-lock .auth0-lock-submit:hover {
+	background-color: $colorYouvedaHover !important;
+}
+div.auth0-lock.auth0-lock .auth0-lock-submit .auth0-label-submit {
+    height: auto;
+    line-height: 2em;
+
+}

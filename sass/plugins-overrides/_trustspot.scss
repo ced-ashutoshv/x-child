@@ -1,0 +1,119 @@
+
+
+/*SINGLE PRODUCT PAGE*/
+body.woocommerce.single-product {
+
+	.summary {
+		.trustspot-inline-simple {
+			.trustspot-inline-rating {
+				margin-bottom: 10px;
+			}	
+		}
+	}
+
+	.trustspot.trustspot-main-widget {
+		clear: both;
+	}
+	#trustspot-widget-wrapper {
+
+		.logo-client {
+			float: left;
+		}
+		.comment-desc {
+			float: left;
+			width: calc(100% - 140px);
+		}
+
+		button.trustspot-accordion {
+			background-color: #00808021 !important;
+			border-top-left-radius: 3px!important;
+			border-top-right-radius: 3px!important;
+		}
+		div.trust-panel.show {
+			background-color: #00808008 !important;
+			border-bottom-left-radius: 3px!important;
+			border-bottom-right-radius: 3px!important;
+		}
+
+		header {
+			display: block;
+		}
+
+		background-color: #fafafa;
+		.widget-overall-rating {
+			width: 88% !important;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 15px 15px!important;
+			.widget-star-rating {
+				.widget-bar {
+					background-color: #ffd800 !important;
+				}
+			}
+			.widget-review {
+				height: auto !important;
+				margin-bottom: 20px;
+			}
+
+			@media screen and (max-width: 768px) {
+				padding-left: 0 !important;
+			}
+		}
+		.review-result-header {
+			display: none;
+		}
+		#widget-review-result {
+		    width: 88%;
+		    max-width: 1200px;
+		    margin: 0 auto;
+		    padding-left: 0 !important;
+		    padding-right: 160px !important;
+			@media screen and (max-width: 768px) {
+				padding-right: 0 !important;
+			}
+			#trustspot-widget-review-block:last-child {
+				border-bottom: none !important;
+				padding-bottom: 0 !important;
+			}
+		}
+		/*achicar contenedor*/
+		header {
+			.review {
+				width: 88%;
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+		}
+		div#trustspot-widget-review-block {
+			
+			padding-top: 0 !important;
+			padding-bottom: 35px !important;
+			.result-box {
+				.stars {
+					margin-bottom: 5px;
+					img {
+						width: 20px !important;
+					}
+				}
+			}
+
+			@media screen and (max-width: 768px) {
+				padding: 35px 0!important;
+			}
+		}
+		.pagination-controls {
+			width: 88%;
+			max-width: 1200px;
+			margin: 0 auto;
+
+			ul {
+				margin-left: 0;
+			}
+
+			@media screen and (max-width: 768px) {
+				padding-top: 20px !important;
+			}
+		}
+	}
+}
+

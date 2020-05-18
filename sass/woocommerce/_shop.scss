@@ -1,0 +1,269 @@
+
+
+
+body.woocommerce-cart {
+
+	.products {
+		.entry-featured {
+			img.closed-product {
+				position: absolute;
+			}
+			&:hover {
+				img.closed-product {
+					opacity: 0;
+				}
+			}
+		}
+	}
+}
+
+.woocommerce li.product .trustspot-inline-simple{
+        margin-bottom: 18px;
+}
+
+
+body.woocommerce.post-type-archive-product {
+
+	.entry-content {
+		margin-top: 0;
+	}
+	
+
+	header.x-header-landmark {
+		display: none;
+	}
+	
+	/*icons belt below header*/
+	.icon-box {
+		display: table;
+		margin: 0 auto;
+
+		.icon {
+			font-size: 80px;
+		}
+		.icon, .text {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		.text {
+			color: $GreyFooterTop;
+			font-size: $h4fontSize;
+			line-height: 1.4em;
+		}
+	}
+
+
+	#shop-title {
+		@media screen and (max-width: 768px) {
+			padding-bottom: 0;
+		}
+	}
+	
+	#woocommerce-products-row {
+		max-width: 1366px;
+		margin: 0 auto;
+	}
+
+	
+	.products {
+		.entry-featured {
+			img.closed-product {
+				position: absolute;
+			}
+			&:hover {
+				img.closed-product {
+					opacity: 0;
+				}
+			}
+		}
+	}
+
+
+	#wyswyg {
+		padding-top: 240px;
+		padding-bottom: 200px;
+	}
+
+
+	/*************************************
+
+	RESPONSIVE
+
+	*************************************/
+
+	@media (max-width: 1600px) {
+		/*WYSWYG*/
+		#wyswyg {
+			.x-bg-layer-lower-image {
+				background-size: 60vw !important;
+			}
+			padding-top: 16vw;
+			padding-bottom: 8vw;
+		}
+	}
+
+	@media (min-width: 1200px) {
+
+	}
+
+	@media screen and (max-width: 1199px) {
+	    /*ICONS BELT*/
+	    .icon-box {
+	    	br {
+	    		display: none;
+	    	}
+	    }
+	    /*WYSWYG*/
+	    #wyswyg {
+	    	.x-bg-layer-lower-image {
+	    		background-size: 53vw !important;
+	    	}
+	    	padding-top: 4vw;
+	    	padding-bottom: 13vw;
+	    }
+	}
+
+
+
+	@media screen and (max-width: 979px) and (min-width: 768px) { 
+		/*ICONS BELT*/
+		.icon-box {
+			text-align: center;
+			br {
+				display: none;
+			}
+			.text, .icon {
+				display: block;
+			}
+			.icon {
+			    font-size: 40px;
+			}
+		}
+
+		/*AS NATURE INTENDED*/
+
+	    #nature-intended {
+	    	padding-top: 50px;
+	    	padding-bottom: 50px;
+
+	    	.h-custom-headline {
+	    		font-size: 4rem;
+	    	}
+	    }
+	}
+
+
+	@media screen and (max-width: 768px) {
+
+		/*AS NATURE INTENDED*/
+
+	    #nature-intended {
+	    	padding-top: 25px;
+	    	padding-bottom: 25px;
+
+	    	.h-custom-headline {
+	    		font-size: 3rem;
+	    	}
+
+	    	#copy p {
+				max-width: 360px;
+				margin: 0 auto;
+				font-size: 16px;
+				margin-bottom: 20px;
+	    	}
+	    }
+
+	    #icons-belt {
+	    	padding-top: 15px;
+	    	padding-bottom: 15px;
+
+	    	.icon {
+	    		font-size: 40px;
+	    		padding-right: 7px;
+	    	}
+	    	.icon-box {
+	    		display: block;
+	    		margin-bottom: 10px;
+	    	}
+	    	.x-column:last-child {
+	    		.icon-box {
+	    			margin-bottom: 0;
+	    		}
+	    	}
+	    }
+		.x-section#products {
+			padding-top: 0;
+			padding-bottom: 0;
+
+			.h-custom-headline {
+				margin-bottom: 10px;
+			}
+		}
+	    .x-section#shop-title {
+	    	padding-top: 20px;
+	    }
+	    /*WYSWYG*/
+	    #wyswyg {
+	    	text-align: center;
+	    	.x-bg-layer-lower-image {
+	    		background-position: top center !important;
+	    		background-size: 80% !important;
+	    	}
+	    	padding-top: 62vw;
+
+	    	#copy {
+	    		margin: 0 auto;
+	    		padding-right: 0 !important;
+	    	}
+	    }
+	}
+
+
+	@media screen and (max-width: 640px) {
+
+
+		#nature-intended {
+
+			padding-top: 30px;
+			padding-bottom: 0;
+
+			.x-bg-layer-lower-image {
+				background-position: center top;
+				background-size: cover;
+			}
+		}
+
+		/*WYSWYG*/
+		#wyswyg {
+			.x-bg-layer-lower-image {
+				background-position: top center !important;
+			}
+
+
+			#copy {
+				text-align: center;
+				.x-text {
+					margin: 0 auto;
+				}
+			}
+		}
+
+		.products {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+
+	}
+
+	@media screen and (max-width: 480px) {
+
+		/*AS NATURE INTENDED*/
+
+        #nature-intended {
+        	#main-column {
+        		padding-top: 0;
+        	}
+        }
+
+	}
+}

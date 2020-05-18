@@ -1,0 +1,117 @@
+body.woocommerce-cart {
+
+
+	.woocommerce .upsells ul.products li.product,
+	.woocommerce .related ul.products li.product,
+	.woocommerce .cross-sells ul.products li.product {
+		box-shadow: none;
+		border: none;
+	}
+
+
+
+	/*CUSTOM REMOVE ITEM*/
+
+	.remove-item-youveda {
+		display: block;
+	}
+
+
+	/*COUPON*/
+    .woocommerce-cart-form {
+
+    	@media screen and (min-width: 979px) {
+
+			.actions {
+				.input-text {
+					height: 45px;
+					padding-left: 15px;
+					padding-right: 15px;
+				}
+			}
+
+		}
+
+
+		@media screen and (max-width: 640px) {
+			.actions {
+				.button, input.button {
+					width: 100%;
+				}
+			}
+		}
+
+    }
+	
+
+
+	/*RECURRING TOTALS*/
+	.shop_table {
+		.recurring-totals {
+			th {
+				padding-top: 50px;
+				font-size: 2.1rem;
+				font-weight: 400;
+			}
+		}
+	}
+
+
+	/*COLLATERALS*/
+	.cart-collaterals {
+		h2 {
+			margin-bottom: 30px;
+		}
+
+		.product {
+			.entry-wrap {
+				.button {
+					width: 100%;
+				}
+			}
+		}
+		.disclaimer_coupon{
+			max-width: 50%;
+		 	color: #808080;
+		    font-size: 0.9em;
+		}
+		@media screen and (max-width: 940px) {
+			.disclaimer_coupon.right{
+				float: none;
+		    	min-width: 100%;
+				margin-top: 0.5em;
+			}
+		}
+	}
+
+
+	/*CART TOTALS*/
+	.cart_totals {
+		h2 {
+			margin-bottom: 30px !important;
+		}
+	}
+
+
+	@media screen and (max-width: 1199px) {
+	    
+	}
+
+	@media screen and (max-width: 640px) {
+		.button {
+			width: 100%;
+		}	
+	}
+
+
+	/*
+	id tarea paymo: 14442555
+	queremos ocultar el boton en la pagina de cart. por lo que vi se logra
+	con css : https://theme.co/apex/forum/t/remove-hide-the-amazon-pay-button-form-checkout-page/9836/2*/
+	/*nota: tambien ocultamos el boton en la pagina del checkout, pero esos estilos estan en sass/woomcommerce/_checkout.scss*/ 
+
+	#pay_with_amazon {
+		display: none;
+	}
+
+}

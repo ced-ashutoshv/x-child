@@ -1,0 +1,425 @@
+/*** LINKS ***/
+a {
+	-webkit-transition: color 0.5s;
+	/* Safari */ transition: color 0.5s;
+}
+
+.x-navbar .desktop .x-nav > li > a {
+    height: 70px;
+    padding-top: 37px;
+}
+.x-navbar .desktop .x-nav li>a>span:after {
+	content: "\f078";
+	position: relative;
+	top: -1px;
+	color: $colorYouvedaAqua;
+	font-size: 0.7em;
+}
+.desktop .sub-menu {
+	font-size: 15px;
+	-webkit-transition: all 1s;
+	transition: all 0.5s;
+	min-width: 0;
+	left: 0;
+	top: 92px !important;
+}
+.desktop .sub-menu a {
+	padding: 0.2em 1.6em;
+}
+
+
+@media screen and (max-width: 767px) {
+
+}
+
+	.youveda-user-icon {
+		font-size: 1.55em;
+		position: relative;
+		&:after {
+			content: "\f00c";
+			margin-left: 0.35em;
+			font-family: "FontAwesome" !important;
+			font-style: normal !important;
+			font-weight: normal !important;
+			text-decoration: inherit;
+			text-rendering: auto;
+			-webkit-font-smoothing: antialiased;
+			position: absolute;
+			top: 0;
+			right: -1em;
+			transition: color 0.15s linear;
+		}
+		transition: color 0.15s linear;
+	}
+
+
+header.masthead {
+	.x-navbar {
+		
+		.x-nav {
+			.user {
+				.icon:before {
+					transition: color 0.15s linear;
+				}
+
+				&:hover {
+					.icon:before {
+						color: $colorYouvedaAqua;
+					}
+				}
+				
+				&.mobile {
+					display: none;
+				}
+
+				float: right;
+
+				&.x-active > a {
+					box-shadow: none !important;
+				}
+				> a {
+					padding-top: 32px;
+					&:hover, &:active, &:focus,  {					
+						box-shadow: none !important;
+					}
+				}
+
+				.youveda-user-icon,.x-icon-shopping-cart{
+					&:before {
+						color: black;
+					}
+				}
+
+				.youveda-user-icon {
+					font-size: 1.55em;
+					position: relative;
+					&:after {
+						content: "\f00c";
+						margin-left: 0.35em;
+						font-family: "FontAwesome" !important;
+						font-style: normal !important;
+						font-weight: normal !important;
+						text-decoration: inherit;
+						text-rendering: auto;
+						-webkit-font-smoothing: antialiased;
+						position: absolute;
+						top: 0;
+						right: -1em;
+						transition: color 0.15s linear;
+					}
+					transition: color 0.15s linear;
+				}
+
+				&:hover {
+					.youveda-user-icon {
+						color: #008080;
+						&:after {
+							color: #008080;
+						}
+					}
+				}
+
+				@media screen and (max-width: 979px) {
+					&.mobile {
+						display: inline-block;
+					}
+					&.desktop {
+						display: none;
+					}
+				}
+			}
+		}
+
+		
+		.desktop ul.x-nav > li > a:not(.x-btn-navbar-woocommerce) {
+		letter-spacing: -0.017em;
+		/*
+			@media screen and (max-width: 1250px) and (min-width: 980px) {
+				font-size: 12px;
+				padding-top: 42px;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+		*/
+		}
+
+
+		.x-brand.img {
+			.isotype, img {
+				font-size: 0;
+			}
+		}
+
+
+		@media screen and (max-width: 1250px) and (min-width: 980px) {
+			.x-brand.img {
+				/*margin-top: 22px;*/
+				img {
+					width: 130px;
+				}
+				/*
+				.isotype {
+					width: 0;
+					margin-right: 0;
+				}
+				*/
+			}
+		}
+
+		@media screen and (max-width: 979px) {
+			.x-brand.img {
+				position: absolute;
+				left: 107px;
+				margin-left: -60px;
+				top: -12px;
+				margin-top: 15px !important;
+				.isotype {
+					width: 0;
+				}
+				img {
+					width: 110px;
+				}
+			}
+			.x-btn-navbar {
+				float: left;
+				padding-left: 0;
+				padding: 0;
+				margin-top: 23px;
+			}
+			.x-navbar-inner > .x-container {
+				width: 100%;
+				padding: 0 15px;
+			}
+			.x-nav-wrap.desktop {
+				display: block;
+
+				.menu-item {
+					display: none;
+
+					&.x-menu-item-woocommerce {
+						display: list-item;
+					}
+				}
+			}
+
+			/*hide some submenu items (woocommerce and user)*/
+			#x-nav-wrap-mobile {
+				.x-menu-item-woocommerce, .menu-item.user {
+					display: none;
+				}
+				.x-nav {
+					margin-bottom: 0;
+					.menu-item:nth-child(4) a {
+						/*remove border bottom "last item" (Learn)*/
+						border-bottom: 0;
+					}	
+				}
+			}
+		}
+	
+		.x-btn-navbar {
+			position: relative;
+			top: -8px;
+		}
+	}
+
+	
+
+	/*MINIMIZE NAVBAR ON SCROLL DOWN*/
+	.x-navbar-inner {
+		min-height: auto;
+	}
+	.x-brand.img {
+		img {
+			width: 130px; 
+			-webkit-transition: all 1s;
+			transition: all 0.5s;
+			/*This is only the logotype ("YOUVEDA"), the isotpye (Woman face) is added with javascript, beacause when the user scrolls down, we want the face to be hidden*/
+			
+			&.isotype {
+				width: 60px;
+				margin-right: 7px;
+				opacity: 1;
+			}
+		}	
+	}
+
+
+	.desktop .x-nav > li > a,
+	.desktop .x-nav > li.x-menu-item-woocommerce > a,
+	.x-brand.img, .x-brand.img .isotype,
+	#x-btn-navbar  {
+		transition: all .5s $standard_easing;
+	}
+
+
+	/*same css for max-wdith: 979px and &.scrollingDown below*/
+	@media (max-width: 979px) {
+		.x-navbar .x-nav .user > a {
+			padding-top: 17px !important;
+		}
+		.x-brand.img {
+			position: absolute;
+			left: 50%;
+			margin-left: -67px;
+			img.isotype{
+				width: 0px !important;
+				opacity: 0;
+				margin-right: 0;
+			}	
+		}
+		.desktop .x-nav > li > a {
+		    height: 52px;
+		    padding-top: 21px !important;
+		    font-size: 13px !important;
+		}
+		.desktop .x-nav > li.x-menu-item-woocommerce > a {
+			padding-top: 12px !important;
+		}
+	}
+
+	
+	@media (max-width: 768px) {
+		#menu-home-menu .x-menu-item-woocommerce {
+			margin-right: 0;
+		}
+	}
+
+
+	&.scrollingDown {
+		.x-navbar .x-nav .user > a {
+			padding-top: 17px !important;
+		}
+		.x-brand.img {
+			margin-top: 3px;
+			img.isotype{
+				width: 0px !important;
+				opacity: 0;
+				margin-right: 0;
+			}	
+		}
+		.desktop .x-nav > li > a {
+		    height: 52px;
+		    padding-top: 21px !important;
+		    font-size: 13px !important;
+		}
+		.desktop .x-nav > li.x-menu-item-woocommerce > a {
+			padding-top: 12px !important;
+		}
+		/*submenu*/
+		.x-navbar {
+			.sub-menu {
+				font-size: 13px;
+				top: 53px !important;
+			}
+		}
+		.x-navbar-wrap .x-navbar {
+
+		}
+	}
+}
+
+body.logged-in {
+	@media screen and (max-width: 979px) {
+		header.masthead {
+			.x-navbar {
+				#x-nav-wrap-mobile {
+					.menu-item.user > a {
+						display: none;
+					}
+					.x-menu-item-woocommerce {
+						display: none;
+					}
+					.menu-item.user {
+						display: block;
+						float: none;
+						.x-collapsed {
+							display: block;
+						}
+					}
+					.x-menu-item-woocommerce, .menu-item.user {
+						.x-collapsed {
+							margin-left: 0;
+						}
+					}
+					float: none;
+				}
+			}
+		}
+	}
+}
+
+/*mobile menu*/
+#x-nav-wrap-mobile {
+	#menu-home-menu-1 {
+		margin-top: 0;
+		li:first-child {
+			border-top: 0;
+		}
+	}
+	.x-btn-navbar-woocommerce {
+		border-top: 0;
+		border-bottom: 0;
+	    margin-top: 0;
+	    width: 150px;
+	    padding-bottom: 0;
+	}
+	/*change arrow icons*/
+	[data-x-icon-s]:before {
+		content: "\f078";
+		position: relative;
+		top: -1px;
+		color: #76b7ad;
+		font-size: 0.7em;
+	}
+	.user.mobile {
+		display: none;
+	}
+	.user {
+		display: none;
+	}
+}
+
+
+/*** SCROLL ARROW ***/
+.x-slider-scroll-bottom {
+
+	&:after {
+		content: "SCROLL DOWN";
+		font-size: 12px;
+		position: absolute;
+		top: -41px;
+		left: 0;
+		line-height: 15px;
+		text-align: center;
+	}
+}
+
+
+/*override custom navigation box shadow color*/
+.x-navbar .desktop .x-nav > li > a:hover, .x-navbar .desktop .x-nav > .x-active > a, .x-navbar .desktop .x-nav > .current-menu-item > a {
+	box-shadow: inset 0 4px 0 0 $colorYouvedaAqua !important;
+}
+
+
+
+.algo {
+
+	.algo-mas {
+		
+		
+
+	}
+
+		.algo-mas-mas {
+
+		}
+}
+
+
+
+
+.block1 .element { color: red; }
+.block1__element { color: red; }
+
+.block1__element.bigger { font-size: 2em; }

@@ -1,0 +1,317 @@
+body.woocommerce.single-product, body.single-product-template {
+
+
+	#foundation {
+
+		@media screen and (max-width: 768px) {
+		    .image {
+		    	text-align: center;
+		    }
+		}
+
+	}
+
+
+	#kit {
+		.x-img {
+			margin-top: 1em;
+
+			@media screen and (max-width: 768px) {
+				margin-top: 3em;
+			}
+		}
+	}
+
+
+	#features {
+
+		/*left side image*/
+		#left-side-image {
+			.text {
+				bottom: 0;
+				margin-bottom: 17%;
+
+				@media screen and (max-width: 979px) and (min-width: 768px) {
+					margin-bottom: 15%;
+				}
+				@media screen and (max-width: 480px) {
+					margin-bottom: 15%;
+				}
+			}
+		}
+
+		/*right side image*/
+		#right-side-image {
+			.text {
+				top: 0;
+				margin-top: 17%;
+
+				@media screen and (max-width: 979px) and (min-width: 768px) {
+					margin-top: 15%;
+				}
+				@media screen and (max-width: 480px) {
+					margin-top: 6%;
+
+					br {
+						display: none;
+					}
+					p {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+
+		/*bottom*/
+		#bottom-image {
+			overflow: hidden;
+
+			.text {
+
+			}
+			.image {
+				position: absolute;
+			    right: -210px;
+			    max-width: none;
+			    width: 800px;
+			    top: 80px;
+			}
+
+			@media screen and (max-width: 1199px) {
+				.image {
+					width: 710px;
+					top: -40px;
+				}
+				.text {
+					br {
+						display: none;
+					}
+				}
+			}
+
+			@media screen and (max-width: 979px) and (min-width: 768px) {
+				.text {
+					padding: 115px 0px 115px 6vw;
+				}
+				.image {
+					width: 560px;
+					top: -10px;
+				}
+
+			}
+
+			@media screen and (max-width: 768px) {
+				.text {
+					padding-top: 0;
+				    padding-left: 0;
+				    padding-bottom: 12%;
+				    text-align: center !important;
+				    max-width: 400px;
+				    margin: 0 auto;
+				    margin-top: 13%;
+
+					.x-text {
+						text-align: center !important;
+					}
+
+					> * {
+						margin-left: auto;
+						margin-right: auto;
+					}
+				}
+			    .image {
+			    	position: relative;
+			    	width: auto;
+			    	top: 0;
+			    	right: -70px;
+			    }
+			}
+
+			@media screen and (max-width: 480px) {
+				.text {
+					padding: 0 40px 11% 40px;
+				}
+			}
+		}
+
+		/*left and right*/
+		#left-side-image, #right-side-image {
+			.text {
+				position: absolute;
+				width: 100%;
+				padding: 0 50px;
+				z-index: 1;
+
+				> * {
+					margin-left: auto;
+					margin-right: auto;
+				}
+				@media screen and (max-width: 979px) and (min-width: 768px) {
+					padding-left: 20px;
+					padding-right: 20px;
+					margin-top: 40px;
+				}
+			}
+			@media screen and (max-width: 768px) {
+				margin-bottom: 7% !important;
+			}
+		}
+
+		/*left,	right, and bottom image*/
+		#left-side-image, #right-side-image, #bottom-image  {
+			.text {
+				> * {
+					max-width: 360px;
+				}
+	
+				@media screen and (max-width: 979px) and (min-width: 768px) {
+					font-size: 14px;
+					.title {
+						font-size: 2rem;
+					}
+				}
+				@media screen and (max-width: 480px) {
+					font-size: 14px;
+					padding-left: 18px;
+					padding-right: 18px;
+					margin-top: 14%;
+
+					br { display: none; }
+					
+					.title {
+						font-size: 2rem;
+					}
+				}
+				@media screen and (max-width: 380px) {
+					.title {
+						font-size: 1.7rem;
+					}
+					margin-bottom: 9%;
+					margin-top: 9%;
+				}
+
+			}
+		}
+	}
+
+	#featured-blends {
+		@media screen and (max-width: 480px) {
+			padding-bottom: 0;
+		}
+	}
+
+	#big-savings {
+		@media screen and (max-width: 640px) {
+		    padding-bottom:0;
+		    margin-bottom: 6%;
+		}
+	}
+	#testing-certifications {
+		@media screen and (max-width: 640px) {
+		    padding-top: 0;
+		}
+	}
+
+	#testing-certifications-global-block {
+		.box-container {
+			padding: 0 30px;
+			display: flex;
+			display: -webkit-box;
+			flex-flow: row wrap;
+			justify-content: space-between;
+		}
+		.box {
+			
+			&:first-child {
+				left: -30px;
+			}
+			&:last-child {
+				right: -30px;
+			}
+		}
+		.title {
+			font-size: $slightlyBiggerFontSize;
+			font-weight: $FontWeightBold;
+			margin-top: 200px;
+		}
+		.subtitle {
+			font-size: $slightlyBiggerFontSize;
+			font-weight: $FontWeightBold;
+			margin-top: 200px;
+		}
+		@media screen and (max-width: 979px) and (min-width: 768px) {
+			.box-container {
+				padding: 0 10px;
+			}
+		    .text {
+		    	font-size: 14px;
+		    }
+		    .box {
+		    	padding: 0em 15px 25px 15px;
+		    }
+		}
+		@media screen and (max-width: 768px) {
+			.box-container {
+				padding: 0;
+				max-width: 400px;
+				margin-bottom: 30px;
+				display:block;
+			}
+			.box {
+				margin-bottom: 30px;
+				padding-top: 250px;
+				&:first-child {
+					left: 0;
+				}
+				&:last-child {
+					right: 0;
+				}
+			}
+			.title {
+				margin-top: 0;
+			}
+		}
+		@media screen and (max-width: 480px) {
+			padding-top: 15px;
+
+			.box {
+				padding-top: 210px;
+				
+			}
+		}
+
+		#logos {
+			@media screen and (max-width: 979px) and (min-width: 768px) {
+				img {
+					max-width: 80px;
+				}
+				.fda {
+					padding-top: 30px;
+				}
+			}
+			@media screen and (max-width: 768px) {
+				.fda {
+					padding-top: 0;
+					margin: 70px 0;
+				}
+			}
+		}
+	}
+
+	#got-questions {
+
+
+		#got-questions-anchor {
+			.subtitle {
+				display: none !important;
+				/*We need to apply an id to one of the "Got Questions" accordion item in order to use it as an achor for the "Got Questions?" link that appears on top of the single product
+				pages. Each accordion item can have an id, but it is used as a subtitle automatically.. we don't want "got-questions-title" to appear, so for this item, we hide it.*/
+			}
+		}
+		@media screen and (max-width: 768px) {
+			padding-top: 0;
+			padding-bottom: 60px;
+		}
+	}
+
+} 

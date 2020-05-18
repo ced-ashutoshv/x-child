@@ -1,0 +1,123 @@
+@font-face {
+  font-family: 'youveda';
+  src:  url('fonts/youveda1.eot?noc2ya');
+  src:  url('fonts/youveda1.eot?noc2ya#iefix') format('embedded-opentype'),
+    url('fonts/youveda1.ttf?noc2ya') format('truetype'),
+    url('fonts/youveda1.woff?noc2ya') format('woff'),
+    url('fonts/youveda1.svg?noc2ya#youveda') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'youveda' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.youveda-eye-icon:before {
+  content: "\e900";
+}
+.youveda-field-icon:before {
+  content: "\e901";
+}
+.youveda-hand-icon:before {
+  content: "\e902";
+}
+.youveda-head-icon:before {
+  content: "\e903";
+}
+.youveda-mobile-icon:before {
+  content: "\e904";
+}
+.youveda-person-icon:before {
+  content: "\e905";
+}
+.youveda-shop-icon:before {
+  content: "\e906";
+}
+.youveda-facebook-icon:before {
+  content: "\e907";
+}
+.youveda-youtube-icon:before {
+  content: "\e908";
+}
+.youveda-instagram-icon:before {
+  content: "\e909";
+}
+.youveda-uniE90A-icon:before {
+  content: "\e90a";
+}
+.youveda-linkedin-icon:before {
+  content: "\e90b";
+}
+.youveda-diamond-chemistry-icon:before {
+  content: "\e90d";
+}
+.youveda-diamond-couple-icon:before {
+  content: "\e90e";
+}
+.youveda-diamond-leaf-icon:before {
+  content: "\e90f";
+}
+.youveda-dairy-egg-free-icon:before {
+  content: "\e910";
+}
+.youveda-gluten-free-icon:before {
+  content: "\e911";
+}
+.youveda-non-gmo-icon:before {
+  content: "\e912";
+}
+.youveda-soy-free-icon:before {
+  content: "\e913";
+}
+.youveda-suplement-kit-icon:before {
+  content: "\e914";
+}
+.youveda-doshas-balance-icon:before {
+  content: "\e915";
+}
+.youveda-fda-icon:before {
+  content: "\e916";
+}
+.youveda-free-shiping-icon:before {
+  content: "\e917";
+}
+.youveda-shop-bag-new-icon:before {
+  content: "\e918";
+}
+.youveda-user-icon:before {
+  content: "\e919";
+}
+.youveda-chemistry-icon:before {
+  content: "\e91a";
+}
+.youveda-couple-icon:before {
+  content: "\e91b";
+}
+.youveda-doctor-icon:before {
+  content: "\e91c";
+}
+.youveda-leaf-icon:before {
+  content: "\e91d";
+}
+.youveda-refund-icon:before {
+  content: "\e91e";
+}
+.youveda-shipping-icon:before {
+  content: "\e91f";
+}
+.youveda-time-icon:before {
+  content: "\e920";
+}

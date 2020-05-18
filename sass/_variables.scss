@@ -1,0 +1,49 @@
+$border : 1px solid $GreyLight;
+$maxWidth : 780px; /*Use this variable to limit elements width that appear to wide on Woocommerce*/
+/*
+Standard easing puts subtle attention at the end of an animation, by giving more time 
+to deceleration than acceleration. It is the most common form of easing.
+ */
+$standard_easing: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+/*
+Incoming elements are animated using deceleration easing, which starts a 
+transition at peak velocity (the fastest point of an element’s movement) and ends at rest
+ */
+$decelerate_easing : cubic-bezier(0.0, 0.0, 0.2, 1);
+
+/*
+Elements exiting a screen use acceleration easing, where they start 
+at rest and end at peak velocity.
+ */
+$accelerate_easing : cubic-bezier(0.4, 0.0, 1, 1);
+
+/*
+ * 	Default theme - Owl Carousel CSS File
+ */
+
+$color-base:			#869791 !default;
+$color-white:			#FFF !default;
+$color-gray:			#D6D6D6 !default;
+
+//nav
+
+$nav-color: 			$color-white !default;
+$nav-color-hover:		$color-white !default;
+$nav-font-size: 		14px !default;
+$nav-rounded: 			3px !default;
+$nav-margin: 			5px !default;
+$nav-padding: 			4px 7px !default;
+$nav-background: 		$color-gray !default;
+$nav-background-hover:	$color-base !default;
+$nav-disabled-opacity: 	0.5 !default;
+
+//dots
+
+$dot-width:				10px !default;
+$dot-height:			10px !default;
+$dot-rounded:			30px !default;
+$dot-margin: 			5px 7px !default;
+$dot-background:		$color-gray !default;
+$dot-background-active:	$color-base !default;
+

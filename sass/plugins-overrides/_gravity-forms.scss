@@ -1,0 +1,145 @@
+/*
+	Gravity forms "ready classes" (for floating left and right the inputs) where not working. We searched and found a solutions by X-theme by adding a "clear: none" rule
+	to the li.gfield, and it worked.
+	
+	the article: https://theme.co/apex/forums/topic/gravity-forms-ready-classes-not-working-with-x/
+*/
+
+
+body.page {
+
+	.site .gform_wrapper ul li.gfield {
+	   clear: none !important;
+	}	
+
+
+	/*More padding left for inputs*/
+	.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+		padding: 5px 9px;
+	}
+
+
+	/*make inputs same font size*/
+	.gform_wrapper input[type=text],
+	.gform_wrapper input[type=url],
+	.gform_wrapper input[type=email],
+	.gform_wrapper input[type=tel],
+	.gform_wrapper input[type=number],
+	.gform_wrapper input[type=password],
+	.gform_wrapper select,
+	.gform_wrapper textarea {
+		font-size: inherit;
+	}
+
+	/*inline radio buttons*/
+	.gform_wrapper .gfield.inline ul:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+	.gform_wrapper .gfield.inline li {
+		float: left;
+		margin-right: 10px;
+		line-height: 45px;
+	}
+
+	.gform_wrapper .gfield.inline .ginput_container {
+		margin-top: 8px;
+	}
+
+	.gform_wrapper ul li.gfield.gsection {
+		clear: both !important;
+		margin: 28px 0px 28px 0;
+	}
+
+	.gform_wrapper.gform_validation_error .gform_body ul li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half) {
+		max-width: 100%;
+	}
+	.gform_wrapper ul.gform_fields li.gfield {
+		padding-right: 0;
+	}
+
+
+	/*************************
+		ERRORS 
+	*************************/
+
+	.gform_wrapper li.gfield.gfield_error,
+	.gform_wrapper li.gfield.gfield_error.gfield_contains_required {
+		background-color: transparent;
+		border: none;
+		padding-left: 0 !important;
+	}
+	.gform_wrapper .field_description_below .gfield_description {
+		padding-top: 5px;
+	}
+
+	.gform_wrapper li.gfield.gfield_error,
+	.gform_wrapper li.gfield.gfield_error.gfield_contains_required {
+		padding-top: 0 !important;
+		padding-right: 0 !important;
+	}
+	.gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container,
+	.gform_wrapper li.gfield.gfield_error.gfield_contains_required label.gfield_label {
+		margin-top: 8px;
+	}
+	.gform_wrapper .top_label li.gfield.gfield_error.gf_left_half {
+		margin-right: 4%;
+	}
+	.gform_wrapper .top_label li.gfield.gf_left_half,
+	.gform_wrapper .top_label li.gfield.gf_right_half {
+		padding-right: 0;
+	}
+
+
+
+	/*************************
+		CONFIRMATION MESSAGE 
+	*************************/
+
+	.gform_confirmation_message {
+		font-size: 24px;
+		color: #008080;
+	}
+
+
+	/*************************
+		RESPONSIVE 
+	*************************/
+
+	@media screen and (max-width: 640px) {
+
+		.gform_wrapper .top_label li.gfield.gf_left_half,
+		.gform_wrapper .top_label li.gfield.gf_right_half {
+			width: 100%;
+			float: none;
+			margin-right: 0;
+		}
+		.gform_wrapper .gfield.inline li {
+			float: none;
+			margin-right: 0;
+			line-height: inherit;
+		}
+	}
+
+
+	@media only screen and (max-width: 761px),(max-device-width: 1023px) and (min-device-width: 768px) {
+		.gform_wrapper ul.gform_fields li.gfield.gfield_error+li.gfield.gfield_error {
+		    margin-top: 10px;
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

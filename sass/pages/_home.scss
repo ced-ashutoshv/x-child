@@ -1,0 +1,207 @@
+body.home {
+
+	.x-slider-container.above {
+		@media screen and (max-width: 767px) {
+			.forcefullwidth_wrapper_tp_banner {
+				opacity: 0;
+			}
+			
+
+			.x-slider-scroll-bottom.above {
+				left: auto;
+				right: 28px;
+				left: auto;
+			}
+			background-image: url(/wp-content/uploads/2018/06/mobile_header.jpg);
+			background-size:cover;
+		}
+	}	
+
+	/*ALL SECTIONS */
+	@media screen and (max-width: 767px) {
+		.x-section.full-height {
+			height: auto !important;
+		}
+	}
+
+	/*SECTION "Invigorate*/
+	.x-section#invigorate {
+		@media screen and (max-width: 767px) {
+			padding-bottom:2.5%;;
+			padding-top: 50px;
+		}
+	}
+	
+	/*SECTION "Find Your Ballance*/
+	.x-section#balance {
+		background-repeat: no-repeat;
+		@media screen and (max-width: 1199px) {
+			.x-bg {
+				> div {
+					background-position: left 30% top 15% !important;
+				}
+			}
+		}
+		@media screen and (max-width: 979px) {
+			.x-bg {
+				> div {
+					
+				}
+			}
+		}
+		@media screen and (max-width: 767px) {
+			padding-top: 485px;
+			.x-bg {
+				> div {
+					background-position: left top -100px !important;
+					background-size: 770px !important;
+				}
+			}
+		}
+
+		@media screen and (max-width: 600px) {
+			padding-top: 370px;
+			.x-bg {
+				> div {
+					background-size: 610px !important;
+				}
+			}
+		}
+
+		@media screen and (max-width: 480px) {
+			.x-bg {
+				> div {
+					
+				}
+			}
+		}
+	}
+
+
+	/*SECTION "Handled with care*/
+	.x-section#care {
+		background-repeat: no-repeat;
+		@media screen and (max-width: 1440px) {
+			.x-bg {
+				> div {
+				}
+			}
+		}
+
+		@media screen and (max-width: 1199px) {
+			.x-bg {
+				> div {
+					background-size: cover !important;
+					background-position: center right -28vw !important;	
+				}
+			}
+		}
+		@media screen and (max-width: 979px) {
+			.x-bg {
+				> div {
+					background-position: center right -37vw !important;
+				}
+			}
+		}
+		@media screen and (max-width: 767px) {
+			padding-top: 550px;
+			padding-bottom: 0;
+			.x-bg {
+				> div {
+					background-position: left top -60px !important;
+					background-size: 770px !important;
+				}
+			}
+		}
+
+		@media screen and (max-width: 600px) {
+			padding-top: 465px;
+			.x-bg {
+				> div {
+					background-position: left -50px top -50px !important;
+					background-size: 640px !important;
+				}
+			}
+		}
+
+		@media screen and (max-width: 480px) {
+			.x-bg {
+				> div {
+					
+				}
+			}
+		}
+	}
+
+
+	/*SECTION "Infused with technology*/
+	.x-section#technology {
+		background-repeat: no-repeat;
+		@media screen and (max-width: 1440px) {
+			.x-bg {
+				> div {
+				}
+			}
+		}
+
+		@media screen and (max-width: 1199px) {
+			.x-bg {
+				> div {
+
+				}
+			}
+		}
+		@media screen and (max-width: 979px) {
+			.x-bg {
+				> div {
+				
+				}
+			}
+		}
+		@media screen and (max-width: 767px) {
+			padding-top: 350px;
+			padding-bottom: 20px;
+			.x-bg {
+				> div {
+					background-position: center top -0 !important;
+					background-size: 770px !important;
+				}
+			}
+		}
+
+		@media screen and (max-width: 600px) {
+			padding-top: 355px;
+			.x-bg {
+				> div {
+				
+				}
+			}
+		}
+
+		@media screen and (max-width: 480px) {
+			.x-bg {
+				> div {
+					
+				}
+			}
+		}
+	}
+
+
+	/* The Right Balance. Guaranteed */	
+	.x-section#right-balance {
+		@media screen and (max-width: 767px) {
+			padding-bottom: 20px;
+			padding-top: 40px;
+			.video-column {
+				padding-top: 20px;
+				text-align: center;
+				.x-frame-video-player {
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+
+
+}

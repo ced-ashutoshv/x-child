@@ -1,0 +1,73 @@
+.x-navbar {
+
+	.x-icon-shopping-cart {
+		font-family: 'youveda' !important;
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		transition: color 0.15s linear;
+
+		&:before {
+			content: "\e918";
+		}
+	}
+
+	.x-menu-item-woocommerce {
+		margin-right: 16px;
+		.x-cart.inner-outer.inline.rounded {
+			border: none;
+			.inner {
+				padding-right: 0;
+				padding-left: 0;
+			}
+			.outer {
+				width: auto;
+				border-radius: 0.7em !important;
+				height: 1.8em;
+				padding: 0 4px !important;
+				position: relative;
+				top: 8px;
+				background-color: $colorYouvedaAqua;
+				letter-spacing: 0.05em;
+				transition: background-color 0.15s linear;
+				font-size: 0.7em;
+				left: -2px;
+				line-height: 2em;
+				text-align: center;
+			}
+		}
+		&:hover .x-icon-shopping-cart {
+			color: $colorYouvedaAqua;
+		}
+	}
+	.x-icon-shopping-cart {
+		font-size: 1.6em;
+		padding-right: 0.1em ;
+		color: black;
+	}
+}
+
+
+.x-navbar-static-active .x-navbar .desktop .x-nav > li.x-menu-item-woocommerce > a,
+.x-navbar-fixed-top-active .x-navbar .desktop .x-nav > li.x-menu-item-woocommerce > a {
+
+	/*lift up a little bit the bag icon*/
+	padding-top: 26px !important;
+
+	&:hover {
+		box-shadow: none !important;
+	}
+	
+	@media (max-width: 979px) {
+		padding-top: 12px !important;
+		.x-icon-shopping-cart {
+			font-size: 1.8em;
+    		}
+
+    	}
+}
