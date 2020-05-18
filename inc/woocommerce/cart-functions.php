@@ -16,6 +16,10 @@
  */
 function yv_cart_shop_more_banner() {
 	if ( 1 === WC()->cart->cart_contents_count ) {
+
+		if ( ! file_exists( 'cart/content-cart-banner.php' ) ) {
+			 return;
+		}
 		wc_get_template( 'cart/content-cart-banner.php' );
 	}
 }
@@ -216,6 +220,10 @@ function return_amazon_gateway() {
  * @see wc_get_template()
  */
 function woocommerce_checkout_yv_shipping() {
+
+	if ( ! file_exists( 'checkout/shipping-options.php' ) ) {
+		 return;
+	}
 	return wc_get_template( 'checkout/shipping-options.php' );
 }
 
@@ -239,13 +247,18 @@ function is_amazon_payment_selected() {
  * @return string
  */
 function yv_checkout_show_shipping_sumup() {
+
+	if ( ! file_exists( 'checkout/shipping-details-custom.php' ) ) {
+		 return;
+	}
+
 	return wc_get_template( 'checkout/shipping-details-custom.php' );
 }
 add_action( 'woocommerce_review_order_before_order_total', 'yv_checkout_show_shipping_sumup', 10 );
 
 // do not show the coupon form since got moved on the 2019 new layout.
 remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
-add_action( 'woocommerce_review_order_before_order_total', 'woocommerce_checkout_coupon_form', 30 );
+// add_action( 'woocommerce_review_order_before_order_total', 'woocommerce_checkout_coupon_form', 30 );
 
 // re-order the Amazon widgets.
 add_action(

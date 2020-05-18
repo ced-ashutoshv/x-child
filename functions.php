@@ -107,8 +107,8 @@ function youveda_enqueues() {
 		wp_enqueue_script( 'cart', get_stylesheet_directory_uri() . '/scripts/cart.js', array( 'jquery' ), '1.0.0', true );
 	}
 
-
-	$child_css_version = filemtime( get_stylesheet_directory() . '/style.css' );
+	// Remove all CSS from Checkout.
+	$child_css_version = ! is_checkout() ? filemtime( get_stylesheet_directory() . '/style.css' ) : false;
 	wp_enqueue_style(
 		'x-child',
 		get_stylesheet_directory_uri() . '/style.css',
