@@ -5871,8 +5871,9 @@ body.woocommerce-checkout .woocommerce-checkout-payment .wc_payment_method > lab
     /*border-bottom: $borderSeparator;*/
     -ms-flex-align: center !important;
     align-items: center !important;
-    display: -ms-flexbox !important;
-    display: flex !important; }
+/*    display: -ms-flexbox !important;
+    display: flex !important; */
+  }
     body.woocommerce-checkout #order_review .cart_item .product-total .woocs_special_price_code:last-child {
       font-weight: bold; }
     body.woocommerce-checkout #order_review .cart_item > div:nth-child(2) {
