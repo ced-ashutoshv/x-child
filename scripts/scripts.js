@@ -922,12 +922,13 @@ jQuery(document).ready(function () {
         var newShipping = doc.querySelector('ul.woocommerce-shipping-methods').cloneNode(true);
         var newTooltip = doc.querySelector('.ic_tooltip');
 
-        parent.parentNode.insertBefore(newShipping, parent);
+        if ( parent ) {
+            parent.parentNode.insertBefore(newShipping, parent);
+        }
 
         if (newTooltip) {
             parent.parentNode.insertBefore(newTooltip, parent);
         }
-
     }
 
     /**

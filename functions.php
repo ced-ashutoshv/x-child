@@ -1479,7 +1479,8 @@ if ( ! function_exists( 'tooltip' ) ) {
 		if ( is_cart() ) {
 			$css_class .= ' right';
 		}
-		if ( 'US' !== WC()->customer->get_shipping_country() ) {
+		if ( empty( WC()->customer->get_shipping_country() ) || 'US' !== WC()->customer->get_shipping_country() ) {
+
 			$tooltip = "<div class='" . $css_class . "'><p class='ic_tooltip_btn'><i class='fa ic_warning_icon'>&#xf071;</i>For international customers</p><div class='ic_tooltip_txt visible' style='background: #e7edf2;color: #333333;line-height: 2;font-size: 0.8em;'><p><strong>Due to government regulations in different countries, international customers are subject to import duties and taxes.</strong></p><p>YouVeda will not be subject to refund or assume liability for any import duties and taxes on any products shipped outside of the US. We believe in full transparency with our customers and would like to share that import duties and taxes can be up to 20% of your order purchase.</p>
 <p>YouVeda takes pride in the quality of our products. However, we cannot offer a replacement or refund should your international order be in any way lost, delayed, or damaged.</p></div></div>";
 			echo $tooltip;
@@ -1487,8 +1488,12 @@ if ( ! function_exists( 'tooltip' ) ) {
 	}
 }
 
-add_action( 'woocommerce_after_shipping_rate', 'tooltip', 10 );
-add_action( 'woocommerce_review_order_before_order_total', 'tooltip', 20 );
+// add_action( 'woocommerce_after_shipping_rate', 'tooltip', 10 );
+if ( function_exists( 'wp_is_mobile' ) && wp_is_mobile() ) {
+	// add_action( 'woocommerce_checkout_order_review_extended', 'tooltip', 20 );
+} else {
+	add_action( 'woocommerce_checkout_order_review_extended', 'tooltip', 20 );
+}
 
 /**
  * 30. // Add code snipets to the <head></head>
