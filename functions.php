@@ -60,11 +60,17 @@
 	44. Remove afterpay for variable subscriptions (30days/60days/90days) but keep it for one time.
 	45. Add description to menu items
 	46. Shortcode that displays the amount of completed orders
-  47. Fix load Cornerstone 
-  48. Product gallery override
-  49. WooCommerce variation dropdown override
+	47. Fix load Cornerstone 
+	48. Product gallery override
+	49. WooCommerce variation dropdown override
 	50. Modify the main product query so it only displays Supplement Kits
 	51. Hide shipping rates when free shipping is available.
+
+
+	CUSTOM FUNCTIONS ADDED BY MAKEWEBBETTER
+	52. Add Product Image to Cart Item Name in Order Review.
+	53. Hide Product Quantity to Cart Item in Order Review.
+
  */
 
 /**
@@ -3186,10 +3192,8 @@ add_filter( 'woocommerce_product_query', 'yv_change_main_product_query', 10, 1 )
 	return ! empty( $free ) ? $free : $rates;
 }
 
+
 add_filter( 'woocommerce_package_rates', 'my_hide_shipping_when_free_is_available', 100 );
-
-
-
 /* Add message above login form */
 function wpsd_add_login_message() {
 	return '<p class="message">For security reasons all passwords must be reset (unless you are using Google/Facebook to log). Please use <a href="/my-account/lost-password/">this link</a> to reset your password.</p>';
@@ -3236,7 +3240,6 @@ function shapeSpace_include_custom_jquery() {
 //add_action('wp_enqueue_scripts', 'shapeSpace_include_custom_jquery');
 
 // Change woo text in buttons
-
 add_filter( 'gettext', 'change_woocommerce_return_to_shop_text', 9999, 3 );
 function change_woocommerce_return_to_shop_text( $translated_text, $text, $domain ) {
 	
@@ -3248,3 +3251,60 @@ function change_woocommerce_return_to_shop_text( $translated_text, $text, $domai
  return $translated_text; 
 
 }
+
+
+
+/*===========================================
+	MakeWebBetter Functions Here
+============================================*/
+
+
+/**
+ * 52. Add Product Image to Cart Item Name in Order Review.
+ *
+ * @param string 	$cart_item_name 	Cart Item Name.
+ * @param object 	$cart_item 			Cart Item.
+ * @param string 	$cart_item_key 		Cart Item Key.
+ * @return string
+ */
+add_filter( 'woocommerce_cart_item_name', 'display_product_image_in_order_item', 99, 3 );
+function display_product_image_in_order_item( $cart_item_name, $cart_item, $cart_item_key ) {
+
+	// Targeting Checkout page only.
+	if( is_checkout() ) {
+
+	    $product   = ! empty( $cart_item['data'] ) ? $cart_item['data'] : false; 
+	    $cart_item_quantity   = ! empty( $cart_item['quantity'] ) ? $cart_item['quantity'] : false; 
+	    $thumbnail = ! empty( $product ) ? $product->get_image( array( 60, 60 ) ) : false;
+
+	    $get_variation_attributes_html = false;
+	    if ( ! empty( $product ) && 'variation' == $product->get_type() ) {
+	    	
+	    	$post = get_post( $product->get_id()  );
+    		$attribute = isset( $post->post_excerpt ) ? $post->post_excerpt : '';
+    		if ( ! empty( $attribute ) ) {
+    			$get_variation_attributes_html = $attribute;
+    		}
+	    }
+
+	    if( $product->get_image_id() > 0 ) {
+	        $cart_item_name = '<div class="mwb-custom-item-thumbnail">' . $thumbnail . '<span class=mwb-custom-item-quantity>' . $cart_item_quantity . '</span></div>' . '<div class="mwb-custom-item-name">' . $cart_item_name;
+
+	        if ( ! empty( $get_variation_attributes_html ) ) {
+	        	$cart_item_name .= '<p>' . $get_variation_attributes_html . '<p>';
+	        }
+
+	        $cart_item_name .= '</div>';
+	    }
+	}
+
+	return $cart_item_name;
+}
+
+
+/**
+ * 53. Hide Product Quantity to Cart Item in Order Review.
+ *
+ * @return false
+ */
+add_filter( 'woocommerce_checkout_cart_item_quantity', '__return_false' );
