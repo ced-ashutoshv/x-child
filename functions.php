@@ -70,6 +70,7 @@
 	CUSTOM FUNCTIONS ADDED BY MAKEWEBBETTER
 	52. Add Product Image to Cart Item Name in Order Review.
 	53. Hide Product Quantity to Cart Item in Order Review.
+	54. Hide Recurring totals in Order Review.
 
  */
 
@@ -3275,26 +3276,26 @@ function display_product_image_in_order_item( $cart_item_name, $cart_item, $cart
 
 	    $product   = ! empty( $cart_item['data'] ) ? $cart_item['data'] : false; 
 	    $cart_item_quantity   = ! empty( $cart_item['quantity'] ) ? $cart_item['quantity'] : false; 
-	    $thumbnail = ! empty( $product ) ? $product->get_image( array( 60, 60 ) ) : false;
+	    $thumbnail = ! empty( $product ) ? $product->get_image( array( 75, 75 ) ) : false;
 
 	    $get_variation_attributes_html = false;
-	    if ( ! empty( $product ) && 'variation' == $product->get_type() ) {
+
+	    if ( ! empty( $product ) && in_array( $product->get_type(), array( 'subscription_variation', 'variation' ) ) ) {
 	    	
-	    	$post = get_post( $product->get_id()  );
-    		$attribute = isset( $post->post_excerpt ) ? $post->post_excerpt : '';
-    		if ( ! empty( $attribute ) ) {
-    			$get_variation_attributes_html = $attribute;
+    		$_cart_item_name = get_the_title( $product->get_id() );
+    		if ( ! empty( $_cart_item_name ) ) {
+
+				$_cart_item_attr = explode( 'Every', $_cart_item_name );
+				$_cart_item_attr = ! empty( $_cart_item_attr[1] ) ? $_cart_item_attr[1] : false;
+
+				if ( ! empty( $_cart_item_attr  ) ) {
+					$cart_item_name = $cart_item_name . ' – Subscription ( Every ' . $_cart_item_attr . ' ) ';
+				}
     		}
 	    }
 
 	    if( $product->get_image_id() > 0 ) {
-	        $cart_item_name = '<div class="mwb-custom-item-thumbnail">' . $thumbnail . '<span class=mwb-custom-item-quantity>' . $cart_item_quantity . '</span></div>' . '<div class="mwb-custom-item-name">' . $cart_item_name;
-
-	        if ( ! empty( $get_variation_attributes_html ) ) {
-	        	$cart_item_name .= '<p>' . $get_variation_attributes_html . '<p>';
-	        }
-
-	        $cart_item_name .= '</div>';
+	        $cart_item_name = '<div class="mwb-custom-item-thumbnail">' . $thumbnail . '<span class=mwb-custom-item-quantity>' . $cart_item_quantity . '</span></div>' . '<div class="mwb-custom-item-name">' . $cart_item_name . '</div>';
 	    }
 	}
 
@@ -3308,3 +3309,11 @@ function display_product_image_in_order_item( $cart_item_name, $cart_item, $cart
  * @return false
  */
 add_filter( 'woocommerce_checkout_cart_item_quantity', '__return_false' );
+
+
+/**
+ * 54. Hide Recurring totals in Order Review.
+ *
+ * @return false
+ */
+remove_action( 'woocommerce_review_order_after_order_total', 'WC_Subscriptions_Cart::display_recurring_totals' );
