@@ -16,6 +16,10 @@
  */
 function yv_cart_shop_more_banner() {
 	if ( 1 === WC()->cart->cart_contents_count ) {
+
+		if ( ! file_exists( 'cart/content-cart-banner.php' ) ) {
+			 return;
+		}
 		wc_get_template( 'cart/content-cart-banner.php' );
 	}
 }
@@ -163,11 +167,11 @@ add_action( 'yv_woocommerce_after_checkout_shipping_section', 'yv_save_checkout_
 add_action( 'yv_woocommerce_after_checkout_delivery_section', 'yv_save_checkout_section_button', 10 );
 
 // Add select shipping options custom template to checkout.
-add_action( 'woocommerce_checkout_after_customer_details', 'woocommerce_checkout_yv_shipping', 15 );
+// add_action( 'woocommerce_checkout_after_customer_details', 'woocommerce_checkout_yv_shipping', 15 );
 
 // Move payment after billing details.
-remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
-add_action( 'woocommerce_checkout_before_customer_details', 'woocommerce_checkout_payment', 20 );
+// remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
+// add_action( 'woocommerce_checkout_before_customer_details', 'woocommerce_checkout_payment', 20 );
 
 /**
  * Filter the gateway icons on checkout page
@@ -216,6 +220,10 @@ function return_amazon_gateway() {
  * @see wc_get_template()
  */
 function woocommerce_checkout_yv_shipping() {
+
+	if ( ! file_exists( 'checkout/shipping-options.php' ) ) {
+		 return;
+	}
 	return wc_get_template( 'checkout/shipping-options.php' );
 }
 
@@ -239,30 +247,35 @@ function is_amazon_payment_selected() {
  * @return string
  */
 function yv_checkout_show_shipping_sumup() {
+
+	if ( ! file_exists( 'checkout/shipping-details-custom.php' ) ) {
+		 return;
+	}
+
 	return wc_get_template( 'checkout/shipping-details-custom.php' );
 }
 add_action( 'woocommerce_review_order_before_order_total', 'yv_checkout_show_shipping_sumup', 10 );
 
 // do not show the coupon form since got moved on the 2019 new layout.
-remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
-add_action( 'woocommerce_review_order_before_order_total', 'woocommerce_checkout_coupon_form', 30 );
+// remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+// add_action( 'woocommerce_review_order_before_order_total', 'woocommerce_checkout_coupon_form', 30 );
 
 // re-order the Amazon widgets.
-add_action(
-	'woocommerce_checkout_init',
-	function() {
-		// Check if "pay with Amazon" plugin is enable.
-		if ( function_exists( 'wc_apa' ) ) {
-			if ( has_action( 'woocommerce_checkout_before_customer_details', array( wc_apa(), 'payment_widget' ) ) ) {
-				remove_action( 'woocommerce_checkout_before_customer_details', array( wc_apa(), 'payment_widget' ), 20 );
-				add_action( 'yv_review_order_before_payment', 'yv_amazon_payment_widget', 20 );
-				remove_action( 'woocommerce_checkout_before_customer_details', array( wc_apa(), 'address_widget' ), 10 );
-				add_action( 'woocommerce_checkout_billing', 'yv_amazon_address_widget', 20 );
-			}
-		}
-	},
-	99
-);
+// add_action(
+// 	'woocommerce_checkout_init',
+// 	function() {
+// 		// Check if "pay with Amazon" plugin is enable.
+// 		if ( function_exists( 'wc_apa' ) ) {
+// 			if ( has_action( 'woocommerce_checkout_before_customer_details', array( wc_apa(), 'payment_widget' ) ) ) {
+// 				remove_action( 'woocommerce_checkout_before_customer_details', array( wc_apa(), 'payment_widget' ), 20 );
+// 				add_action( 'yv_review_order_before_payment', 'yv_amazon_payment_widget', 20 );
+// 				remove_action( 'woocommerce_checkout_before_customer_details', array( wc_apa(), 'address_widget' ), 10 );
+// 				add_action( 'woocommerce_checkout_billing', 'yv_amazon_address_widget', 20 );
+// 			}
+// 		}
+// 	},
+// 	99
+// );
 
 /**
  * Copy of address_widget from Amazon payment plugin

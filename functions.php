@@ -60,11 +60,18 @@
 	44. Remove afterpay for variable subscriptions (30days/60days/90days) but keep it for one time.
 	45. Add description to menu items
 	46. Shortcode that displays the amount of completed orders
-  47. Fix load Cornerstone 
-  48. Product gallery override
-  49. WooCommerce variation dropdown override
+	47. Fix load Cornerstone 
+	48. Product gallery override
+	49. WooCommerce variation dropdown override
 	50. Modify the main product query so it only displays Supplement Kits
 	51. Hide shipping rates when free shipping is available.
+
+
+	CUSTOM FUNCTIONS ADDED BY MAKEWEBBETTER
+	52. Add Product Image to Cart Item Name in Order Review.
+	53. Hide Product Quantity to Cart Item in Order Review.
+	54. Hide Recurring totals in Order Review.
+	55. Default Place Order Button Html Hidden.
  */
 
 /**
@@ -107,8 +114,8 @@ function youveda_enqueues() {
 		wp_enqueue_script( 'cart', get_stylesheet_directory_uri() . '/scripts/cart.js', array( 'jquery' ), '1.0.0', true );
 	}
 
-
-	$child_css_version = filemtime( get_stylesheet_directory() . '/style.css' );
+	// Remove all CSS from Checkout.
+	$child_css_version = ! is_checkout() ? filemtime( get_stylesheet_directory() . '/style.css' ) : false;
 	wp_enqueue_style(
 		'x-child',
 		get_stylesheet_directory_uri() . '/style.css',
@@ -1479,16 +1486,21 @@ if ( ! function_exists( 'tooltip' ) ) {
 		if ( is_cart() ) {
 			$css_class .= ' right';
 		}
-		if ( 'US' !== WC()->customer->get_shipping_country() ) {
-			$tooltip = "<div class='" . $css_class . "'><p class='ic_tooltip_btn'><i class='fa ic_warning_icon'>&#xf071;</i>For international customers</p><div class='ic_tooltip_txt visible' style='background: #e7edf2;color: #333333;line-height: 2;font-size: 0.8em;'><p><strong>Due to government regulations in different countries, international customers are subject to import duties and taxes.</strong></p><p>YouVeda will not be subject to refund or assume liability for any import duties and taxes on any products shipped outside of the US. We believe in full transparency with our customers and would like to share that import duties and taxes can be up to 20% of your order purchase.</p>
+		if ( empty( WC()->customer->get_shipping_country() ) || 'US' !== WC()->customer->get_shipping_country() ) {
+
+			$tooltip = "<div class='" . $css_class . "'><p class='ic_tooltip_btn'><i class='fa ic_warning_icon'>&#xf071;</i>For international customers</p><div class='ic_tooltip_txt visible' style='background: #ffffff;color: #333333;line-height: 2;font-size: 0.8em;'><p><strong>Due to government regulations in different countries, international customers are subject to import duties and taxes.</strong></p><p>YouVeda will not be subject to refund or assume liability for any import duties and taxes on any products shipped outside of the US. We believe in full transparency with our customers and would like to share that import duties and taxes can be up to 20% of your order purchase.</p>
 <p>YouVeda takes pride in the quality of our products. However, we cannot offer a replacement or refund should your international order be in any way lost, delayed, or damaged.</p></div></div>";
 			echo $tooltip;
 		}
 	}
 }
 
-add_action( 'woocommerce_after_shipping_rate', 'tooltip', 10 );
-add_action( 'woocommerce_review_order_before_order_total', 'tooltip', 20 );
+// add_action( 'woocommerce_after_shipping_rate', 'tooltip', 10 );
+if ( function_exists( 'wp_is_mobile' ) && wp_is_mobile() ) {
+	// add_action( 'woocommerce_checkout_order_review_extended', 'tooltip', 20 );
+} else {
+	add_action( 'woocommerce_checkout_order_review_extended', 'tooltip', 20 );
+}
 
 /**
  * 30. // Add code snipets to the <head></head>
@@ -3181,10 +3193,8 @@ add_filter( 'woocommerce_product_query', 'yv_change_main_product_query', 10, 1 )
 	return ! empty( $free ) ? $free : $rates;
 }
 
+
 add_filter( 'woocommerce_package_rates', 'my_hide_shipping_when_free_is_available', 100 );
-
-
-
 /* Add message above login form */
 function wpsd_add_login_message() {
 	return '<p class="message">For security reasons all passwords must be reset (unless you are using Google/Facebook to log). Please use <a href="/my-account/lost-password/">this link</a> to reset your password.</p>';
@@ -3231,7 +3241,6 @@ function shapeSpace_include_custom_jquery() {
 //add_action('wp_enqueue_scripts', 'shapeSpace_include_custom_jquery');
 
 // Change woo text in buttons
-
 add_filter( 'gettext', 'change_woocommerce_return_to_shop_text', 9999, 3 );
 function change_woocommerce_return_to_shop_text( $translated_text, $text, $domain ) {
 	
@@ -3243,3 +3252,75 @@ function change_woocommerce_return_to_shop_text( $translated_text, $text, $domai
  return $translated_text; 
 
 }
+
+
+
+/*===========================================
+	MakeWebBetter Functions Here
+============================================*/
+
+
+/**
+ * 52. Add Product Image to Cart Item Name in Order Review.
+ *
+ * @param string 	$cart_item_name 	Cart Item Name.
+ * @param object 	$cart_item 			Cart Item.
+ * @param string 	$cart_item_key 		Cart Item Key.
+ * @return string
+ */
+add_filter( 'woocommerce_cart_item_name', 'display_product_image_in_order_item', 99, 3 );
+function display_product_image_in_order_item( $cart_item_name, $cart_item, $cart_item_key ) {
+
+	// Targeting Checkout page only.
+	if( is_checkout() ) {
+
+	    $product   = ! empty( $cart_item['data'] ) ? $cart_item['data'] : false; 
+	    $cart_item_quantity   = ! empty( $cart_item['quantity'] ) ? $cart_item['quantity'] : false; 
+	    $thumbnail = ! empty( $product ) ? $product->get_image( array( 75, 75 ) ) : false;
+
+	    $get_variation_attributes_html = false;
+
+	    if ( ! empty( $product ) && in_array( $product->get_type(), array( 'subscription_variation', 'variation' ) ) ) {
+	    	
+    		$_cart_item_name = get_the_title( $product->get_id() );
+    		if ( ! empty( $_cart_item_name ) ) {
+
+				$_cart_item_attr = explode( 'Every', $_cart_item_name );
+				$_cart_item_attr = ! empty( $_cart_item_attr[1] ) ? $_cart_item_attr[1] : false;
+
+				if ( ! empty( $_cart_item_attr  ) ) {
+					$cart_item_name = $cart_item_name . ' – Subscription ( Every ' . $_cart_item_attr . ' ) ';
+				}
+    		}
+	    }
+
+	    if( $product->get_image_id() > 0 ) {
+	        $cart_item_name = '<div class="mwb-custom-item-thumbnail">' . $thumbnail . '<span class=mwb-custom-item-quantity>' . $cart_item_quantity . '</span></div>' . '<div class="mwb-custom-item-name">' . $cart_item_name . '</div>';
+	    }
+	}
+
+	return $cart_item_name;
+}
+
+
+/**
+ * 53. Hide Product Quantity to Cart Item in Order Review.
+ *
+ * @return false
+ */
+add_filter( 'woocommerce_checkout_cart_item_quantity', '__return_false' );
+
+
+/**
+ * 54. Hide Recurring totals in Order Review.
+ *
+ * @return false
+ */
+remove_action( 'woocommerce_review_order_after_order_total', 'WC_Subscriptions_Cart::display_recurring_totals' );
+
+/**
+ * 55. Default Place Order Button Html Hidden.
+ *
+ * @return false
+ */
+add_filter( 'woocommerce_order_button_html', '__return_false' );
