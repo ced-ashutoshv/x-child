@@ -3556,8 +3556,12 @@ body.mobile-device .woocommerce .products .product .entry-header .button {
   cursor: pointer;
   text-decoration: underline;
   margin: 0;
-  display: inline-block; }
-
+  display: inline-block; 
+  padding-left: 11px;
+}
+.ic_tooltip {
+    background: #ffffff;
+}
 .ic_tooltip_txt {
   color: white;
   background: black;
