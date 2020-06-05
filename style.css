@@ -5516,8 +5516,12 @@ plugins for this buttons are :
   /*hide amazon checkout message and button*/
   /*hide paypal payment button*/
   /*estilos botones*/ }
-  .woocommerce-checkout .wc-amazon-checkout-message.wc-amazon-payments-advanced-populated {
-    display: none; }
+  .woocommerce-info.info.wc-amazon-payments-advanced-info {
+    display: none;
+  }
+  .wc-amazon-payments-advanced-populated > .woocommerce-info {
+    display: block;
+  }
   .woocommerce-checkout .wc_payment_method.payment_method_paypal {
     display: none; }
   .woocommerce-checkout .custom-payment-button {
@@ -5610,9 +5614,6 @@ body.woocommerce-checkout .billing-details-credit-card .AuthorizeNetSeal {
   display: block; }
 
 body.woocommerce-checkout .woocommerce-checkout-payment .wc_payment_method > label {
-  display: block; }
-
-.woocommerce-checkout .wc-amazon-checkout-message.wc-amazon-payments-advanced-populated {
   display: block; }
 
 .woocommerce-account form .payment_methods label img, .woocommerce-checkout form .payment_methods label img {

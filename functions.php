@@ -71,7 +71,7 @@
 	52. Add Product Image to Cart Item Name in Order Review.
 	53. Hide Product Quantity to Cart Item in Order Review.
 	54. Hide Recurring totals in Order Review.
-
+	55. Default Place Order Button Html Hidden.
  */
 
 /**
@@ -3317,3 +3317,10 @@ add_filter( 'woocommerce_checkout_cart_item_quantity', '__return_false' );
  * @return false
  */
 remove_action( 'woocommerce_review_order_after_order_total', 'WC_Subscriptions_Cart::display_recurring_totals' );
+
+/**
+ * 55. Default Place Order Button Html Hidden.
+ *
+ * @return false
+ */
+add_filter( 'woocommerce_order_button_html', '__return_false' );
