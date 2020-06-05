@@ -1334,7 +1334,13 @@ jQuery(document).ready(function () {
     }
 });
 
+jQuery(document).ready(function () {
+jQuery('.x-btn-navbar-woocommerce').click(function(e){
+	e.preventDefault();
+	jQuery('.xoo-wsc-basket').click()
+})
 
+});
 
 
 

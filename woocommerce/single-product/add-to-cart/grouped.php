@@ -157,7 +157,9 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 				echo '</tr>';
 				echo '</table>';
 				$add_to_cartproduct_id = 'variable-subscription' == $grouped_product_child->get_type() ? $grouped_product_child->get_id() : $product->get_id() ;
-				echo '<input type="hidden" name="add-to-cart" value="'.esc_attr( $add_to_cartproduct_id ).'"/></form></div></div>';
+				echo '<input type="hidden" name="add-to-cart" value="'.esc_attr( $add_to_cartproduct_id ).'"/>
+<button type="submit" class="single_add_to_cart_button button alt mb30px">'.esc_html( $product->single_add_to_cart_text() ).'</button>
+</form></div></div>';
 				$counter++;
 			}
 			$post = $previous_post; // WPCS: override ok.
@@ -168,9 +170,9 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 	<?php
 	do_action( 'woocommerce_before_add_to_cart_button' );
 	?>
-	<a id="yv-add-to-cart" href="<?php echo $link; ?>" data-url="<?php echo $link; ?>" class="single_add_to_cart_button button alt <?php echo 'single_add_to_cart_button-' . esc_attr( $product->get_type() ); ?>" disabled="disabled">
+	<!--a id="yv-add-to-cart" href="<?php echo $link; ?>" data-url="<?php echo $link; ?>" class="single_add_to_cart_button button alt <?php echo 'single_add_to_cart_button-' . esc_attr( $product->get_type() ); ?>" disabled="disabled">
 		<?php echo esc_html( $product->single_add_to_cart_text() ); ?>
-	</a>
+	</a-->		
 	<?php
 	do_action( 'woocommerce_after_add_to_cart_button' );
 	?>

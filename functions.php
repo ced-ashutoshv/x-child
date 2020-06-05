@@ -79,7 +79,12 @@ add_filter( 'x_enqueue_parent_stylesheet', '__return_false' );
  */
 function youveda_enqueues() {
 
-	wp_enqueue_script( 'youveda-scripts', get_stylesheet_directory_uri() . '/scripts/scripts.js', array( 'jquery' ), 53, true );
+	//wp_deregister_script('jquery');
+	//wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js', array(), null, false);
+
+	$child_css_version = filemtime( get_stylesheet_directory() . '/style.css' );
+	$js_version = filemtime( get_stylesheet_directory() . '/scripts/scripts.js' );
+	wp_enqueue_script( 'youveda-scripts', get_stylesheet_directory_uri() . '/scripts/scripts.js', array( 'jquery' ), strval( $js_version ), true );
 
 	if ( is_account_page() ) {
 		if ( ! wp_script_is( 'youveda-my-account' ) ) {
@@ -106,9 +111,7 @@ function youveda_enqueues() {
 	if( is_cart()) {
 		wp_enqueue_script( 'cart', get_stylesheet_directory_uri() . '/scripts/cart.js', array( 'jquery' ), '1.0.0', true );
 	}
-
-
-	$child_css_version = filemtime( get_stylesheet_directory() . '/style.css' );
+	
 	wp_enqueue_style(
 		'x-child',
 		get_stylesheet_directory_uri() . '/style.css',
