@@ -1,0 +1,18 @@
+modified:   inc/woocommerce/cart-functions.php ( done )
+modified:   scripts/scripts.js
+modified:   functions.php
+modified:   style.css
+deleted:    woocommerce/checkout/__form-checkout.php
+deleted:    woocommerce/checkout/form-billing.php
+deleted:    woocommerce/checkout/form-checkout.php
+deleted:    woocommerce/checkout/form-coupon.php
+deleted:    woocommerce/checkout/form-shipping.php
+deleted:    woocommerce/checkout/payment-method-content.php
+deleted:    woocommerce/checkout/payment-method.php
+deleted:    woocommerce/checkout/payment.php
+deleted:    woocommerce/checkout/recurring-totals.php
+deleted:    woocommerce/checkout/review-order.php
+deleted:    woocommerce/checkout/save-section-button.php
+deleted:    woocommerce/checkout/shipping-details-custom.php
+deleted:    woocommerce/checkout/shipping-options.php
+deleted:    woocommerce/checkout/thankyou.php

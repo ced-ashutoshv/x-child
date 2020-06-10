@@ -60,18 +60,17 @@
 	44. Remove afterpay for variable subscriptions (30days/60days/90days) but keep it for one time.
 	45. Add description to menu items
 	46. Shortcode that displays the amount of completed orders
-	47. Fix load Cornerstone 
-	48. Product gallery override
-	49. WooCommerce variation dropdown override
+  47. Fix load Cornerstone 
+  48. Product gallery override
+  49. WooCommerce variation dropdown override
 	50. Modify the main product query so it only displays Supplement Kits
 	51. Hide shipping rates when free shipping is available.
-
 
 	CUSTOM FUNCTIONS ADDED BY MAKEWEBBETTER
 	52. Add Product Image to Cart Item Name in Order Review.
 	53. Hide Product Quantity to Cart Item in Order Review.
 	54. Hide Recurring totals in Order Review.
-	55. Default Place Order Button Html Hidden.
+	55. Default Place Order Button Html Hidden.	
  */
 
 /**
@@ -86,7 +85,14 @@ add_filter( 'x_enqueue_parent_stylesheet', '__return_false' );
  */
 function youveda_enqueues() {
 
-	wp_enqueue_script( 'youveda-scripts', get_stylesheet_directory_uri() . '/scripts/scripts.js', array( 'jquery' ), 53, true );
+	//wp_deregister_script('jquery');
+	//wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js', array(), null, false);
+
+	// Remove all CSS from Checkout.
+	$child_css_version = ! is_checkout() ? filemtime( get_stylesheet_directory() . '/style.css' ) : false;
+
+	$js_version = filemtime( get_stylesheet_directory() . '/scripts/scripts.js' );
+	wp_enqueue_script( 'youveda-scripts', get_stylesheet_directory_uri() . '/scripts/scripts.js', array( 'jquery' ), strval( $js_version ), true );
 
 	if ( is_account_page() ) {
 		if ( ! wp_script_is( 'youveda-my-account' ) ) {
@@ -113,9 +119,7 @@ function youveda_enqueues() {
 	if( is_cart()) {
 		wp_enqueue_script( 'cart', get_stylesheet_directory_uri() . '/scripts/cart.js', array( 'jquery' ), '1.0.0', true );
 	}
-
-	// Remove all CSS from Checkout.
-	$child_css_version = ! is_checkout() ? filemtime( get_stylesheet_directory() . '/style.css' ) : false;
+	
 	wp_enqueue_style(
 		'x-child',
 		get_stylesheet_directory_uri() . '/style.css',
@@ -1489,18 +1493,13 @@ if ( ! function_exists( 'tooltip' ) ) {
 		if ( empty( WC()->customer->get_shipping_country() ) || 'US' !== WC()->customer->get_shipping_country() ) {
 
 			$tooltip = "<div class='" . $css_class . "'><p class='ic_tooltip_btn'><i class='fa ic_warning_icon'>&#xf071;</i>For international customers</p><div class='ic_tooltip_txt visible' style='background: #ffffff;color: #333333;line-height: 2;font-size: 0.8em;'><p><strong>Due to government regulations in different countries, international customers are subject to import duties and taxes.</strong></p><p>YouVeda will not be subject to refund or assume liability for any import duties and taxes on any products shipped outside of the US. We believe in full transparency with our customers and would like to share that import duties and taxes can be up to 20% of your order purchase.</p>
-<p>YouVeda takes pride in the quality of our products. However, we cannot offer a replacement or refund should your international order be in any way lost, delayed, or damaged.</p></div></div>";
+	<p>YouVeda takes pride in the quality of our products. However, we cannot offer a replacement or refund should your international order be in any way lost, delayed, or damaged.</p></div></div>";
 			echo $tooltip;
 		}
 	}
 }
 
-// add_action( 'woocommerce_after_shipping_rate', 'tooltip', 10 );
-if ( function_exists( 'wp_is_mobile' ) && wp_is_mobile() ) {
-	// add_action( 'woocommerce_checkout_order_review_extended', 'tooltip', 20 );
-} else {
-	add_action( 'woocommerce_checkout_order_review_extended', 'tooltip', 20 );
-}
+add_action( 'woocommerce_checkout_order_review_extended', 'tooltip', 20 );
 
 /**
  * 30. // Add code snipets to the <head></head>
@@ -3193,8 +3192,10 @@ add_filter( 'woocommerce_product_query', 'yv_change_main_product_query', 10, 1 )
 	return ! empty( $free ) ? $free : $rates;
 }
 
-
 add_filter( 'woocommerce_package_rates', 'my_hide_shipping_when_free_is_available', 100 );
+
+
+
 /* Add message above login form */
 function wpsd_add_login_message() {
 	return '<p class="message">For security reasons all passwords must be reset (unless you are using Google/Facebook to log). Please use <a href="/my-account/lost-password/">this link</a> to reset your password.</p>';
@@ -3241,6 +3242,7 @@ function shapeSpace_include_custom_jquery() {
 //add_action('wp_enqueue_scripts', 'shapeSpace_include_custom_jquery');
 
 // Change woo text in buttons
+
 add_filter( 'gettext', 'change_woocommerce_return_to_shop_text', 9999, 3 );
 function change_woocommerce_return_to_shop_text( $translated_text, $text, $domain ) {
 	
@@ -3252,7 +3254,6 @@ function change_woocommerce_return_to_shop_text( $translated_text, $text, $domai
  return $translated_text; 
 
 }
-
 
 
 /*===========================================

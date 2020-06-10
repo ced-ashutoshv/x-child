@@ -937,6 +937,7 @@ jQuery(document).ready(function () {
         if (newTooltip) {
             parent.parentNode.insertBefore(newTooltip, parent);
         }
+
     }
 
     /**
@@ -1004,7 +1005,7 @@ jQuery(document).ready(function () {
     }
 
 
-    // /*  Checkout Page */
+    /*  Checkout Page */
     // if (jQuery("body").hasClass("woocommerce-checkout")) {
 
     //     jQuery('body').on('updated_checkout', function () {
@@ -1343,7 +1344,13 @@ jQuery(document).ready(function () {
     }
 });
 
+jQuery(document).ready(function () {
+jQuery('.x-btn-navbar-woocommerce').click(function(e){
+	e.preventDefault();
+	jQuery('.xoo-wsc-basket').click()
+})
 
+});
 
 
 

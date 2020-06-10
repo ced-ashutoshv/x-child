@@ -14,7 +14,7 @@ $yv_ingredients = json_decode(get_post_meta( $product->get_id(), 'yv_ingredients
 echo "<div class='flex-container flex-column subscription-options product-".$product->get_id()."'>";
 foreach ($yv_ingredients as $ingredient) {
 	echo "<div class='ingredients-flex-container'>";
-	echo "<img src='https://stagyouveda.wpengine.com/wp-content/uploads/2019/11/green-check.png' width='15px'>";
+	echo "<img src='https://www.youveda.com/wp-content/uploads/2019/11/green-check.png' width='15px'>";
 	echo "<p>$ingredient</p>";
 	echo "</div>";
 }

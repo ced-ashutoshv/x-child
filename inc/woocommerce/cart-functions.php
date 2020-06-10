@@ -166,10 +166,10 @@ function yv_save_checkout_section_button() {
 add_action( 'yv_woocommerce_after_checkout_shipping_section', 'yv_save_checkout_section_button', 10 );
 add_action( 'yv_woocommerce_after_checkout_delivery_section', 'yv_save_checkout_section_button', 10 );
 
-// Add select shipping options custom template to checkout.
+// // Add select shipping options custom template to checkout.
 // add_action( 'woocommerce_checkout_after_customer_details', 'woocommerce_checkout_yv_shipping', 15 );
 
-// Move payment after billing details.
+// // Move payment after billing details.
 // remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
 // add_action( 'woocommerce_checkout_before_customer_details', 'woocommerce_checkout_payment', 20 );
 
@@ -256,11 +256,11 @@ function yv_checkout_show_shipping_sumup() {
 }
 add_action( 'woocommerce_review_order_before_order_total', 'yv_checkout_show_shipping_sumup', 10 );
 
-// do not show the coupon form since got moved on the 2019 new layout.
+// // do not show the coupon form since got moved on the 2019 new layout.
 // remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
 // add_action( 'woocommerce_review_order_before_order_total', 'woocommerce_checkout_coupon_form', 30 );
 
-// re-order the Amazon widgets.
+// // re-order the Amazon widgets.
 // add_action(
 // 	'woocommerce_checkout_init',
 // 	function() {
