@@ -986,7 +986,7 @@ return $redirect;
 return wc_get_page_permalink( 'shop' );
 }
 
-add_filter( 'woocommerce_login_redirect', 'ts_redirect_login' );
+add_filter( 'woocommerce_login_redirect', 'ts_redirect_login', 10 , 2 );
 
 add_action('template_redirect','check_if_logged_in');
 function check_if_logged_in()
@@ -1492,7 +1492,7 @@ if ( ! function_exists( 'tooltip' ) ) {
 		}
 		if ( empty( WC()->customer->get_shipping_country() ) || 'US' !== WC()->customer->get_shipping_country() ) {
 
-			$tooltip = "<div class='" . $css_class . "'><p class='ic_tooltip_btn'><i class='fa ic_warning_icon'>&#xf071;</i>For international customers</p><div class='ic_tooltip_txt visible' style='background: #ffffff;color: #333333;line-height: 2;font-size: 0.8em;'><p><strong>Due to government regulations in different countries, international customers are subject to import duties and taxes.</strong></p><p>YouVeda will not be subject to refund or assume liability for any import duties and taxes on any products shipped outside of the US. We believe in full transparency with our customers and would like to share that import duties and taxes can be up to 20% of your order purchase.</p>
+			$tooltip = "<div style='display:none;' class='" . $css_class . "'><p class='ic_tooltip_btn'><i class='fa ic_warning_icon'>&#xf071;</i>For international customers</p><div class='ic_tooltip_txt visible' style='background: #ffffff;color: #333333;line-height: 2;font-size: 0.8em;'><p><strong>Due to government regulations in different countries, international customers are subject to import duties and taxes.</strong></p><p>YouVeda will not be subject to refund or assume liability for any import duties and taxes on any products shipped outside of the US. We believe in full transparency with our customers and would like to share that import duties and taxes can be up to 20% of your order purchase.</p>
 	<p>YouVeda takes pride in the quality of our products. However, we cannot offer a replacement or refund should your international order be in any way lost, delayed, or damaged.</p></div></div>";
 			echo $tooltip;
 		}

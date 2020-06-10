@@ -2023,6 +2023,13 @@ ALERT
   padding: 0.5em;
   background-color: #f2dede47; }
 
+.woocommerce-notices-wrapper > .x-alert-danger {
+  background-color: #f2dede !important;
+  border-color: #e5bdc4 !important;
+  color: #b94a48;
+  margin-bottom: 7px;
+}
+
 /********************************************
 
 X CART NOTIFICATION
@@ -3563,7 +3570,9 @@ body.mobile-device .woocommerce .products .product .entry-header .button {
 .ic_tooltip {
     background: #ffffff;
 }
-
+.mwb_yv_extended_sections>.ic_tooltip {
+    display: block !important;
+}
 .ic_tooltip_txt {
   color: white;
   background: black;
@@ -3589,8 +3598,8 @@ body.mobile-device .woocommerce .products .product .entry-header .button {
     position: relative;
     min-width: 50%; }
 
-  .ic_tooltip {
-    margin: 10px 0px 2px 0px; } }
+/*  .ic_tooltip {
+    margin: 10px 0px 2px 0px; }*/ }
 .woocommerce-page .woocommerce .greeting {
   margin-top: 60px;
   margin-bottom: 30px;

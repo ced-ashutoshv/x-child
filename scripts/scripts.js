@@ -1005,98 +1005,189 @@ jQuery(document).ready(function () {
     }
 
 
-    /*  Checkout Page */
-    // if (jQuery("body").hasClass("woocommerce-checkout")) {
+    /*  Checkout Page Script */
+    if (jQuery("body").hasClass("woocommerce-checkout")) {
 
-    //     jQuery('body').on('updated_checkout', function () {
-    //         console.log('checkout was updated');
-    //         // jQuery('#payment_details > .collapsed').removeClass('collapsed');
+        /**
+         * Delivery Options : Show "For internationals customers" message tooltip message on click 
+         */
+        window.setInterval(function () {
 
-    //         jQuery('#save-card-info').click(function () {
-    //             /*Mark the payment section as valid*/
-    //             switchPaymentStatus();
-    //         });
+            jQuery('.ic_tooltip_btn').each(function () {
+                jQuery(this).unbind('click');
+                jQuery(this).bind("click", function () {
+                    var parent = jQuery(this).parent();
+                    parent.find('.ic_tooltip_txt').toggleClass('visible');
+                    if (parent.find('.ic_tooltip_txt').hasClass('visible')) { jQuery("html, body").animate({ scrollTop: jQuery(this).offset().top - 30 }); }
+                });
+            });
+        }, 3000);
 
-    //         /*Prevent Payment Method 'edit' button behaivor*/
-    //         jQuery('#payment_details .edit-checkout-section').unbind("click").bind("click", (function () {
-    //             console.log('clickeado');
-    //             event.preventDefault();
-    //             event.stopPropagation();
-    //             switchPaymentStatus();
-    //         }));
+        /*==========================================================
+                    Scripts Added By MakeWebBetter Start
+        ===========================================================*/
 
-    //         /*Switch Payment Method Section Status*/
-    //         function switchPaymentStatus() {
-    //             /*Style title as saved /not saved*/
-    //             jQuery('#payment_details .checkout-section-title-collapsable h4').toggleClass('checkout_valid_step');
-    //             /*Collapse/Uncollapse section*/
-    //             jQuery('#payment_details > .collapsable').toggleClass('collapsed');
-    //             /*Enable/Disable edit button*/
-    //             jQuery('#payment_details .edit-checkout-section').toggleClass('collapsed');
-    //         }
-    //     });
+        // Adapt height for new order summary.
+        function reorder_coupon_section() {
 
+            if ( jQuery('body').hasClass('logged-as-amazon') ) {
+                return;
+            }
 
-    //     /*ON 'Save Shipping Information' CLICK: */
+            if ( jQuery( '.mwb_yv_extended_sections' ).length > 0 ) {
+                var order_summ_height = jQuery( '#order_review' ).height();
+                order_summ_height = parseInt( order_summ_height ) + 130;
+                jQuery( '.mwb_yv_extended_sections' ).css( 'top', order_summ_height + 'px' );
+            }
+        }
 
-    //     /*Automatic scroll the user to the invalid inputs on billing shipping address fields, and add invalid styles to required inputs with empty value*/
-    //     jQuery('#customer_details .save-checkout-section').click(function () {
-    //         addInputValidationStyles();
-    //         scrollRequired();
-    //     });
-    //     function addInputValidationStyles() {
-    //         /*Add 'woocommerce-invalid' class to all the p.validate-required that have empty inputs*/
-    //         var validateRequiredFields = jQuery('.woocommerce-billing-fields .validate-required');
-    //         jQuery(validateRequiredFields).each(function () {
-    //             if (jQuery(this).find('input').length && jQuery(this).find('input').val() == '') {
-    //                 /* Input is empty and is required - add class 'woocommerce-invalid' */
-    //                 jQuery(this).addClass('woocommerce-invalid');
-    //             }
-    //         });
-    //     }
+        /*==========================================================
+                        Checkout Global JS 
+        ===========================================================*/
 
-    //     function scrollRequired() {
-    //         if (!jQuery('.woocommerce-billing-fields .woocommerce-invalid').length) {
-    //             return;
-    //         }
-    //         var el = jQuery('.woocommerce-billing-fields .woocommerce-invalid');
+        /**
+         * Order button text on payment method change.
+         */
+        jQuery(document).on('change', '.payment_method_paypal', function() {
+           jQuery( '.mwb_youveda_place_order_button' ).text( 'Proceed To Paypal' );
+        });
 
-    //         /*Check if 'woocommerce-invalid' class is added. If not, add it.*/
-    //         jQuery(el).addClass('woocommerce-invalid woocommerce-invalid-required-field');
+        jQuery(document).on('change', '.payment_method_authorize_net_cim_credit_card', function() {
+           jQuery( '.mwb_youveda_place_order_button' ).text( 'Place Order' );
+        });
 
-    //         var elFirst = jQuery(el[0]);
-    //         jQuery('html, body').animate({ scrollTop: elFirst.offset().top }, 800);
-    //     }
+        if( jQuery( '#payment_method_paypal' ).attr( 'checked' ) ) {
+            
+            setTimeout( function() {
+                jQuery( '.mwb_youveda_place_order_button' ).text( 'Proceed To Paypal' );
+            } , 2000);
+        }
+        else {
 
-    //     /*View hidden product details (mobile)*/
-    //     jQuery('.view-collapsed-data').click(function (e) {
-    //         e.preventDefault();
-    //         if (jQuery('.woocommerce-checkout-review-order-table').hasClass('mobile-data-hidden')) {
-    //             jQuery(this).text('Hide');
-    //         } else {
-    //             jQuery(this).html('View');
-    //         }
-    //         jQuery('.woocommerce-checkout-review-order-table').toggleClass('mobile-data-hidden');
-    //     });
+            setTimeout( function() {
+                jQuery( '.mwb_youveda_place_order_button' ).text( 'Place Order' );
+            } , 2000);
+        }
 
-    //     /*Delivery Options : Show "For internationals customers" message tooltip message on click */
-    //     window.setInterval(function () {
+        /**
+         * If logged in via amazon.
+         */
+         if ( $('#amazon-logout').length ) {
+            jQuery('body').addClass('logged-as-amazon');
+         }
+        
+        /*==========================================================
+                        Checkout Only Mobile view JS 
+        ===========================================================*/
+        if( jQuery('body').hasClass('mobile-device') ) {
 
-    //         jQuery('.ic_tooltip_btn').each(function () {
-    //             jQuery(this).unbind('click');
-    //             jQuery(this).bind("click", function () {
-    //                 var parent = jQuery(this).parent();
-    //                 parent.find('.ic_tooltip_txt').toggleClass('visible');
-    //                 if (parent.find('.ic_tooltip_txt').hasClass('visible')) { jQuery("html, body").animate({ scrollTop: jQuery(this).offset().top - 30 }); }
-    //             });
-    //         });
-    //     }, 3000);
+            var login_section = '';
 
-    //     /* Paypal trigger */
-    //     jQuery('.wc_payment_method.payment_method_paypal').on('click', function () {
-    //         jQuery('.place-order-footer button[type="submit"]').click();
-    //     })
-    // }
+            // Hide section by default.
+            if ( 0 < jQuery( '.mwb_youveda_logged_in_text' ).length ) {
+
+                login_section = jQuery( '.mwb_youveda_logged_in_text' );
+                if ( login_section.hasClass( 'hide_checkout_sections' ) ) {
+                    jQuery( '#customer_details' ).hide();
+                }
+            }
+
+            if ( 0 < jQuery( '.woocommerce-checkout-review-order-table' ).length ) {
+                jQuery( '.woocommerce-checkout-review-order-table' ).hide();
+            }
+            
+            /** 
+             * Show sections on click.
+             * Login Section.
+             */
+            jQuery(document).on( 'click', '.mwb_youveda_logged_in_toggle', function(e) {
+
+                login_section.toggleClass( 'hide_checkout_sections' );
+                jQuery( '#customer_details' ).slideToggle( 'slow' );
+            });
+
+            /** 
+             * Show sections on click.
+             * Order Summary Section.
+             */
+            jQuery(document).on( 'click', '.order_review_heading_toggle', function(e) {
+
+                jQuery( '.woocommerce-checkout-review-order-table' ).toggleClass( 'hidden_section' );
+                jQuery( '.woocommerce-checkout-review-order-table' ).slideToggle( 'slow' );
+
+                // Is visible.
+                if ( jQuery( ".woocommerce-checkout-review-order-table" ).hasClass( 'hidden_section' ) ) { 
+                  jQuery( '.order_review_arrow_img' ).toggleClass( 'order_review_arrow_up' );
+                } 
+                // Is Hidden.
+                else {
+                  jQuery( '.order_review_arrow_img' ).toggleClass( 'order_review_arrow_up' );
+                }
+            });
+        }
+
+        /*==========================================================
+                        Checkout Only Desktop view JS 
+        ===========================================================*/
+        if( ! jQuery('body').hasClass('mobile-device') && jQuery( '#amazon-logout' ).length > 0 ) {
+            setTimeout( function() {
+                jQuery( '.woocommerce-terms-and-conditions-wrapper' ).css( 'width', '535px' );
+            } , 2000);
+        }
+
+        // Desktop view Only.
+        if ( ! jQuery('body').hasClass('mobile-device') ) {
+            reorder_coupon_section();
+        }
+
+        // Desktop view Only.
+        if ( ! jQuery('body').hasClass('mobile-device') ) {
+       
+            // Adapt height on checkout update.
+            jQuery('body').on('updated_checkout', function () {
+                console.log('checkout is being updated');
+                reorder_coupon_section();
+            });
+
+            // Adapt height on change shipping.
+            jQuery(document).on( 'change', '#shipping_country', function() {
+                reorder_coupon_section();
+            });
+        }
+
+        // Desktop view Only.
+        if ( ! jQuery('body').hasClass('mobile-device') ) {
+       
+            // Adapt height on checkout update.
+            jQuery('body').on('updated_checkout', function () {
+                console.log('checkout is being updated');
+                reorder_coupon_section();
+            });
+
+            // Adapt height on change shipping.
+            jQuery(document).on( 'change', '#shipping_country', function() {
+                reorder_coupon_section();
+            });
+        }
+
+        // Desktop view Only.
+        if ( ! jQuery('body').hasClass('mobile-device') ) {
+
+            if ( jQuery('body').hasClass('logged-as-amazon') ) {
+
+                jQuery('.mwb_yv_extended_sections').css( 'right', '72px' );
+                if ( jQuery( '.mwb_yv_extended_sections' ).length > 0 ) {
+                    var order_summ_height = jQuery( '#order_review' ).height();
+                    order_summ_height = parseInt( order_summ_height ) + 182;
+                    jQuery( '.mwb_yv_extended_sections' ).css( 'top', order_summ_height + 'px' );
+                }
+            }
+        }
+
+        /*==========================================================
+                    Scripts Added By MakeWebBetter End
+        ===========================================================*/
+    }
 
 
     /* Show/hide Add to existing subscription section */
@@ -1351,6 +1442,3 @@ jQuery('.x-btn-navbar-woocommerce').click(function(e){
 })
 
 });
-
-
-
