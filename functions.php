@@ -60,9 +60,9 @@
 	44. Remove afterpay for variable subscriptions (30days/60days/90days) but keep it for one time.
 	45. Add description to menu items
 	46. Shortcode that displays the amount of completed orders
-  47. Fix load Cornerstone 
-  48. Product gallery override
-  49. WooCommerce variation dropdown override
+	47. Fix load Cornerstone 
+	48. Product gallery override
+	49. WooCommerce variation dropdown override
 	50. Modify the main product query so it only displays Supplement Kits
 	51. Hide shipping rates when free shipping is available.
 
@@ -1482,7 +1482,8 @@ if ( ! function_exists( 'tooltip' ) ) {
 	 * @return void
 	 */
 	function tooltip() {
-		if ( 'woocommerce_after_shipping_rate' === current_filter() && is_checkout() ) {
+
+		if ( 'woocommerce_checkout_order_review_extended' !== current_filter() && is_checkout() ) {
 			return;
 		}
 
@@ -1490,12 +1491,12 @@ if ( ! function_exists( 'tooltip' ) ) {
 		if ( is_cart() ) {
 			$css_class .= ' right';
 		}
-		if ( empty( WC()->customer->get_shipping_country() ) || 'US' !== WC()->customer->get_shipping_country() ) {
+		// if ( empty( WC()->customer->get_shipping_country() ) || 'US' !== WC()->customer->get_shipping_country() ) {
 
-			$tooltip = "<div style='display:none;' class='" . $css_class . "'><p class='ic_tooltip_btn'><i class='fa ic_warning_icon'>&#xf071;</i>For international customers</p><div class='ic_tooltip_txt visible' style='background: #ffffff;color: #333333;line-height: 2;font-size: 0.8em;'><p><strong>Due to government regulations in different countries, international customers are subject to import duties and taxes.</strong></p><p>YouVeda will not be subject to refund or assume liability for any import duties and taxes on any products shipped outside of the US. We believe in full transparency with our customers and would like to share that import duties and taxes can be up to 20% of your order purchase.</p>
+		$tooltip = "<div style='display:none;' class='" . $css_class . "'><p class='ic_tooltip_btn'><i class='fa ic_warning_icon'>&#xf071;</i>For international customers</p><div class='ic_tooltip_txt visible' style='background: #ffffff;color: #333333;line-height: 2;font-size: 0.8em;'><p><strong>Due to government regulations in different countries, international customers are subject to import duties and taxes.</strong></p><p>YouVeda will not be subject to refund or assume liability for any import duties and taxes on any products shipped outside of the US. We believe in full transparency with our customers and would like to share that import duties and taxes can be up to 20% of your order purchase.</p>
 	<p>YouVeda takes pride in the quality of our products. However, we cannot offer a replacement or refund should your international order be in any way lost, delayed, or damaged.</p></div></div>";
 			echo $tooltip;
-		}
+		// }
 	}
 }
 
@@ -3315,7 +3316,6 @@ add_filter( 'woocommerce_checkout_cart_item_quantity', '__return_false' );
 /**
  * 54. Hide Recurring totals in Order Review.
  *
- * @return false
  */
 remove_action( 'woocommerce_review_order_after_order_total', 'WC_Subscriptions_Cart::display_recurring_totals' );
 
@@ -3325,3 +3325,72 @@ remove_action( 'woocommerce_review_order_after_order_total', 'WC_Subscriptions_C
  * @return false
  */
 add_filter( 'woocommerce_order_button_html', '__return_false' );
+
+/**
+ * 56. Recurring Shipping validation.
+ *
+ */
+remove_action( 'woocommerce_after_checkout_validation', 'WC_Subscriptions_Cart::validate_recurring_shipping_methods' );
+
+// add_action( 'woocommerce_after_checkout_validation', 'validate_recurring_shipping_methods' );
+
+/**
+ * Validate the chosen recurring shipping methods for each recurring shipping package.
+ * Ensures there is at least one chosen shipping method and that the chosen method is valid considering the available
+ * package rates.
+ *
+ * @since 1.0.0
+ */
+function validate_recurring_shipping_methods() {
+
+	$shipping_methods     = WC()->checkout()->shipping_methods;
+	$added_invalid_notice = false;
+	$standard_packages    = WC()->shipping->get_packages();
+
+	$subscription_class = new WC_Subscriptions_Cart();
+
+	// temporarily store the current calculation type and recurring cart key so we can restore them later
+	$calculation_type        = $subscription_class::$calculation_type;
+	$subscription_class::$calculation_type  = 'recurring_total';
+	$recurring_cart_key_flag = $subscription_class::$recurring_cart_key;
+
+	foreach ( WC()->cart->recurring_carts as $recurring_cart_key => $recurring_cart ) {
+
+		if ( false === $recurring_cart->needs_shipping() || 0 == $recurring_cart->next_payment_date ) {
+			continue;
+		}
+
+		$subscription_class::$recurring_cart_key = $recurring_cart_key;
+
+		$packages = $recurring_cart->get_shipping_packages();
+		foreach ( $packages as $package_index => $base_package ) {
+			$package = $subscription_class::get_calculated_shipping_for_package( $base_package );
+
+			if ( ( isset( $standard_packages[ $package_index ] ) && $package['rates'] == $standard_packages[ $package_index ]['rates'] ) && apply_filters( 'wcs_cart_totals_shipping_html_price_only', true, $package, WC()->cart->recurring_carts[ $recurring_cart_key ] ) ) {
+				// the recurring package rates match the initial package rates, there won't be a selected shipping method for this recurring cart package
+				// move on to the next package
+				continue;
+			}
+
+			$recurring_shipping_package_key = WC_Subscriptions_Cart::get_recurring_shipping_package_key( $recurring_cart_key, $package_index );
+
+            if ( ! isset( $package['rates'][$shipping_methods[0]] ) ) {
+
+                if ( ! $added_invalid_notice ) {
+                    wc_add_notice( __( 'Invalid recurring shipping method.', 'woocommerce-subscriptions' ), 'error' );
+                    $added_invalid_notice = true;
+                }
+
+                $shipping_methods[ $recurring_shipping_package_key ] = '';
+            }
+		}
+	}
+
+	// If there was an invalid recurring shipping method found, we need to apply the changes to WC()->checkout()->shipping_methods.
+	if ( $added_invalid_notice ) {
+		WC()->checkout()->shipping_methods = $shipping_methods;
+	}
+
+	$subscription_class::$calculation_type   = $calculation_type;
+	$subscription_class::$recurring_cart_key = $recurring_cart_key_flag;
+}

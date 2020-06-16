@@ -3571,7 +3571,7 @@ body.mobile-device .woocommerce .products .product .entry-header .button {
     background: #ffffff;
 }
 .mwb_yv_extended_sections>.ic_tooltip {
-    display: block !important;
+    display: block;
 }
 .ic_tooltip_txt {
   color: white;

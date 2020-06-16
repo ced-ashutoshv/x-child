@@ -1034,10 +1034,35 @@ jQuery(document).ready(function () {
                 return;
             }
 
+            // Default height.
+            upper_section_height = 33;
+
+            // Only show point info notice.
+            if ( jQuery('.wlpr_points_rewards_earn_points').length > 0 ) {
+                upper_section_height = 130;
+            }
+
             if ( jQuery( '.mwb_yv_extended_sections' ).length > 0 ) {
                 var order_summ_height = jQuery( '#order_review' ).height();
-                order_summ_height = parseInt( order_summ_height ) + 130;
+                order_summ_height = parseInt( order_summ_height ) + upper_section_height;
                 jQuery( '.mwb_yv_extended_sections' ).css( 'top', order_summ_height + 'px' );
+            }
+        }
+
+
+        // Show and hide international shipping section.
+        function manage_international_shipping_section() {
+            
+            var shipping_country = jQuery( '#shipping_country' ).val();
+            console.log( 'updated country is ' + shipping_country );
+            if( shipping_country !== 'US' ) {
+
+                // Is an international customer.
+                jQuery( '.ic_tooltip' ).show();
+            } else {
+
+                // Is an local customer.
+                jQuery( '.ic_tooltip' ).hide();
             }
         }
 
@@ -1075,6 +1100,18 @@ jQuery(document).ready(function () {
          if ( $('#amazon-logout').length ) {
             jQuery('body').addClass('logged-as-amazon');
          }
+
+        /**
+         * International shipping section for shipping country on first load.
+         */
+        manage_international_shipping_section();
+
+        /**
+         * International shipping section on change shipping country.
+         */
+        jQuery(document).on( 'change', '#shipping_country', function() {
+            manage_international_shipping_section();
+        });
         
         /*==========================================================
                         Checkout Only Mobile view JS 
@@ -1175,10 +1212,19 @@ jQuery(document).ready(function () {
 
             if ( jQuery('body').hasClass('logged-as-amazon') ) {
 
+                
+                // Default height.
+                upper_section_height = 33;
+
+                // Only show point info notice.
+                if ( jQuery('.wlpr_points_rewards_earn_points').length > 0 ) {
+                    upper_section_height = 130;
+                }
+
                 jQuery('.mwb_yv_extended_sections').css( 'right', '72px' );
                 if ( jQuery( '.mwb_yv_extended_sections' ).length > 0 ) {
                     var order_summ_height = jQuery( '#order_review' ).height();
-                    order_summ_height = parseInt( order_summ_height ) + 182;
+                    order_summ_height = parseInt( order_summ_height ) + upper_section_height;
                     jQuery( '.mwb_yv_extended_sections' ).css( 'top', order_summ_height + 'px' );
                 }
             }
