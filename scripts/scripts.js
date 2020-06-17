@@ -1074,7 +1074,8 @@ jQuery(document).ready(function () {
          * Order button text on payment method change.
          */
         jQuery(document).on('change', '.payment_method_paypal', function() {
-           jQuery( '.mwb_youveda_place_order_button' ).text( 'Proceed To Paypal' );
+            jQuery( '.mwb_youveda_place_order_button' ).text( 'Proceed To Paypal' );
+            jQuery( '.mwb_youveda_place_order_button' ).click();
         });
 
         jQuery(document).on('change', '.payment_method_authorize_net_cim_credit_card', function() {
