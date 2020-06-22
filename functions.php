@@ -3295,6 +3295,10 @@ function display_product_image_in_order_item( $cart_item_name, $cart_item, $cart
 				}
     		}
 	    }
+		else {
+
+			$cart_item_name = $cart_item_name . ' – One time Purchase ';
+		}
 
 	    if( $product->get_image_id() > 0 ) {
 	        $cart_item_name = '<div class="mwb-custom-item-thumbnail">' . $thumbnail . '<span class=mwb-custom-item-quantity>' . $cart_item_quantity . '</span></div>' . '<div class="mwb-custom-item-name">' . $cart_item_name . '</div>';

@@ -1066,6 +1066,27 @@ jQuery(document).ready(function () {
             }
         }
 
+
+        function copy_func( common_id, index, array ) {
+            jQuery( '#billing_' + common_id ).val( jQuery( '#shipping_' + common_id ).val() );
+        }
+
+        // Copy shipping data to billing.
+        function mwb_yv_copy_shipping_to_billing() {
+            var form_fields = [
+                            'first_name',
+                            'last_name',
+                            'country',
+                            'address_1',
+                            'address_2',
+                            'city',
+                            'state',
+                            'postcode',
+                            'email'
+                        ];
+
+            form_fields.forEach( copy_func );
+        }
         /*==========================================================
                         Checkout Global JS 
         ===========================================================*/
@@ -1075,7 +1096,6 @@ jQuery(document).ready(function () {
          */
         jQuery(document).on('change', '.payment_method_paypal', function() {
             jQuery( '.mwb_youveda_place_order_button' ).text( 'Proceed To Paypal' );
-            jQuery( '.mwb_youveda_place_order_button' ).click();
         });
 
         jQuery(document).on('change', '.payment_method_authorize_net_cim_credit_card', function() {
@@ -1113,7 +1133,21 @@ jQuery(document).ready(function () {
         jQuery(document).on( 'change', '#shipping_country', function() {
             manage_international_shipping_section();
         });
-        
+
+
+        jQuery(document).on('click', '.mwb_youveda_place_order_button', function(e) {
+            
+            // Copy Shipping data to billing for No error checkout.
+            // Billing-Shipping Data Error.
+            if( jQuery('#bill-to-different-address-checkbox').length > 0 && jQuery('#bill-to-different-address-checkbox').prop( "checked" ) == false ) {
+                e.preventDefault();
+                mwb_yv_copy_shipping_to_billing();
+
+                // After copy submit checkout form to repllicate place order button click.
+                jQuery( 'form.checkout' ).submit();
+            }
+        });
+
         /*==========================================================
                         Checkout Only Mobile view JS 
         ===========================================================*/
@@ -1242,6 +1276,11 @@ jQuery(document).ready(function () {
         jQuery('.yv-add-to-subscription').slideToggle();
     });
 
+
+    /*==========================================================
+              Checkout form Scripts Added By Ameba
+    ===========================================================*/
+
     /* Automatically checks the 'Ship to different address?' checkbox */
     jQuery('#ship-to-different-address-checkbox').prop('checked', true);
 
@@ -1338,11 +1377,17 @@ jQuery(document).ready(function () {
     }
 
     jQuery('#shipping_email').change(function () {
-        if (jQuery('#billing_email').val() == '') {
+
+        // MWB::Update everytime, Not just once.
+        // if (jQuery('#billing_email').val() == '') {
             jQuery('#billing_email').val(jQuery('#shipping_email').val());
             jQuery('#billing_email').trigger('change');
-        }
+        // }
     });
+
+    /*
+
+    */
 
     //js for radios inputs in single product
     jQuery('input[type=radio][name=add_to_cart_variation_radio]').change(function() {
