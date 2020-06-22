@@ -611,7 +611,7 @@ Elements exiting a screen use acceleration easing, where they start
 at rest and end at peak velocity.
  */
 /*
- * 	Default theme - Owl Carousel CSS File
+ *  Default theme - Owl Carousel CSS File
  */
 /*Light*/
 /*Regular*/
@@ -740,13 +740,13 @@ h1.headerFontSize, .h1.headerFontSize, h2.headerFontSize, .h2.headerFontSize, h3
 
   /*
   h2, .h2 {
-  	font-size: calc( 2.4rem * 0.9);
+    font-size: calc( 2.4rem * 0.9);
   }
   h3, .h3 {
-  	font-size: calc( 2.1rem * 0.9);
+    font-size: calc( 2.1rem * 0.9);
   }
   h4, .h4 {
-  	font-size: calc( 1.6rem * 0.9);
+    font-size: calc( 1.6rem * 0.9);
   }*/ }
 @media screen and (max-width: 640px) {
   h1, .h1 {
@@ -2248,12 +2248,12 @@ header.masthead {
   header.masthead .x-navbar .desktop ul.x-nav > li > a:not(.x-btn-navbar-woocommerce) {
     letter-spacing: -0.017em;
     /*
-    	@media screen and (max-width: 1250px) and (min-width: 980px) {
-    		font-size: 12px;
-    		padding-top: 42px;
-    		padding-left: 10px;
-    		padding-right: 10px;
-    	}
+      @media screen and (max-width: 1250px) and (min-width: 980px) {
+        font-size: 12px;
+        padding-top: 42px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
     */ }
   header.masthead .x-navbar .x-brand.img .isotype, header.masthead .x-navbar .x-brand.img img {
     font-size: 0; }
@@ -2262,8 +2262,8 @@ header.masthead {
       /*margin-top: 22px;*/
       /*
       .isotype {
-      	width: 0;
-      	margin-right: 0;
+        width: 0;
+        margin-right: 0;
       }
       */ }
       header.masthead .x-navbar .x-brand.img img {
@@ -3665,11 +3665,11 @@ body.woocommerce-cart .products .entry-featured:hover img.closed-product {
 
 body.woocommerce.post-type-archive-product {
   /*icons belt below header*/
-  	/*************************************
+    /*************************************
   
-  	RESPONSIVE
+    RESPONSIVE
   
-  	*************************************/ }
+    *************************************/ }
   body.woocommerce.post-type-archive-product .entry-content {
     margin-top: 0; }
   body.woocommerce.post-type-archive-product header.x-header-landmark {
@@ -3806,11 +3806,11 @@ body.woocommerce.post-type-archive-product {
 .woocommerce {
   /*Wrapper for the shop page*/
   /*&.admin-bar{
-  	.shop-nav-menu{
-  		&.position-fixed{
-  			transform: translateY(85px);
-  		}
-  	}	
+    .shop-nav-menu{
+      &.position-fixed{
+        transform: translateY(85px);
+      }
+    } 
   }*/ }
   .woocommerce.post-type-archive-product header.masthead {
     min-height: 53px; }
@@ -4100,21 +4100,21 @@ body.woocommerce.post-type-archive-product {
     min-height: 55px; }
   .woocommerce ul.products .owl-item li.product .entry-wrap .entry-header {
     /*.price{
-    	.from,
-    	.woocommerce-Price-amount,
-    	.amount{
-    		color: $white;
-    	}
+      .from,
+      .woocommerce-Price-amount,
+      .amount{
+        color: $white;
+      }
     }
     .trustspot-inline-rating{
-    	.stars {
-    		img{
-    			filter: saturate(0) brightness(100);
-    		}
-    		a{
-    			color: #fff!important;
-    		}
-    	}
+      .stars {
+        img{
+          filter: saturate(0) brightness(100);
+        }
+        a{
+          color: #fff!important;
+        }
+      }
     }*/ }
     .woocommerce ul.products .owl-item li.product .entry-wrap .entry-header .product-subtitle {
       color: #fff; }
@@ -4449,11 +4449,11 @@ body.woocommerce.post-type-archive-product {
 @media screen and (max-width: 979px) {
   .woocommerce {
     /*&.admin-bar{
-    	.shop-nav-menu{
-    		&.position-fixed{
-    			transform: translateY(99px);
-    		}
-    	}	
+      .shop-nav-menu{
+        &.position-fixed{
+          transform: translateY(99px);
+        }
+      } 
     }*/ }
     .woocommerce ul.products.cols-3 .owl-stage {
       display: flex; }
@@ -5236,7 +5236,7 @@ body .gform_wrapper .gform_body ul.gform_fields li.gfield {
 
 /***************************************
 
-	ACCOUNT DETAILS
+  ACCOUNT DETAILS
 
 ***************************************/
 .woocommerce-EditAccountForm.edit-account fieldset {
@@ -5251,7 +5251,7 @@ body .gform_wrapper .gform_body ul.gform_fields li.gfield {
 
 /***************************************
 
-	KIT ACTIVATION
+  KIT ACTIVATION
 
 ***************************************/
 .activate-kit-container {
@@ -5296,7 +5296,7 @@ body .gform_wrapper .gform_body ul.gform_fields li.gfield {
 
 /***************************************
 
-	YOUVEDA MOBILE APP BANNER
+  YOUVEDA MOBILE APP BANNER
 
 ***************************************/
 .youvedas-mobile-app {
@@ -5332,7 +5332,7 @@ body .gform_wrapper .gform_body ul.gform_fields li.gfield {
 
 /***************************************
 
-	ADDRESS BOOK
+  ADDRESS BOOK
 
 ***************************************/
 body.woocommerce-edit-address .entry-title {
@@ -5365,7 +5365,7 @@ body.woocommerce-edit-address .woocommerce-Addresses {
 
 /***************************************
 
-	PAYMENT METHODS
+  PAYMENT METHODS
 
 ***************************************/
 .sv-wc-payment-gateway-payment-method-actions .button {
@@ -5380,7 +5380,7 @@ body.woocommerce-edit-address .woocommerce-Addresses {
 
 /***************************************
 
-	SUBSCRIPTIONS
+  SUBSCRIPTIONS
 
 ***************************************/
 .woocommerce_account_subscriptions {
@@ -5592,7 +5592,7 @@ plugins for this buttons are :
 /********************************************
 
 
-	THANK YOU PAGE
+  THANK YOU PAGE
 
 
 ********************************************/
@@ -5635,7 +5635,7 @@ body.woocommerce-order-received .woocommerce-order-overview__payment-method {
 /********************************************
 
 
-	AUTHORIZE BADGE
+  AUTHORIZE BADGE
 
 
 ********************************************/
@@ -6150,15 +6150,25 @@ body.woocommerce-order-received .card-header.thank-you {
   color: #339999;
   padding-top: 0;
   border-bottom: 0; }
-  body.woocommerce-order-received .card-header.thank-you:after {
-    display: none; }
+body.woocommerce-order-received .card-header.thank-you:after {
+  display: none; 
+}
 body.woocommerce-order-received .woocommerce-thankyou-order-received {
   color: #333333;
-  font-size: 18px; }
-  body.woocommerce-order-received .woocommerce-thankyou-order-received strong {
-    font-weight: 500; }
+  font-size: 25px;
+  text-align: center;
+  padding-top: 20px;
+}
+ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
+  color: #3a8c80;
+  font-size: 18px;
+  font-weight: 700;
+}
+body.woocommerce-order-received .woocommerce-thankyou-order-received strong {
+  font-weight: 500; 
+}
 body.woocommerce-order-received p {
-  color: #808080; }
+color: #808080; }
   body.woocommerce-order-received p a {
     font-weight: bold; }
 body.woocommerce-order-received .woocommerce-column__title {
@@ -7958,7 +7968,7 @@ body.woocommerce.single-product #features, body.single-product-template #feature
   /*right side image*/
   /*bottom*/
   /*left and right*/
-  /*left,	right, and bottom image*/ }
+  /*left, right, and bottom image*/ }
   body.woocommerce.single-product #features #left-side-image .text, body.single-product-template #features #left-side-image .text {
     bottom: 0;
     margin-bottom: 17%; }
@@ -8326,23 +8336,23 @@ body.woocommerce.single-product #got-questions #got-questions-anchor .subtitle, 
   margin-bottom: 10px; }
 
 /*
-	Gravity forms "ready classes" (for floating left and right the inputs) where not working. We searched and found a solutions by X-theme by adding a "clear: none" rule
-	to the li.gfield, and it worked.
-	
-	the article: https://theme.co/apex/forums/topic/gravity-forms-ready-classes-not-working-with-x/
+  Gravity forms "ready classes" (for floating left and right the inputs) where not working. We searched and found a solutions by X-theme by adding a "clear: none" rule
+  to the li.gfield, and it worked.
+  
+  the article: https://theme.co/apex/forums/topic/gravity-forms-ready-classes-not-working-with-x/
 */
 body.page {
   /*More padding left for inputs*/
   /*make inputs same font size*/
   /*inline radio buttons*/
   /*************************
-  	ERRORS 
+    ERRORS 
   *************************/
   /*************************
-  	CONFIRMATION MESSAGE 
+    CONFIRMATION MESSAGE 
   *************************/
   /*************************
-  	RESPONSIVE 
+    RESPONSIVE 
   *************************/ }
   body.page .site .gform_wrapper ul li.gfield {
     clear: none !important; }
