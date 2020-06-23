@@ -6155,17 +6155,7 @@ body.woocommerce-order-received .card-header.thank-you:after {
 }
 body.woocommerce-order-received .woocommerce-thankyou-order-received {
   color: #333333;
-  font-size: 25px;
-  text-align: center;
-  padding-top: 20px;
-}
-ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
-  color: #3a8c80;
   font-size: 18px;
-  font-weight: 700;
-}
-body.woocommerce-order-received .woocommerce-thankyou-order-received strong {
-  font-weight: 500; 
 }
 body.woocommerce-order-received p {
 color: #808080; }

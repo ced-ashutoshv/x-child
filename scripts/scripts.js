@@ -14,7 +14,7 @@ jQuery('.x-accordion-group').each(function () {
 });
 
 
-jQuery(document).ready(function () {
+jQuery(document).ready(function ($) {
 
     if (jQuery('body').hasClass('woocommerce-account')) {
 
@@ -1118,7 +1118,7 @@ jQuery(document).ready(function () {
         /**
          * If logged in via amazon.
          */
-         if ( $('#amazon-logout').length ) {
+         if ( jQuery('#amazon-logout').length ) {
             jQuery('body').addClass('logged-as-amazon');
          }
 
