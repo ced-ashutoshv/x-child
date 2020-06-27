@@ -4787,6 +4787,19 @@ div.woocommerce-message, .woocommerce-error {
     background-color: #fee9ea;
     color: #ed1c24; }
 
+    /* MWB Notifications Fix */
+    .woocommerce-checkout ul.woocommerce-error {
+        color: #ed1c24;
+        width: 100%;
+        background-color: #ffffff;
+        max-width: 607px;
+    }
+    #customer_details {
+      width: 100%;
+      max-width: 60%;
+      padding: 10px;
+      flex: 50%;
+    }
 body.woocommerce-cart {
   /*CUSTOM REMOVE ITEM*/
   /*COUPON*/
@@ -4813,6 +4826,12 @@ body.woocommerce-cart {
   @media screen and (max-width: 640px) {
     body.woocommerce-cart .woocommerce-cart-form .actions .button, body.woocommerce-cart .woocommerce-cart-form .actions input.button {
       width: 100%; } }
+@media only screen and (max-width: 597px) {
+  .woocommerce-notices-wrapper {
+    margin-bottom: 10px;
+    order: 6;
+  }
+}
   body.woocommerce-cart .shop_table .recurring-totals th {
     padding-top: 50px;
     font-size: 2.1rem;
@@ -6027,6 +6046,14 @@ body.woocommerce-checkout .woocommerce-checkout-payment .wc_payment_method > lab
   @media screen and (max-width: 767px) {
     body.woocommerce-checkout {
       /*reverse "Order Summary" and "Checkout Process" */ }
+
+      #customer_details {
+        max-width: inherit; 
+      }
+      .woocommerce-checkout ul.woocommerce-error {
+        margin: 0;
+      }
+
       body.woocommerce-checkout .left-right-container {
         display: flex;
         flex-direction: column-reverse; }

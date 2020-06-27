@@ -18,8 +18,8 @@ jQuery(document).ready(function ($) {
 
     if (jQuery('body').hasClass('woocommerce-account')) {
 
-    	/*We want the section title for each of the woocommerce-account sections (dashboard, orders, subscriptions, etc) to appear after the navigation, and not before
-    	as is is by default..*/
+        /*We want the section title for each of the woocommerce-account sections (dashboard, orders, subscriptions, etc) to appear after the navigation, and not before
+        as is is by default..*/
         var title = jQuery('header.entry-header').html();
         jQuery('.woocommerce-MyAccount-navigation').append(title);
         // IF USER IS IN SUBSCRIPTIONS PAGE
@@ -469,7 +469,7 @@ jQuery(document).ready(function ($) {
 
     /**
      * Handler for the add to cart button on the bundles section on the shop page
-     * @param  object 	event 
+     * @param  object   event 
      * @return {[type]}       [description]
      */
     function onClickBundleAddToCart(event) {
@@ -533,7 +533,7 @@ jQuery(document).ready(function ($) {
     /**
      * Handler for subscription period change on bundles section on shop main page
      * Enable or disable the add to cart button
-     * @param  object 	event
+     * @param  object   event
      */
     function onBundlePeriodSelectChange(event) {
         var variation_selector = event.target,
@@ -544,7 +544,7 @@ jQuery(document).ready(function ($) {
     /**
      * Helper function. Source: https://plainjs.com/javascript/events/trigger-an-event-11/
      * @param  object   el   JS node
-     * @param  string 	type Event name
+     * @param  string   type Event name
      */
     function triggerEvent(el, type) {
         // modern browsers, IE9+
@@ -1068,6 +1068,7 @@ jQuery(document).ready(function ($) {
 
 
         function copy_func( common_id, index, array ) {
+            jQuery( '#billing_' + common_id ).prop('disabled', false);
             jQuery( '#billing_' + common_id ).val( jQuery( '#shipping_' + common_id ).val() );
         }
 
@@ -1301,61 +1302,61 @@ jQuery(document).ready(function ($) {
     /* Automatically fill billing fields with shipping information, */
     /* if the billing checkbox is not checked                       */
     jQuery('#shipping_first_name').change(function () {
-        if (jQuery('#billing_first_name').val() == '') {
+        // if (jQuery('#billing_first_name').val() == '') {
             jQuery('#billing_first_name').val(jQuery('#shipping_first_name').val());
             jQuery('#billing_first_name').trigger('change');
-        }
+        // }
     });
 
     jQuery('#shipping_last_name').change(function () {
-        if (jQuery('#billing_last_name').val() == '') {
+        // if (jQuery('#billing_last_name').val() == '') {
             jQuery('#billing_last_name').val(jQuery('#shipping_last_name').val());
             jQuery('#billing_last_name').trigger('change');
-        }
+        // }
     });
 
 
     jQuery('#shipping_city').change(function () {
-        if (jQuery('#billing_city').val() == '') {
+        // if (jQuery('#billing_city').val() == '') {
             jQuery('#billing_city').val(jQuery('#shipping_city').val());
             jQuery('#billing_city').trigger('change');
-        }
+       //  }
     });
 
     jQuery(document.body).on('change refresh', 'select.country_to_state, input.country_to_state ,select#shipping_state, input#shipping_state,select#shipping_country, input#shipping_country', function () {
         if (jQuery(this).attr("id") == 'shipping_state') {
-            if (jQuery('#billing_state').val() == '' || jQuery('#billing_state').val() == null) {
+            // if (jQuery('#billing_state').val() == '' || jQuery('#billing_state').val() == null) {
                 jQuery('#billing_state').val(jQuery(this).val());
                 jQuery('#billing_state').trigger('change');
-            }
+            // }
         }
         if (jQuery(this).attr("id") == 'shipping_country') {
-            if (jQuery('#billing_country').val() == '' || jQuery('#billing_country').val() == null) {
+            // if (jQuery('#billing_country').val() == '' || jQuery('#billing_country').val() == null) {
                 jQuery('#billing_country').val(jQuery(this).val());
                 jQuery('#billing_country').trigger('change');
-            }
+           //  }
         }
     })
 
     jQuery('#shipping_address_1').change(function () {
-        if (jQuery('#billing_address_1').val() == '') {
+       // if (jQuery('#billing_address_1').val() == '') {
             jQuery('#billing_address_1').val(jQuery('#shipping_address_1').val());
             jQuery('#billing_address_1').trigger('change');
-        }
+       // }
     });
 
     jQuery('#shipping_address_2').change(function () {
-        if (jQuery('#billing_address_2').val() == '') {
+       // if (jQuery('#billing_address_2').val() == '') {
             jQuery('#billing_address_2').val(jQuery('#shipping_address_2').val());
             jQuery('#billing_address_2').trigger('change');
-        }
+       // }
     });
 
     jQuery('#shipping_postcode').change(function () {
-        if (jQuery('#billing_postcode').val() == '') {
+       // if (jQuery('#billing_postcode').val() == '') {
             jQuery('#billing_postcode').val(jQuery('#shipping_postcode').val());
             jQuery('#billing_postcode').trigger('change');
-        }
+       // }
     });
 
 
@@ -1529,8 +1530,8 @@ jQuery(document).ready(function () {
 
 jQuery(document).ready(function () {
 jQuery('.x-btn-navbar-woocommerce').click(function(e){
-	e.preventDefault();
-	jQuery('.xoo-wsc-basket').click()
+    e.preventDefault();
+    jQuery('.xoo-wsc-basket').click()
 })
 
 });
