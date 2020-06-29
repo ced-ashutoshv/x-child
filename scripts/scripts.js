@@ -1028,7 +1028,7 @@ jQuery(document).ready(function ($) {
         ===========================================================*/
 
         // Adapt height for new order summary.
-        function reorder_coupon_section() {
+        function reorder_coupon_section( additional_height=0 ) {
 
             if ( jQuery('body').hasClass('logged-as-amazon') ) {
                 return;
@@ -1044,7 +1044,11 @@ jQuery(document).ready(function ($) {
 
             if ( jQuery( '.mwb_yv_extended_sections' ).length > 0 ) {
                 var order_summ_height = jQuery( '#order_review' ).height();
-                order_summ_height = parseInt( order_summ_height ) + upper_section_height;
+                order_summ_height = parseInt( order_summ_height ) + parseInt( upper_section_height );
+
+                // Additional_Height_from_notification.
+                order_summ_height = parseInt( order_summ_height ) + parseInt( additional_height );
+
                 jQuery( '.mwb_yv_extended_sections' ).css( 'top', order_summ_height + 'px' );
             }
         }
@@ -1262,6 +1266,26 @@ jQuery(document).ready(function ($) {
                     var order_summ_height = jQuery( '#order_review' ).height();
                     order_summ_height = parseInt( order_summ_height ) + upper_section_height;
                     jQuery( '.mwb_yv_extended_sections' ).css( 'top', order_summ_height + 'px' );
+                }
+            }
+        }
+
+        if ( ! jQuery('body').hasClass('mobile-device') ) {
+           
+            // If anything changes on.
+            jQuery(document).on( 'click', '.mwb_youveda_place_order', function(e) {
+                setTimeout( animate_coupon_section_for_notices, 1500 );
+            });
+
+            function animate_coupon_section_for_notices() {
+                
+                if ( jQuery( 'form.checkout.woocommerce-checkout' ).attr( 'novalidate' ) == 'novalidate' ) {
+                    
+                    // Get Notifications Section.
+                    var notifcation_form = jQuery( '.woocommerce-NoticeGroup-checkout' ).height();
+                    var notifcation_login = jQuery( '.woocommerce-notices-wrapper' ).height();
+                    total_notification_height = notifcation_form + notifcation_login;
+                    reorder_coupon_section( total_notification_height );
                 }
             }
         }
