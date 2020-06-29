@@ -3568,10 +3568,10 @@ body.mobile-device .woocommerce .products .product .entry-header .button {
 }
 
 .ic_tooltip {
-    background: #ffffff;
+  background: #ffffff;
 }
 .mwb_yv_extended_sections>.ic_tooltip {
-    display: block;
+  display: block;
 }
 .ic_tooltip_txt {
   color: white;

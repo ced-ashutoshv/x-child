@@ -18,8 +18,8 @@ jQuery(document).ready(function ($) {
 
     if (jQuery('body').hasClass('woocommerce-account')) {
 
-    	/*We want the section title for each of the woocommerce-account sections (dashboard, orders, subscriptions, etc) to appear after the navigation, and not before
-    	as is is by default..*/
+        /*We want the section title for each of the woocommerce-account sections (dashboard, orders, subscriptions, etc) to appear after the navigation, and not before
+        as is is by default..*/
         var title = jQuery('header.entry-header').html();
         jQuery('.woocommerce-MyAccount-navigation').append(title);
         // IF USER IS IN SUBSCRIPTIONS PAGE
@@ -469,7 +469,7 @@ jQuery(document).ready(function ($) {
 
     /**
      * Handler for the add to cart button on the bundles section on the shop page
-     * @param  object 	event 
+     * @param  object   event 
      * @return {[type]}       [description]
      */
     function onClickBundleAddToCart(event) {
@@ -533,7 +533,7 @@ jQuery(document).ready(function ($) {
     /**
      * Handler for subscription period change on bundles section on shop main page
      * Enable or disable the add to cart button
-     * @param  object 	event
+     * @param  object   event
      */
     function onBundlePeriodSelectChange(event) {
         var variation_selector = event.target,
@@ -544,7 +544,7 @@ jQuery(document).ready(function ($) {
     /**
      * Helper function. Source: https://plainjs.com/javascript/events/trigger-an-event-11/
      * @param  object   el   JS node
-     * @param  string 	type Event name
+     * @param  string   type Event name
      */
     function triggerEvent(el, type) {
         // modern browsers, IE9+
@@ -922,22 +922,21 @@ jQuery(document).ready(function ($) {
 
         // var newShipping = doc.querySelector('ul.woocommerce-shipping-methods').cloneNode(true);
 
-        if ( doc.querySelector('ul.woocommerce-shipping-methods') ) {
-            var newShipping = doc.querySelector('ul.woocommerce-shipping-methods').cloneNode(true);
-        }   
+        // if ( doc.querySelector('ul.woocommerce-shipping-methods') ) {
+        //     var newShipping = doc.querySelector('ul.woocommerce-shipping-methods').cloneNode(true);
+        // }   
 
-        if ( doc ) {
-            var newTooltip = doc.querySelector('.ic_tooltip');
-        }
+        // if ( doc ) {
+        //     var newTooltip = doc.querySelector('.ic_tooltip');
+        // }
 
-        if ( parent ) {
-            parent.parentNode.insertBefore(newShipping, parent);
-        }
+        // if ( parent ) {
+        //     parent.parentNode.insertBefore(newShipping, parent);
+        // }
 
-        if (newTooltip) {
-            parent.parentNode.insertBefore(newTooltip, parent);
-        }
-
+        // if (newTooltip) {
+        //     parent.parentNode.insertBefore(newTooltip, parent);
+        // }
     }
 
     /**
@@ -1034,8 +1033,26 @@ jQuery(document).ready(function ($) {
                 return;
             }
 
+            if( additional_height == 0 ) {
+
+                var notifcation_form = 0;
+                var notifcation_login = 0;
+
+                if( jQuery( '.woocommerce-NoticeGroup-checkout' ).length > 0 ){
+
+                    notifcation_login = jQuery( '.woocommerce-NoticeGroup-checkout' ).height();
+                }
+
+                if( jQuery( '.woocommerce-notices-wrapper' ).length > 0 ){
+
+                    notifcation_form = jQuery( '.woocommerce-notices-wrapper' ).height();
+                }
+
+                additional_height =  parseInt( notifcation_form ) + parseInt( notifcation_login );
+            }
+
             // Default height.
-            upper_section_height = 33;
+            var upper_section_height = 33;
 
             // Only show point info notice.
             if ( jQuery('.wlpr_points_rewards_earn_points').length > 0 ) {
@@ -1043,10 +1060,13 @@ jQuery(document).ready(function ($) {
             }
 
             if ( jQuery( '.mwb_yv_extended_sections' ).length > 0 ) {
-                var order_summ_height = jQuery( '#order_review' ).height();
-                order_summ_height = parseInt( order_summ_height ) + parseInt( upper_section_height );
 
-                // Additional_Height_from_notification.
+                var order_summ_height = jQuery( '#order_review' ).height();
+
+                // Additional Height from Window.
+                order_summ_height = parseInt( order_summ_height ) + upper_section_height;
+
+                // Additional Height from Notification.
                 order_summ_height = parseInt( order_summ_height ) + parseInt( additional_height );
 
                 jQuery( '.mwb_yv_extended_sections' ).css( 'top', order_summ_height + 'px' );
@@ -1059,17 +1079,18 @@ jQuery(document).ready(function ($) {
             
             var shipping_country = jQuery( '#shipping_country' ).val();
             console.log( 'updated country is ' + shipping_country );
-            if( shipping_country !== 'US' ) {
+
+            jQuery( '.ic_tooltip' ).hide();
+            if( shipping_country !== '' && shipping_country !== 'US' ) {
 
                 // Is an international customer.
-                jQuery( '.ic_tooltip' ).show();
+                jQuery( '.mwb_yv_extended_sections .ic_tooltip' ).show();
             } else {
 
                 // Is an local customer.
-                jQuery( '.ic_tooltip' ).hide();
+                jQuery( '.mwb_yv_extended_sections .ic_tooltip' ).hide();
             }
         }
-
 
         function copy_func( common_id, index, array ) {
             jQuery( '#billing_' + common_id ).prop('disabled', false);
@@ -1128,7 +1149,7 @@ jQuery(document).ready(function ($) {
          }
 
         /**
-         * International shipping section for shipping country on first load.
+         * International shipping section on change shipping country.
          */
         manage_international_shipping_section();
 
@@ -1138,7 +1159,6 @@ jQuery(document).ready(function ($) {
         jQuery(document).on( 'change', '#shipping_country', function() {
             manage_international_shipping_section();
         });
-
 
         jQuery(document).on('click', '.mwb_youveda_place_order_button', function(e) {
             
@@ -1274,18 +1294,15 @@ jQuery(document).ready(function ($) {
            
             // If anything changes on.
             jQuery(document).on( 'click', '.mwb_youveda_place_order', function(e) {
-                setTimeout( animate_coupon_section_for_notices, 1500 );
+                setTimeout( animate_coupon_section_for_notices, 3000 );
             });
 
             function animate_coupon_section_for_notices() {
-                
+
                 if ( jQuery( 'form.checkout.woocommerce-checkout' ).attr( 'novalidate' ) == 'novalidate' ) {
-                    
+
                     // Get Notifications Section.
-                    var notifcation_form = jQuery( '.woocommerce-NoticeGroup-checkout' ).height();
-                    var notifcation_login = jQuery( '.woocommerce-notices-wrapper' ).height();
-                    total_notification_height = notifcation_form + notifcation_login;
-                    reorder_coupon_section( total_notification_height );
+                    reorder_coupon_section();
                 }
             }
         }
@@ -1554,8 +1571,8 @@ jQuery(document).ready(function () {
 
 jQuery(document).ready(function () {
 jQuery('.x-btn-navbar-woocommerce').click(function(e){
-	e.preventDefault();
-	jQuery('.xoo-wsc-basket').click()
+    e.preventDefault();
+    jQuery('.xoo-wsc-basket').click()
 })
 
 });
