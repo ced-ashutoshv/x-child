@@ -71,6 +71,9 @@
 	53. Hide Product Quantity to Cart Item in Order Review.
 	54. Hide Recurring totals in Order Review.
 	55. Default Place Order Button Html Hidden.	
+	56. Recurring Shipping validation.	
+	57. Fix Customer Role Login.	
+	58. Add Social Login to Checkout.	
  */
 
 /**
@@ -3336,65 +3339,47 @@ add_filter( 'woocommerce_order_button_html', '__return_false' );
  */
 remove_action( 'woocommerce_after_checkout_validation', 'WC_Subscriptions_Cart::validate_recurring_shipping_methods' );
 
-// add_action( 'woocommerce_after_checkout_validation', 'validate_recurring_shipping_methods' );
+/**
+ * 57. Fix Customer Role Login.
+ * WordPress function for redirecting users on login based on user role.
+ */
+function mwb_login_redirect( $result=true ){
+
+	$user = wp_get_current_user();
+
+    if( $user && is_object( $user ) && is_a( $user, 'WP_User' ) ) {
+        if( $user->has_cap( 'administrator' ) ) {
+            $result = false;
+        } else {
+            $result = true;
+        }
+    }
+
+    return $result;
+}
+
+add_filter('woocommerce_prevent_admin_access', 'mwb_login_redirect', 10, 1 );
+
 
 /**
- * Validate the chosen recurring shipping methods for each recurring shipping package.
- * Ensures there is at least one chosen shipping method and that the chosen method is valid considering the available
- * package rates.
- *
- * @since 1.0.0
+ * 	58. Add Social Login to Checkout.	
  */
-function validate_recurring_shipping_methods() {
+add_action( 'woocommerce_login_form_end', 'display_social_login_section_on_checkout' );
 
-	$shipping_methods     = WC()->checkout()->shipping_methods;
-	$added_invalid_notice = false;
-	$standard_packages    = WC()->shipping->get_packages();
+function display_social_login_section_on_checkout(){
+	
+	if( function_exists( 'is_checkout' ) && is_checkout() ) : ?>
+		<div class="mwb_social_login_section">
+			<div class="mwb_social_login_facebook">
+				<?php echo do_shortcode( '[nextend_social_login provider="facebook" style="icon" redirect="<?php echo(wc_get_checkout_url()) ;?>"]<div class="mwb_social_facebook">Continue with <b>Facebook</b></div>' ); ?>
+			</div>
+			<div class="mwb_social_login_google">
+				<?php echo do_shortcode( '[nextend_social_login provider="google" style="icon" redirect="<?php echo(wc_get_checkout_url()) ;?>"] <div class="mwb_social_gmail">Continue with <b>Google</b></div>' ); ?>
+			</div>
+		</div>
 
-	$subscription_class = new WC_Subscriptions_Cart();
-
-	// temporarily store the current calculation type and recurring cart key so we can restore them later
-	$calculation_type        = $subscription_class::$calculation_type;
-	$subscription_class::$calculation_type  = 'recurring_total';
-	$recurring_cart_key_flag = $subscription_class::$recurring_cart_key;
-
-	foreach ( WC()->cart->recurring_carts as $recurring_cart_key => $recurring_cart ) {
-
-		if ( false === $recurring_cart->needs_shipping() || 0 == $recurring_cart->next_payment_date ) {
-			continue;
-		}
-
-		$subscription_class::$recurring_cart_key = $recurring_cart_key;
-
-		$packages = $recurring_cart->get_shipping_packages();
-		foreach ( $packages as $package_index => $base_package ) {
-			$package = $subscription_class::get_calculated_shipping_for_package( $base_package );
-
-			if ( ( isset( $standard_packages[ $package_index ] ) && $package['rates'] == $standard_packages[ $package_index ]['rates'] ) && apply_filters( 'wcs_cart_totals_shipping_html_price_only', true, $package, WC()->cart->recurring_carts[ $recurring_cart_key ] ) ) {
-				// the recurring package rates match the initial package rates, there won't be a selected shipping method for this recurring cart package
-				// move on to the next package
-				continue;
-			}
-
-			$recurring_shipping_package_key = WC_Subscriptions_Cart::get_recurring_shipping_package_key( $recurring_cart_key, $package_index );
-
-            if ( ! isset( $package['rates'][$shipping_methods[0]] ) ) {
-
-                if ( ! $added_invalid_notice ) {
-                    wc_add_notice( __( 'Invalid recurring shipping method.', 'woocommerce-subscriptions' ), 'error' );
-                    $added_invalid_notice = true;
-                }
-
-                $shipping_methods[ $recurring_shipping_package_key ] = '';
-            }
-		}
-	}
-
-	// If there was an invalid recurring shipping method found, we need to apply the changes to WC()->checkout()->shipping_methods.
-	if ( $added_invalid_notice ) {
-		WC()->checkout()->shipping_methods = $shipping_methods;
-	}
-
-	$subscription_class::$calculation_type   = $calculation_type;
-	$subscription_class::$recurring_cart_key = $recurring_cart_key_flag;
+	<?php endif;
 }
+
+// heading="Continue with Facebook"
+// heading="Continue with Google"

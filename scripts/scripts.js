@@ -18,8 +18,8 @@ jQuery(document).ready(function ($) {
 
     if (jQuery('body').hasClass('woocommerce-account')) {
 
-        /*We want the section title for each of the woocommerce-account sections (dashboard, orders, subscriptions, etc) to appear after the navigation, and not before
-        as is is by default..*/
+    	/*We want the section title for each of the woocommerce-account sections (dashboard, orders, subscriptions, etc) to appear after the navigation, and not before
+    	as is is by default..*/
         var title = jQuery('header.entry-header').html();
         jQuery('.woocommerce-MyAccount-navigation').append(title);
         // IF USER IS IN SUBSCRIPTIONS PAGE
@@ -469,7 +469,7 @@ jQuery(document).ready(function ($) {
 
     /**
      * Handler for the add to cart button on the bundles section on the shop page
-     * @param  object   event 
+     * @param  object 	event 
      * @return {[type]}       [description]
      */
     function onClickBundleAddToCart(event) {
@@ -533,7 +533,7 @@ jQuery(document).ready(function ($) {
     /**
      * Handler for subscription period change on bundles section on shop main page
      * Enable or disable the add to cart button
-     * @param  object   event
+     * @param  object 	event
      */
     function onBundlePeriodSelectChange(event) {
         var variation_selector = event.target,
@@ -544,7 +544,7 @@ jQuery(document).ready(function ($) {
     /**
      * Helper function. Source: https://plainjs.com/javascript/events/trigger-an-event-11/
      * @param  object   el   JS node
-     * @param  string   type Event name
+     * @param  string 	type Event name
      */
     function triggerEvent(el, type) {
         // modern browsers, IE9+
@@ -1265,6 +1265,27 @@ jQuery(document).ready(function ($) {
             jQuery(document).on( 'change', '#shipping_country', function() {
                 reorder_coupon_section();
             });
+
+            // Add an id event listener to login toggle.
+            jQuery( '.showlogin' ).attr( 'id', 'mwb_login_toggle' );
+
+            // Add listener to login toggle click.
+            document.getElementById( 'mwb_login_toggle' ).addEventListener( 'click', function(){
+                setTimeout( function() {
+                    reorder_coupon_for_login();
+                }, 500 );
+            });
+
+            // Adapt height on clicking on login.
+            function reorder_coupon_for_login() {
+
+                if( jQuery( 'form.woocommerce-form.woocommerce-form-login.login' ).is(":hidden") == false ) {    
+                    login_section_height = jQuery( 'form.woocommerce-form.woocommerce-form-login.login' ).height();
+                    reorder_coupon_section( login_section_height );
+                } else {
+                    reorder_coupon_section();
+                }
+            }
         }
 
         // Desktop view Only.
@@ -1571,8 +1592,8 @@ jQuery(document).ready(function () {
 
 jQuery(document).ready(function () {
 jQuery('.x-btn-navbar-woocommerce').click(function(e){
-    e.preventDefault();
-    jQuery('.xoo-wsc-basket').click()
+	e.preventDefault();
+	jQuery('.xoo-wsc-basket').click()
 })
 
 });

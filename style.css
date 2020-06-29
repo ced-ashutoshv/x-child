@@ -3595,6 +3595,34 @@ body.mobile-device .woocommerce .products .product .entry-header .button {
   label.sv-wc-payment-gateway-payment-form-saved-payment-method {
       border: none !important;
   }
+div.nsl-container-inline .nsl-container-buttons a {
+  margin: 0;
+  display: inline-block;
+}
+.mwb_social_login_facebook {
+  color: #ffffff;
+  display: flex;
+  background-color: #4267b2;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 240px;
+  margin-bottom: 10px;
+}
+
+.mwb_social_facebook,.mwb_social_gmail {
+  padding: 10px 0 0;
+  cursor: pointer;
+}
+
+.mwb_social_login_google {
+  color: #ffffff;
+  display: flex;
+  background-color: #dc4e41;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 240px;
+  margin-bottom: 10px;
+}
 
 @media screen and (max-width: 940px) {
   .ic_tooltip.right {
