@@ -18,8 +18,8 @@ jQuery(document).ready(function ($) {
 
     if (jQuery('body').hasClass('woocommerce-account')) {
 
-        /*We want the section title for each of the woocommerce-account sections (dashboard, orders, subscriptions, etc) to appear after the navigation, and not before
-        as is is by default..*/
+    	/*We want the section title for each of the woocommerce-account sections (dashboard, orders, subscriptions, etc) to appear after the navigation, and not before
+    	as is is by default..*/
         var title = jQuery('header.entry-header').html();
         jQuery('.woocommerce-MyAccount-navigation').append(title);
         // IF USER IS IN SUBSCRIPTIONS PAGE
@@ -469,7 +469,7 @@ jQuery(document).ready(function ($) {
 
     /**
      * Handler for the add to cart button on the bundles section on the shop page
-     * @param  object   event 
+     * @param  object 	event 
      * @return {[type]}       [description]
      */
     function onClickBundleAddToCart(event) {
@@ -533,7 +533,7 @@ jQuery(document).ready(function ($) {
     /**
      * Handler for subscription period change on bundles section on shop main page
      * Enable or disable the add to cart button
-     * @param  object   event
+     * @param  object 	event
      */
     function onBundlePeriodSelectChange(event) {
         var variation_selector = event.target,
@@ -544,7 +544,7 @@ jQuery(document).ready(function ($) {
     /**
      * Helper function. Source: https://plainjs.com/javascript/events/trigger-an-event-11/
      * @param  object   el   JS node
-     * @param  string   type Event name
+     * @param  string 	type Event name
      */
     function triggerEvent(el, type) {
         // modern browsers, IE9+
@@ -1594,8 +1594,8 @@ jQuery(document).ready(function () {
 
 jQuery(document).ready(function () {
 jQuery('.x-btn-navbar-woocommerce').click(function(e){
-    e.preventDefault();
-    jQuery('.xoo-wsc-basket').click()
+	e.preventDefault();
+	jQuery('.xoo-wsc-basket').click()
 })
 
 });
