@@ -13,16 +13,28 @@
 <html class="no-js" <?php language_attributes(); ?>>
 
 <head>
-	<?php if( strpos(  site_url() , 'www.youveda.com') !== false ) {?>
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-PHDBMCD');</script>
-	<?php  } ?>
-	
-	<?php wp_head(); ?>
-	<script type="application/ld+json">
+  <?php if( strpos(  site_url() , 'www.youveda.com') !== false ) {?>
+  <!-- Global site tag (gtag.js) - Google Analytics (back to youveda original GA account) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-84220079-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-84220079-1');
+  </script>
+    <!-- End Google Tag Manager (noscript) -->
+  
+  <!-- OLD Blake Google tag manager? remove if seen later than July 2020 
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PHDBMCD');</script>
+  -->
+  <?php  } ?>
+  
+  <?php wp_head(); ?>
+  <script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@type": "Corporation",
@@ -88,14 +100,14 @@
 </head>
 
 <body <?php body_class(); ?>>
-	
+  
 <?php if( strpos(  site_url() , 'www.youveda.com') !== false ) {?>
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHDBMCD"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
+  <!-- Google Tag Manager (noscript) Not sure we need this anymore... June 2020
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHDBMCD"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 <?php  } ?>
-	
+  
 
   <div id="x-root" class="x-root">
 
