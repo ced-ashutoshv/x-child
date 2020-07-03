@@ -3246,3 +3246,13 @@ function change_woocommerce_return_to_shop_text( $translated_text, $text, $domai
  return $translated_text; 
 
 }
+
+
+// Block Access to /wp-admin for non admins.
+function yv_custom_blockusers_init() {
+  if ( is_user_logged_in() && is_admin() && !current_user_can( 'administrator' ) ) {
+    wp_redirect( home_url() );
+    exit;
+  }
+}
+//add_action( 'init', 'yv_custom_blockusers_init'); // Hook into 'init
