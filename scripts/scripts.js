@@ -1091,7 +1091,14 @@ jQuery(document).ready(function ($) {
 
                 // Is an international customer.
                 var current_order_summ_height = jQuery( '#order_review' ).height();
-                if ( current_order_summ_height > 873 ) {
+                if ( current_order_summ_height > 873 && current_order_summ_height < 1450 ) {
+
+                    // Add margin to footer.
+                    jQuery( '.bgColorWhite.wc-checkout-footer' ).css( 'margin-top' , '200px' );
+                }
+
+                else if ( current_order_summ_height > 1450 ) {
+
                     // Add margin to footer.
                     jQuery( '.bgColorWhite.wc-checkout-footer' ).css( 'margin-top' , '400px' );
                 }
@@ -1100,6 +1107,8 @@ jQuery(document).ready(function ($) {
             } else {
 
                 // Is an local customer.
+                // Add margin to footer.
+                jQuery( '.bgColorWhite.wc-checkout-footer' ).css( 'margin-top' , '100px' );
                 jQuery( '.mwb_yv_extended_sections .ic_tooltip' ).hide();
             }
         }
