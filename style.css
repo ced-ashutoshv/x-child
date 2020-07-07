@@ -8991,3 +8991,36 @@ body .the-balance-bulletin {
     padding: 0; }
   body .the-balance-bulletin .gfield_description.validation_message {
     display: none; }
+    .bundled-product-name.bundled_table_item_indent {
+      display: flex;
+      padding-left: 0px!important;
+    }
+    .woocommerce-checkout form .form-row {
+    margin-bottom: 1.65em!important;
+}
+.woocommerce-checkout form .payment_methods li {
+     margin-bottom: 0!important; 
+}
+.woocommerce-billing-fields {
+     margin-top: 0!important; 
+}
+.form-row.place-order {
+    display: contents;
+}
+.form-row.place-order.mwb_youveda_place_order .woocommerce-terms-and-conditions-wrapper {
+    display: none!important;   
+}
+#customer_details {
+    height: max-content;
+}
+.woocommerce-terms-and-conditions-wrapper p.form-row.validate-required {
+    width: 100%!important;  
+    margin: 0px 0px 0px -7px!important;
+}
+.woocommerce-terms-and-conditions-wrapper label.woocommerce-form__label.woocommerce-form__label-for-checkbox.checkbox {
+    padding-left: 0px!important;
+}
+     
+ #place_order {
+    margin-top: 10px;
+}    

@@ -1001,6 +1001,8 @@ jQuery(document).ready(function ($) {
                 opacity: 0.6
             }
         });
+
+        jQuery( '.mwb_yv_extended_sections' ).hide();
     }
 
 
@@ -1071,6 +1073,8 @@ jQuery(document).ready(function ($) {
 
                 jQuery( '.mwb_yv_extended_sections' ).css( 'top', order_summ_height + 'px' );
             }
+
+            jQuery( '.mwb_yv_extended_sections' ).show();
         }
 
 
@@ -1084,6 +1088,12 @@ jQuery(document).ready(function ($) {
             if( shipping_country !== '' && shipping_country !== 'US' ) {
 
                 // Is an international customer.
+                var current_order_summ_height = jQuery( '#order_review' ).height();
+                if ( current_order_summ_height > 873 ) {
+                    // Add margin to footer.
+                    jQuery( '.bgColorWhite.wc-checkout-footer' ).css( 'margin-top' , '400px' );
+                }
+
                 jQuery( '.mwb_yv_extended_sections .ic_tooltip' ).show();
             } else {
 
