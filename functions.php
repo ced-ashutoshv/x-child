@@ -3260,15 +3260,6 @@ function change_woocommerce_return_to_shop_text( $translated_text, $text, $domai
 }
 
 
-// Block Access to /wp-admin for non admins.
-function yv_custom_blockusers_init() {
-  if ( is_user_logged_in() && is_admin() && !current_user_can( 'administrator' ) ) {
-    wp_redirect( home_url() );
-    exit;
-  }
-}
-//add_action( 'init', 'yv_custom_blockusers_init'); // Hook into 'init
-
 /*===========================================
 	MakeWebBetter Functions Here
 ============================================*/
@@ -3292,7 +3283,9 @@ function display_product_image_in_order_item( $cart_item_name, $cart_item, $cart
 	    $cart_item_quantity   = ! empty( $cart_item['quantity'] ) ? $cart_item['quantity'] : false; 
 	    $thumbnail = ! empty( $product ) ? $product->get_image( array( 75, 75 ) ) : false;
 
-	    $get_variation_attributes_html = false;
+		if ( ! empty( $product ) && 'bundle' == $product->get_type() ) {
+			return '<div class="mwb-custom-item-name">' . $cart_item_name . '</div>';
+		}
 
 	    if ( ! empty( $product ) && in_array( $product->get_type(), array( 'subscription_variation', 'variation' ) ) ) {
 	    	

@@ -1002,7 +1002,9 @@ jQuery(document).ready(function ($) {
             }
         });
 
-        jQuery( '.mwb_yv_extended_sections' ).hide();
+        if ( ! jQuery('body').hasClass('mobile-device') ) {
+            jQuery( '.mwb_yv_extended_sections' ).hide();
+        }
     }
 
 
