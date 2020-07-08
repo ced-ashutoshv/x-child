@@ -1094,7 +1094,7 @@ jQuery(document).ready(function ($) {
                 if ( current_order_summ_height > 873 && current_order_summ_height < 1450 ) {
 
                     // Add margin to footer.
-                    jQuery( '.bgColorWhite.wc-checkout-footer' ).css( 'margin-top' , '200px' );
+                    jQuery( '.bgColorWhite.wc-checkout-footer' ).css( 'margin-top' , '300px' );
                 }
 
                 else if ( current_order_summ_height > 1450 ) {
@@ -1200,6 +1200,8 @@ jQuery(document).ready(function ($) {
         if( jQuery('body').hasClass('mobile-device') ) {
 
             var login_section = '';
+			
+			jQuery( '.woocommerce-terms-and-conditions-checkbox-text').siblings('.woocommerce-form__input.woocommerce-form__input-checkbox.input-checkbox').attr('checked','checked');
 
             // Hide section by default.
             if ( 0 < jQuery( '.mwb_youveda_logged_in_text' ).length ) {
@@ -1222,7 +1224,7 @@ jQuery(document).ready(function ($) {
 
                 login_section.toggleClass( 'hide_checkout_sections' );
                 jQuery( '#customer_details' ).slideToggle( 'slow' );
-            });
+				$('html, body').animate({scrollTop: $('#customer_details').offset().top -20}, 800, function(){  });});
 
             /** 
              * Show sections on click.

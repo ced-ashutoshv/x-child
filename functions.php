@@ -3370,18 +3370,11 @@ add_action( 'woocommerce_login_form_end', 'display_social_login_section_on_check
 
 function display_social_login_section_on_checkout(){
 	
-	if( function_exists( 'is_checkout' ) && is_checkout() ) : ?>
-		<div class="mwb_social_login_section">
-			<div class="mwb_social_login_facebook">
-				<?php echo do_shortcode( '[nextend_social_login provider="facebook" style="icon" redirect="<?php echo(wc_get_checkout_url()) ;?>"]<div class="mwb_social_facebook">Continue with <b>Facebook</b></div>' ); ?>
-			</div>
-			<div class="mwb_social_login_google">
-				<?php echo do_shortcode( '[nextend_social_login provider="google" style="icon" redirect="<?php echo(wc_get_checkout_url()) ;?>"] <div class="mwb_social_gmail">Continue with <b>Google</b></div>' ); ?>
-			</div>
-		</div>
+	if( function_exists( 'is_checkout' ) && is_checkout() ) :
 
-	<?php endif;
+if(class_exists('NextendSocialLogin', false)){
+    echo NextendSocialLogin::renderButtonsWithContainer();
 }
 
-// heading="Continue with Facebook"
-// heading="Continue with Google"
+	endif;
+}

@@ -5,7 +5,7 @@ Theme URI: https://www.ameba.com.uy
 Author: Ameba Creative Studio
 Author URI: https://www.ameba.com.uy
 Description: A child theme of X theme
-Version: 1.0.2
+Version: 1.0.6
 Template: x
 */
 /*
@@ -427,9 +427,7 @@ https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900|Mont
 
   .product-blend-information > div:not(.x-raw-content) {
     padding-left: 1.5em; } }
-/* try to fix scroll issues in iphone */
-* {
-  overscroll-behavior: none; }
+
 
 #logo-container {
   display: flex;
